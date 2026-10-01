@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&amp;family=Plus+Jakarta+Sans:ital,wght@0,300..700;1,300..700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-tertiary-fixed":"#271900","on-primary":"#ffffff","tertiary-container":"#8f7034","on-tertiary-container":"#fffbff","on-secondary-container":"#4e6c4d","secondary-container":"#caecc6","error-container":"#ffdad6","surface":"#fff8f4","surface-container-high":"#eee7e1","inverse-on-surface":"#f7efea","inverse-surface":"#33302c","secondary-fixed-dim":"#aecfab","on-primary-container":"#fffbff","on-background":"#1e1b18","primary":"#a53052","primary-container":"#c5496a","surface-container-low":"#faf2ed","error":"#ba1a1a","on-tertiary-fixed-variant":"#5c4209","tertiary-fixed-dim":"#e8c17d","on-secondary-fixed-variant":"#314d32","on-tertiary":"#ffffff","on-error":"#ffffff","on-secondary":"#ffffff","on-surface":"#1e1b18","secondary-fixed":"#caecc6","surface-variant":"#e9e1dc","on-error-container":"#93000a","surface-container-highest":"#e9e1dc","on-secondary-fixed":"#052109","surface-dim":"#e0d9d3","tertiary-fixed":"#ffdea7","surface-container-lowest":"#ffffff","on-primary-fixed":"#3f0016","inverse-primary":"#ffb1c0","surface-bright":"#fff8f4","primary-fixed":"#ffd9df","primary-fixed-dim":"#ffb1c0","tertiary":"#74571e","surface-container":"#f4ece7","secondary":"#486548","on-primary-fixed-variant":"#88193d","outline-variant":"#ddbfc3","on-surface-variant":"#564145","surface-tint":"#a83254","outline":"#8a7175","background":"#fff8f4"},borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},spacing:{"margin-mobile":"1.25rem","gutter-mobile":"1rem","margin":"3rem","space-md":"1rem","space-lg":"1.75rem","gutter":"1.5rem","space-sm":"0.5rem","space-xs":"0.25rem","space-xl":"3rem"},fontFamily:{"body-lg":["Plus Jakarta Sans"],"headline-lg-mobile":["Playfair Display"],"display-lg":["Playfair Display"],"label-md":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"label-caps":["Plus Jakarta Sans"],"headline-md":["Playfair Display"],"display-lg-mobile":["Playfair Display"],"body-sm":["Plus Jakarta Sans"],"label-lg":["Plus Jakarta Sans"],"headline-sm":["Playfair Display"],"headline-lg":["Playfair Display"]},fontSize:{"body-lg":["18px",{"lineHeight":"30px","letterSpacing":"0.01em","fontWeight":"400"}],"headline-lg-mobile":["28px",{"lineHeight":"36px","fontWeight":"400"}],"display-lg":["56px",{"lineHeight":"64px","letterSpacing":"-0.02em","fontWeight":"400"}],"label-md":["11px",{"lineHeight":"14px","letterSpacing":"0.06em","fontWeight":"500"}],"body-md":["15px",{"lineHeight":"24px","letterSpacing":"0.01em","fontWeight":"400"}],"label-caps":["10px",{"lineHeight":"14px","letterSpacing":"0.14em","fontWeight":"600"}],"headline-md":["24px",{"lineHeight":"32px","fontWeight":"500"}],"display-lg-mobile":["38px",{"lineHeight":"46px","letterSpacing":"-0.01em","fontWeight":"400"}],"body-sm":["13px",{"lineHeight":"20px","fontWeight":"400"}],"label-lg":["12px",{"lineHeight":"16px","letterSpacing":"0.08em","fontWeight":"600"}],"headline-sm":["20px",{"lineHeight":"28px","fontWeight":"600"}],"headline-lg":["36px",{"lineHeight":"44px","fontWeight":"400"}]}}}}</script></head><body class="bg-background font-body-md text-on-surface antialiased"><header class="fixed top-0 left-0 w-full z-50"><div class="w-full bg-surface-container-high/90 backdrop-blur-md py-space-xs px-margin-mobile lg:px-margin text-center"><p class="font-label-caps text-label-caps uppercase text-on-surface-variant tracking-widest">Envíos en toda la ciudad de Oaxaca de Juárez y zona conurbada • Flores frescas todos los días • Tel/WhatsApp: 951 611 2088</p></div><div class="h-20 bg-surface/90 backdrop-blur-xl shadow-[0_1px_12px_rgba(30,27,24,0.03)]"><div class="max-w-7xl mx-auto h-full px-margin-mobile lg:px-margin flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-md"><a class="flex items-center gap-space-sm group" data-path="inicio" href="#"><img alt="Sweet Memories Florería Logo" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1UB531AHKataBoCdnL2WFCUvJTzJ-FUxneHsw2wWvOzK9gDiE832qi6DjXylJ_HB6z4cimxssTQxv6_EcbIx_C1I85nBqMRE7ZA3gxPGbFvycTY_LOQqoerGRrWJ1N39H0ztMp91b8J6W7_M3cQtdRMSlDexJiz6kEd07m8EdRsV518KqA1RSNQfH_qTrnZXxXQstBvjgjNhNSnQaIZmJYEMskoqSHEPGJ1GWDyraSnGVOsHpWVZVyg-q_MJGemU1YGXxd4zAv1Bw"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight leading-none">Sweet Memories</span><span class="font-label-caps text-label-caps text-primary tracking-widest uppercase mt-0.5">Florería Oaxaca</span></div></a></div><nav class="hidden xl:flex items-center gap-space-lg" data-active-classes="text-primary font-semibold"><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors tracking-wide uppercase" data-path="coleccion" href="#">Colección</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors tracking-wide uppercase" data-path="galeria-floral" href="#">Galería Floral</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors tracking-wide uppercase" data-path="sobre-nosotros" href="#">Sobre Nosotros</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors tracking-wide uppercase" data-path="ubicacion-y-horarios" href="#">Ubicación &amp; Horarios</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors tracking-wide uppercase" data-path="cuidados" href="#">Cuidados</a></nav><div class="flex items-center gap-space-sm"><a class="inline-flex items-center gap-space-xs px-space-md py-space-sm bg-primary hover:bg-primary-container text-on-primary rounded-full transition-all duration-300 font-label-lg text-label-lg tracking-wider uppercase shadow-[0_2px_12px_rgba(165,48,82,0.18)]" href="https://wa.me/5219516112088" rel="noopener noreferrer" target="_blank"><span class="material-symbols-outlined text-[16px]">chat</span><span>Pedir por WhatsApp</span></a><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-1 ring-outline-variant/30" src="https://lh3.googleusercontent.com/aida/AEtjO1UB531AHKataBoCdnL2WFCUvJTzJ-FUxneHsw2wWvOzK9gDiE832qi6DjXylJ_HB6z4cimxssTQxv6_EcbIx_C1I85nBqMRE7ZA3gxPGbFvycTY_LOQqoerGRrWJ1N39H0ztMp91b8J6W7_M3cQtdRMSlDexJiz6kEd07m8EdRsV518KqA1RSNQfH_qTrnZXxXQstBvjgjNhNSnQaIZmJYEMskoqSHEPGJ1GWDyraSnGVOsHpWVZVyg-q_MJGemU1YGXxd4zAv1Bw"/></div></div></div></header><main class="w-full pt-20 bg-background min-h-screen"><div class="flex flex-col w-full">
+<!-- Top Notification / Status Strip -->
+<section class="w-full bg-surface-container-low py-space-sm px-margin-mobile lg:px-margin">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-space-xs text-on-surface-variant font-label-md text-label-md">
+<div class="flex items-center gap-space-xs">
+<span class="inline-block w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span class="tracking-wide">Atelier Abierto • Envíos prioritarios el mismo día en Oaxaca de Juárez y zona conurbada</span>
+</div>
+<div class="flex items-center gap-space-md">
+<span class="hidden sm:inline">Colonia Reforma • Av. Fuerza Aérea Mexicana 410</span>
+<a class="text-primary hover:text-primary-container font-semibold transition-colors flex items-center gap-1" href="https://wa.me/5219516112088" rel="noopener noreferrer" target="_blank">
+<span>Concierge WhatsApp: 951 611 2088</span>
+</a>
+</div>
+</div>
+</section>
+<!-- Hero Section -->
+<section class="relative w-full py-space-xl lg:py-24 px-margin-mobile lg:px-margin overflow-hidden">
+<div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
+<!-- Left Editorial Column -->
+<div class="lg:col-span-6 flex flex-col z-10">
+<div class="inline-flex items-center gap-space-xs px-space-md py-1 bg-surface-container rounded-full w-fit mb-space-md">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span class="font-label-caps text-label-caps uppercase text-on-surface-variant tracking-widest">Haute Floristerie • Oaxaca de Juárez</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-on-surface tracking-tight leading-[1.08] mb-space-md">
+          El arte de crear recuerdos inolvidables en flor.
+        </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mb-space-lg font-light leading-relaxed">
+          Diseño floral de autor en el corazón de Oaxaca. Ramos monumentales, peonías holandesas selectas, tulipanes europeos y creaciones botánicas irrepetibles concebidas para inmortalizar tus instantes más sublimes.
+        </p>
+<!-- CTA & Micro details -->
+<div class="flex flex-wrap items-center gap-space-md mb-space-lg">
+<a class="inline-flex items-center gap-space-xs px-8 py-4 bg-primary hover:bg-primary-container text-on-primary rounded-full transition-all duration-300 font-label-lg text-label-lg uppercase tracking-wider shadow-lg hover:shadow-xl hover:-translate-y-0.5" href="https://wa.me/5219516112088?text=Hola%20Sweet%20Memories,%20deseo%20consultar%20un%20arreglo%20floral" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+<span>Consultar por WhatsApp</span>
+</a>
+<a class="inline-flex items-center gap-space-xs px-6 py-4 text-on-surface hover:text-primary font-label-lg text-label-lg uppercase tracking-wider transition-colors group" href="#coleccion">
+<span>Explorar Galería</span>
+<span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+<!-- Trust Metadata Indicators -->
+<div class="grid grid-cols-3 gap-space-md pt-space-md bg-surface-container/40 p-space-md rounded-xl max-w-lg">
+<div>
+<span class="block font-headline-sm text-headline-sm text-on-surface font-normal">Mismo Día</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant leading-tight">Entregas exprés en Oaxaca</span>
+</div>
+<div>
+<span class="block font-headline-sm text-headline-sm text-on-surface font-normal">100% Frescas</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant leading-tight">Corte selecto premium</span>
+</div>
+<div>
+<span class="block font-headline-sm text-headline-sm text-on-surface font-normal">+10k</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant leading-tight">Comunidad en Instagram</span>
+</div>
+</div>
+</div>
+<!-- Right Visual Column (Featured Real Hero Image) -->
+<div class="lg:col-span-6 relative flex justify-center items-center">
+<!-- Ambient decorative backdrop glow -->
+<div class="absolute -inset-4 bg-gradient-to-tr from-primary-fixed/20 via-surface-container to-transparent rounded-3xl -z-10 blur-2xl"></div>
+<div class="relative w-full max-w-md lg:max-w-none rounded-2xl overflow-hidden bg-surface-container shadow-2xl transition-transform duration-700 hover:scale-[1.01]">
+<div class="aspect-[4/5] w-full overflow-hidden">
+<img alt="Sinfonía Pastel Deluxe en Oaxaca" class="w-full h-full object-cover object-center transition-transform duration-700 hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvNTMfEWVDP2vONshNkvSt7li3gV-1KydxQ18LAmGZjA2ZGjvzqZO6bOUIGEPhC5TSeUgpucLTYf2ptBIebVQgZFVMWlrwUGxEuSB-W5rWSfx7R1Uh048bgjlLLIGrLjLsVpikHQMSpNEbCtvJB0he5Lsok8ORmcNKfls6BT6WJgADooKS4N7ANJwC5GEAuUwtix3Ylc4sfIsq6y6cvFj3dQxkSvhfJcnNmrYClluGv5W2XrujYizcn_hKaKyMhXN_mw"/>
+</div>
+<!-- Floating Editorial Capsule Note -->
+<div class="absolute bottom-6 left-6 right-6 p-space-md bg-surface/90 backdrop-blur-md rounded-xl shadow-lg flex items-center justify-between gap-space-sm">
+<div>
+<span class="font-label-caps text-label-caps uppercase text-primary tracking-widest block">Pieza Insignia Atelier</span>
+<p class="font-headline-sm text-headline-sm text-on-surface leading-tight">Sinfonía Pastel Deluxe</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Peonías, rosas seleccionadas y hortensias</p>
+</div>
+<a class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center shrink-0 hover:bg-primary-container transition-colors shadow-sm" href="https://wa.me/5219516112088?text=Hola,%20quisiera%20pedir%20el%20arreglo%20Sinfonia%20Pastel%20Deluxe" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[20px]">north_east</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Editorial Statement Divider -->
+<section class="w-full py-space-xl bg-surface-container-low">
+<div class="max-w-5xl mx-auto px-margin-mobile text-center">
+<span class="font-label-caps text-label-caps uppercase text-primary tracking-[0.2em] mb-space-sm block">Floristería Fina • Inspiración &amp; Tradición</span>
+<p class="font-headline-lg text-headline-lg text-on-surface font-normal leading-relaxed italic">
+        "Cada flor es seleccionada con rigurosidad estética para hablar el lenguaje del alma en aniversarios, declaraciones, celebraciones o instantes de afecto espontáneo."
+      </p>
+<div class="mt-space-md flex items-center justify-center gap-space-xs text-on-surface-variant font-label-md text-label-md uppercase tracking-widest">
+<span>Oaxaca de Juárez</span>
+<span>•</span>
+<span>Envío Personalizado</span>
+<span>•</span>
+<span>Tarjetas Caligráficas</span>
+</div>
+</div>
+</section>
+<!-- Sección 2: Selección Destacada / Colección de Autor -->
+<section class="w-full py-space-xl px-margin-mobile lg:px-margin" id="coleccion">
+<div class="max-w-7xl mx-auto">
+<!-- Section Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-space-xl gap-space-md">
+<div>
+<span class="font-label-caps text-label-caps uppercase text-primary tracking-widest block mb-space-xs">Catálogo Selecto</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Colección de Autor</h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">
+          Composiciones florales exclusivas elaboradas artesanalmente cada mañana en nuestro taller de la Colonia Reforma.
+        </p>
+</div>
+<!-- Editorial Card Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-lg">
+<!-- Card 1: Bouquet Romance Imperial -->
+<article class="flex flex-col bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group">
+<div class="aspect-[4/5] w-full overflow-hidden bg-surface-container-low relative">
+<img alt="Bouquet Romance Imperial 100 Rosas" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4uts3bjRoBaGONzw39V455EE8oFaGV6JMB-Wz9J4pdH950fY8KyDV2TWTtSOxZhGZdqcHMFXTx8Ji4HxZDUe13s-Tib0weymh1wzVA9Naq5UNRUWtWDnBGCCfiNg92TWgdHaVaR10OJzOvT16CQdUCSYBGikyEMy6yTmnhzDulUKfy_0x_nGbs6jntBGTZkM_cvozu491F6Y4HhLQL8foXW4vx4q6ydLDQeCHSeUJWMhd1EVui3tsfM1Q3oji2pFvMg"/>
+<div class="absolute top-4 left-4">
+<span class="px-3 py-1 bg-surface/90 backdrop-blur-sm text-on-surface font-label-caps text-label-caps uppercase tracking-wider rounded-full shadow-sm">
+                Edición Monumental
+              </span>
+</div>
+</div>
+<div class="p-space-lg flex flex-col flex-1 justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-caps text-label-caps uppercase text-primary tracking-wider">100 Rosas Seleccionadas</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Con Corona Real</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-xs group-hover:text-primary transition-colors">
+                Bouquet Romance Imperial
+              </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed mb-space-md">
+                Cien majestuosas rosas rosa pastel en ensamble esférico de alta densidad, coronado con una tiara imperial y envoltura fina de papel sedoso.
+              </p>
+</div>
+<div class="pt-space-md flex items-center justify-between bg-surface-container-low/50 px-space-md py-space-sm rounded-xl">
+<span class="font-body-sm text-body-sm text-on-surface font-medium">Bespoke Concierge</span>
+<a class="font-label-lg text-label-lg text-primary hover:text-primary-container font-semibold uppercase tracking-wider flex items-center gap-1" href="https://wa.me/5219516112088?text=Hola,%20deseo%20ordenar%20el%20Bouquet%20Romance%20Imperial%20de%20100%20rosas" rel="noopener noreferrer" target="_blank">
+<span>Ordenar vía WhatsApp</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</a>
+</div>
+</div>
+</article>
+<!-- Card 2: Sinfonía Pastel Deluxe -->
+<article class="flex flex-col bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group">
+<div class="aspect-[4/5] w-full overflow-hidden bg-surface-container-low relative">
+<img alt="Sinfonía Pastel Deluxe" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCms7wrjUfk83Q0NesKfelbymkxs_GK4nj_8h2gssIDKMgi8JO1QpITx9jg_9u66NLQb0dP8VclLBydjUXEFzdglSTvFJJEm6yjDlANNkcfqKFguMegMFSnoDk-8Q1N5_9LHuhQKZBp2s5pjmZXhqZtu9d6o4QjroDGlhKFOhvQpH_ZbCBcYhqulb9WPNlvrEQna6bJdhLvHyyJWwkSTDGdCIyn-1_DVq4WdPUa_63PZhxJEaW5-eWtiXvnQozsu3GYdA"/>
+<div class="absolute top-4 left-4">
+<span class="px-3 py-1 bg-surface/90 backdrop-blur-sm text-on-surface font-label-caps text-label-caps uppercase tracking-wider rounded-full shadow-sm">
+                Firma Atelier
+              </span>
+</div>
+</div>
+<div class="p-space-lg flex flex-col flex-1 justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-caps text-label-caps uppercase text-primary tracking-wider">Peonías &amp; Hortensias</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Envoltorio Craft Rosa</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-xs group-hover:text-primary transition-colors">
+                Sinfonía Pastel Deluxe
+              </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed mb-space-md">
+                Composición vaporosa de peonías holandesas, rosas premium y matices botánicos envueltos en papel aterciopelado con lazo de satén.
+              </p>
+</div>
+<div class="pt-space-md flex items-center justify-between bg-surface-container-low/50 px-space-md py-space-sm rounded-xl">
+<span class="font-body-sm text-body-sm text-on-surface font-medium">Bespoke Concierge</span>
+<a class="font-label-lg text-label-lg text-primary hover:text-primary-container font-semibold uppercase tracking-wider flex items-center gap-1" href="https://wa.me/5219516112088?text=Hola,%20deseo%20ordenar%20la%20Sinfonia%20Pastel%20Deluxe" rel="noopener noreferrer" target="_blank">
+<span>Ordenar vía WhatsApp</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</a>
+</div>
+</div>
+</article>
+<!-- Card 3: Cono Escultural de Rosas Rojas -->
+<article class="flex flex-col bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group">
+<div class="aspect-[4/5] w-full overflow-hidden bg-surface-container-low relative">
+<img alt="Cono Escultural de Rosas Rojas" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5N8_1EIxvDyTqd6-QJVldHYwHQCm99DmcqjIXzR81wh6Z_ctmINMzJp-CGVcC3z787eUch_u5NsnxgK6SOoCHiya4ygaUxyxSdmPwgueIgRBqXS_o2BFRHSz78BfYlHxZUuYrbADPzNySp3HvHIFfNkgqWt3txyzSIprV4YEvjn0JF-aZaqb3Yj5s26iONuQ0qV0IKffVdTmAsW5vEh4n5bfYhmTanDwtZHO5iRJPN9URIA0ibVQTLsF7HLUuhztraA"/>
+<div class="absolute top-4 left-4">
+<span class="px-3 py-1 bg-surface/90 backdrop-blur-sm text-on-surface font-label-caps text-label-caps uppercase tracking-wider rounded-full shadow-sm">
+                Pasión Clásica
+              </span>
+</div>
+</div>
+<div class="p-space-lg flex flex-col flex-1 justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-caps text-label-caps uppercase text-primary tracking-wider">Rosas Rojas Selectas</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Cono Bicolor</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-xs group-hover:text-primary transition-colors">
+                Cono Escultural de Rosas Rojas
+              </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed mb-space-md">
+                Rosas de tallo largo de un rojo carmesí profundo presentadas en cono escultural de diseño vanguardista, selladas con moño de satén de autor.
+              </p>
+</div>
+<div class="pt-space-md flex items-center justify-between bg-surface-container-low/50 px-space-md py-space-sm rounded-xl">
+<span class="font-body-sm text-body-sm text-on-surface font-medium">Bespoke Concierge</span>
+<a class="font-label-lg text-label-lg text-primary hover:text-primary-container font-semibold uppercase tracking-wider flex items-center gap-1" href="https://wa.me/5219516112088?text=Hola,%20deseo%20ordenar%20el%20Cono%20Escultural%20de%20Rosas%20Rojas" rel="noopener noreferrer" target="_blank">
+<span>Ordenar vía WhatsApp</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</a>
+</div>
+</div>
+</article>
+<!-- Card 4: Bouquet Silvestre Sweet Memories -->
+<article class="flex flex-col bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group">
+<div class="aspect-[4/5] w-full overflow-hidden bg-surface-container-low relative">
+<img alt="Bouquet Silvestre Sweet Memories" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuo25qf6kQ4ErzIisouFB6kkwoAehhRC3wOtkTmFBxOALeFnwHqrhGK3sm3cwwqEvP8JLGILoesdwUn4_iiukXtSj_33FgKX5Qe7QoqNPpLwx_O9Z5sl5guL6c_MH1ZTgdGLp4lfgZI_iU7L9ZjZH18dhsav-wehQfcwZxwmkE7gCxzod82_YE9IzHTmoHGWFJSyv1tBTNUugYJOCFggJpFuCrroJIBiG0Pb6w4C8Qxl0_QETvmp7E5wRjjTOrqeqq5w"/>
+<div class="absolute top-4 left-4">
+<span class="px-3 py-1 bg-surface/90 backdrop-blur-sm text-on-surface font-label-caps text-label-caps uppercase tracking-wider rounded-full shadow-sm">
+                Luz &amp; Alegría
+              </span>
+</div>
+</div>
+<div class="p-space-lg flex flex-col flex-1 justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-caps text-label-caps uppercase text-primary tracking-wider">Girasoles &amp; Gerberas</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Follaje Fino</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-xs group-hover:text-primary transition-colors">
+                Bouquet Silvestre Sweet Memories
+              </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed mb-space-md">
+                Un canto a la calidez oaxaqueña con girasoles maduros, gerberas alegres y finos toques de eucalipto aromático y follajes frescos.
+              </p>
+</div>
+<div class="pt-space-md flex items-center justify-between bg-surface-container-low/50 px-space-md py-space-sm rounded-xl">
+<span class="font-body-sm text-body-sm text-on-surface font-medium">Bespoke Concierge</span>
+<a class="font-label-lg text-label-lg text-primary hover:text-primary-container font-semibold uppercase tracking-wider flex items-center gap-1" href="https://wa.me/5219516112088?text=Hola,%20deseo%20ordenar%20el%20Bouquet%20Silvestre%20Sweet%20Memories" rel="noopener noreferrer" target="_blank">
+<span>Ordenar vía WhatsApp</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</a>
+</div>
+</div>
+</article>
+<!-- Card 5: Caja Sombrerera Girasoles Sol de Oaxaca -->
+<article class="flex flex-col bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group">
+<div class="aspect-[4/5] w-full overflow-hidden bg-surface-container-low relative">
+<img alt="Caja Sombrerera Girasoles Sol de Oaxaca" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDepqyfXScPkTKCK0ijt5Mi0oICPt-FYismNjaoISpFeP7-RfDa7SgeiIatl9MYiHccmkQwdVfSHqe876yUh1T2HxeeagpT8pEWnhIftGcYGuLY_YtMfojEgP1YQlvZmWXnCVYzCs4YXvF86v_pJ1iTFXppw0JK2lUix1Ci6sg6wMSUKyagXHvAeUrVPAGrv0MskiO21N8idrbrLdWUKXVwIKobu9m2PovgLB_e9j6maqv6up9etYAmR_HietolZk6yBg"/>
+<div class="absolute top-4 left-4">
+<span class="px-3 py-1 bg-surface/90 backdrop-blur-sm text-on-surface font-label-caps text-label-caps uppercase tracking-wider rounded-full shadow-sm">
+                Hatbox de Lujo
+              </span>
+</div>
+</div>
+<div class="p-space-lg flex flex-col flex-1 justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-caps text-label-caps uppercase text-primary tracking-wider">Girasoles Premium</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Caja Rígida Sombrerera</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-xs group-hover:text-primary transition-colors">
+                Caja Sombrerera Sol de Oaxaca
+              </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed mb-space-md">
+                Presentación premium en caja sombrerera artesanal, albergando una constelación de girasoles radiantes listos para embellecer cualquier espacio.
+              </p>
+</div>
+<div class="pt-space-md flex items-center justify-between bg-surface-container-low/50 px-space-md py-space-sm rounded-xl">
+<span class="font-body-sm text-body-sm text-on-surface font-medium">Bespoke Concierge</span>
+<a class="font-label-lg text-label-lg text-primary hover:text-primary-container font-semibold uppercase tracking-wider flex items-center gap-1" href="https://wa.me/5219516112088?text=Hola,%20deseo%20ordenar%20la%20Caja%20Sombrerera%20Sol%20de%20Oaxaca" rel="noopener noreferrer" target="_blank">
+<span>Ordenar vía WhatsApp</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</a>
+</div>
+</div>
+</article>
+<!-- Card 6: Bouquet Pastel de Peonías & Lisianthus -->
+<article class="flex flex-col bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group">
+<div class="aspect-[4/5] w-full overflow-hidden bg-surface-container-low relative">
+<img alt="Bouquet Pastel de Peonías &amp; Lisianthus" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1RwbeREJvemKUlf8F2HCOnsur4iY4NSc-zYyh1MT_4l9m2dS506jZoHrWWlbxm2dfuJ9KoM9_WU4vvTNDkCypECjwVn8PzJQS3zt1dyrc_UEzjb8UQUAWJALLpwRd0Yk43JNXSuWr6rmFAtjSVAbsZjMFhhctmMBqqPppwlXDyfEIfh6OGkDX7Qwyg6A37NPDWKks0SnbBeKhgwm0MntEaEDR8leKtGxYKbmXwtAsfpCMCYM2-I6F6OdQoB2rbQ8GbQ"/>
+<div class="absolute top-4 left-4">
+<span class="px-3 py-1 bg-surface/90 backdrop-blur-sm text-on-surface font-label-caps text-label-caps uppercase tracking-wider rounded-full shadow-sm">
+                Edición Delicada
+              </span>
+</div>
+</div>
+<div class="p-space-lg flex flex-col flex-1 justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-caps text-label-caps uppercase text-primary tracking-wider">Peonías &amp; Lisianthus</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Acento Romántico</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-xs group-hover:text-primary transition-colors">
+                Bouquet Peonías &amp; Lisianthus
+              </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed mb-space-md">
+                Elegante balance entre la frondosidad de la peonía y la delicada gracia del lisianthus en una paleta cromática ensoñadora y femenina.
+              </p>
+</div>
+<div class="pt-space-md flex items-center justify-between bg-surface-container-low/50 px-space-md py-space-sm rounded-xl">
+<span class="font-body-sm text-body-sm text-on-surface font-medium">Bespoke Concierge</span>
+<a class="font-label-lg text-label-lg text-primary hover:text-primary-container font-semibold uppercase tracking-wider flex items-center gap-1" href="https://wa.me/5219516112088?text=Hola,%20deseo%20ordenar%20el%20Bouquet%20Pastel%20de%20Peonias%20y%20Lisianthus" rel="noopener noreferrer" target="_blank">
+<span>Ordenar vía WhatsApp</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</a>
+</div>
+</div>
+</article>
+</div>
+</div>
+</section>
+<!-- Sección 3: Galería Floral Completa (Curaduría Fotográfica Real) -->
+<section class="w-full py-space-xl bg-surface-container-low px-margin-mobile lg:px-margin" id="galeria">
+<div class="max-w-7xl mx-auto">
+<div class="text-center max-w-3xl mx-auto mb-space-lg">
+<span class="font-label-caps text-label-caps uppercase text-primary tracking-widest block mb-space-xs">Curaduría Visual</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight mb-space-sm">
+          Galería Floral &amp; Versatilidad
+        </h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          Cada entrega cuenta una historia de afecto en Oaxaca. Conoce las diversas tonalidades, especies y estilos que salen de nuestro atelier.
+        </p>
+<!-- Filtros minimalistas interactivos de texto -->
+<div class="flex flex-wrap items-center justify-center gap-space-sm mt-space-md" id="gallery-filter-bar">
+<button class="gallery-filter-btn px-4 py-1.5 rounded-full font-label-md text-label-md uppercase tracking-wider bg-on-surface text-surface transition-all" data-filter="all">Todo</button>
+<button class="gallery-filter-btn px-4 py-1.5 rounded-full font-label-md text-label-md uppercase tracking-wider bg-surface-container text-on-surface-variant hover:text-on-surface transition-all" data-filter="rosas">Rosas de Autor</button>
+<button class="gallery-filter-btn px-4 py-1.5 rounded-full font-label-md text-label-md uppercase tracking-wider bg-surface-container text-on-surface-variant hover:text-on-surface transition-all" data-filter="monumental">Ramos Gigantes</button>
+<button class="gallery-filter-btn px-4 py-1.5 rounded-full font-label-md text-label-md uppercase tracking-wider bg-surface-container text-on-surface-variant hover:text-on-surface transition-all" data-filter="temporada">Flores de Temporada</button>
+<button class="gallery-filter-btn px-4 py-1.5 rounded-full font-label-md text-label-md uppercase tracking-wider bg-surface-container text-on-surface-variant hover:text-on-surface transition-all" data-filter="cajas">Cajas &amp; Dúos</button>
+</div>
+</div>
+<!-- Masonry Editorial Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-md" id="masonry-gallery">
+<!-- Item 1: Nupcial Bicolor -->
+<div class="gallery-item group relative overflow-hidden rounded-2xl bg-surface shadow-sm" data-category="rosas">
+<div class="aspect-[4/5] overflow-hidden">
+<img alt="Bouquet nupcial de rosas bicolor" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5LItwpGhn03eTIQifF06jT7IE9wbNuhDGkl46sOMB_HJzCHFJaPo50Rok9LLtGxNT9aH7a9K1Y2px-noi-PKbdfjpWZXC5LrD5XLZjnCAGloRagCyIltbWrEeIb5WsQW37whKWhjwbhS0EcAsOLUm1kweNLlcFJuySkE09_ST4P1Y7aQNdwj_ZGoKXGqLFFW60MlU8Ry2XB7_SEnZAxbKWKafyAoGVHO6NHCoytHSHvX7R5uYBukbVE6zADfzhpKL3w"/>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-space-md text-surface">
+<span class="font-label-caps text-label-caps uppercase text-primary-fixed tracking-wider">Diseño Nupcial</span>
+<p class="font-headline-sm text-headline-sm leading-tight text-white">Bouquet Bicolor Blanco &amp; Carmesí</p>
+<p class="font-body-sm text-body-sm text-surface-container-high mt-1">Armonía perfecta para compromisos y votos.</p>
+</div>
+</div>
+<!-- Item 2: 50 Rosas Dedicatoria -->
+<div class="gallery-item group relative overflow-hidden rounded-2xl bg-surface shadow-sm" data-category="monumental rosas">
+<div class="aspect-[4/5] overflow-hidden">
+<img alt="Ramo de 50 rosas rosa suave con dedicatoria" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcdv9VErRC9_ii02lO62A2J4pOGnclNzt87nd0RE2d-TQQ1hkxbbEf5UsDdKdZVlT0-5zaN2AUIBoAEHp6bsZYgB07_v80e2CsCQF0CfLxdbXoahXHJVgkK2KoXyjHqsrbxlJhP9ZbFtEv96k-fPSligwsIA0SPbnaz5LnhlzaNWGwZix-_9frdMgygoBsbV764gShbitGW0eCsgyiUl6Mwu7McAP7JO3CR9tDuwNBaLj_a1b5BQnjhOdQvD6ww_Pgjg"/>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-space-md text-surface">
+<span class="font-label-caps text-label-caps uppercase text-primary-fixed tracking-wider">50 Rosas Rosa Suave</span>
+<p class="font-headline-sm text-headline-sm leading-tight text-white">Ramo Dedicatoria Dorada</p>
+<p class="font-body-sm text-body-sm text-surface-container-high mt-1">Personalizado con tipografía dorada en papel fino.</p>
+</div>
+</div>
+<!-- Item 3: Tulipanes Holandeses -->
+<div class="gallery-item group relative overflow-hidden rounded-2xl bg-surface shadow-sm" data-category="temporada">
+<div class="aspect-[4/5] overflow-hidden">
+<img alt="Bouquet multicolor de tulipanes holandeses" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAX7wPkbMPzCmNA6NlrHrPCRw-9Yx5_kX3_-2GWU9txOK6D7iFACMQ3PEWzaGLV19ouXIJop3kQt32A2BtECurJcCK7bnvgIGDGQWch1vY80RmIKH2XmRenQxhonWuJ_bpdBPgXTknmVhGYA11xwDz4dUTqiz5BV60cusMRbgoUFD8jFqoHLzQrxtcKHe66FCYWrYoCsNBdDd05oI5qRaAdPhmxt5L9aAZ7DUllOclD3QnFeANk7xRVPHvrUYvzQtxZBg"/>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-space-md text-surface">
+<span class="font-label-caps text-label-caps uppercase text-primary-fixed tracking-wider">Importación Directa</span>
+<p class="font-headline-sm text-headline-sm leading-tight text-white">Sinfonía de Tulipanes Holandeses</p>
+<p class="font-body-sm text-body-sm text-surface-container-high mt-1">Gama cromática viva y frescura garantizada.</p>
+</div>
+</div>
+<!-- Item 4: Arreglo Voluminoso Rojo & Rosa -->
+<div class="gallery-item group relative overflow-hidden rounded-2xl bg-surface shadow-sm" data-category="monumental rosas">
+<div class="aspect-[4/5] overflow-hidden">
+<img alt="Arreglo voluminoso de rosas rojas y rosadas" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAefiaiGNsZvSz9sSwh-6ZX4DcdaoEUSCOLQVxWMnuHEO1ZIT71AK-eM0O1Th5W7sA_qUp_vXYt44PGFyEYS_2bk42UvAXWSSjBW1jw6AlpYRD0MEEOamLt0hGx-xt3k41GyD2u7x9QFcwCIYzvSGMsnTPYyQSgm7gqdohv3eSVaRaWAofmjY-v2e3LIFs-baDDTnkUSSrfKCyQvn7qhlY1XFoxjEBQr4Zc_oldw2DS3bRA4d45L4TTyVLIKgPdzobyRQ"/>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-space-md text-surface">
+<span class="font-label-caps text-label-caps uppercase text-primary-fixed tracking-wider">Contraste Monumental</span>
+<p class="font-headline-sm text-headline-sm leading-tight text-white">Doble Matiz Rojo &amp; Rubor</p>
+<p class="font-body-sm text-body-sm text-surface-container-high mt-1">Volumen arquitectónico para declaraciones memorables.</p>
+</div>
+</div>
+<!-- Item 5: Girasoles & Rosas Rojas -->
+<div class="gallery-item group relative overflow-hidden rounded-2xl bg-surface shadow-sm" data-category="temporada">
+<div class="aspect-[4/5] overflow-hidden">
+<img alt="Combinación de girasoles y rosas rojas" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVPvZKxiv9pTMU67H74eCqICJzldv-pE_FBonLpZBdabCAaF_8aNBizwTDnW8G0k2uoaMderx58WusDyDvqwMzDZm7fpf5cPJLPmolMOIlLIjLRa3ohjinj5kEyCyBReNhLL_oDJEFWkGtvIT8ELnz_kYcBcNxLu3rhSjdh5RzRnouEuYQPkva-RSs8QnlAfoSwr0DSMw0rEkHxFLO6Nv8Ks2ho3vcGo5VmP5akg5NUsSHUiDEUdTLqfUQ7enb2n_btw"/>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-space-md text-surface">
+<span class="font-label-caps text-label-caps uppercase text-primary-fixed tracking-wider">Fusión Botánica</span>
+<p class="font-headline-sm text-headline-sm leading-tight text-white">Girasoles &amp; Rosas Carmesí</p>
+<p class="font-body-sm text-body-sm text-surface-container-high mt-1">Calidez de sol y elegancia pasional en un solo arreglo.</p>
+</div>
+</div>
+<!-- Item 6: Dúo de Bouquets Filo Dorado -->
+<div class="gallery-item group relative overflow-hidden rounded-2xl bg-surface shadow-sm" data-category="cajas">
+<div class="aspect-[4/5] overflow-hidden">
+<img alt="Dúo de bouquets en papel con filo dorado" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbenCw-DGlZB1zIqDWp23lFjFYR4_LFeZWL0DHrIaz8Zf5uRMWbMGZiW_m1T7YQakyRlgTENTGb_KlKgpT0j3gYRD0d2l2jcD8u3xg0UiRVk6Iian0plzy4s09gq5RjS-JuJPd4022n0QgLmQ_LFUuugsa7YU9ywp3Z5mekyI_ZJ3EU9IvxjG7TfQ_bKJcz4WxeJqNMja-mhtdd-MOI75wEnEYMR2tWu4WyoLcvfRZ1C5tS3NRdxdP4jyTj5DNgtytvQ"/>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-space-md text-surface">
+<span class="font-label-caps text-label-caps uppercase text-primary-fixed tracking-wider">Presentación Exclusiva</span>
+<p class="font-headline-sm text-headline-sm leading-tight text-white">Dúo Atelier con Filo Dorado</p>
+<p class="font-body-sm text-body-sm text-surface-container-high mt-1">Detalles en oro y empacado individual de alta gama.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Sección 4: Guía y Consejos de Cuidados de la Florería -->
+<section class="w-full py-space-xl px-margin-mobile lg:px-margin bg-background" id="cuidados">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col lg:flex-row lg:items-end justify-between mb-space-xl gap-space-md">
+<div class="max-w-xl">
+<span class="font-label-caps text-label-caps uppercase text-primary tracking-widest block mb-space-xs">Guía Experta de la Florería</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">
+            El secreto para flores eternas
+          </h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">
+            Nuestros floristas comparten sus rituales botánicos para prolongar la belleza, aroma y vivacidad de tus flores en casa.
+          </p>
+</div>
+<div class="flex items-center gap-space-xs text-secondary font-label-md text-label-md bg-secondary-container/40 px-space-md py-2 rounded-full w-fit">
+<span class="material-symbols-outlined text-[18px]">eco</span>
+<span>Flores 100% de corte diario</span>
+</div>
+</div>
+<!-- 3 Editorial Care Cards incorporating official store infographics & principles -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
+<!-- Tarjeta Peonías (con infografía real IMAGE_10) -->
+<div class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm flex flex-col">
+<div class="aspect-[4/3] w-full overflow-hidden bg-surface-container">
+<img alt="Tips de cuidado para Peonías Sweet Memories" class="w-full h-full object-cover object-top" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCV4g99qVK09aOM-5vhJYZ3qSz0QHr1KFzs3Zl_ywBQYXxpamEzdRfXNyEtisagEkf_wPzl0jLd0YnEHwoHyeZz1gBrwhOsRE0jylVH6Cet99-lCp_QrKWR-RQFCSQdDOu_l33lfDsPn_Uc_HaUWVW-26AGTPs52pmCB1rVVpWH1cOfYEp2UYFFIFqHjS_p-bFyfVlPIPX4YWJhOHM9cvNiFRlObYMqIzt6Tzgz2n6N_6EzRvDAK8-K0OO_eapcEccDOA"/>
+</div>
+<div class="p-space-lg flex-1 flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-2 mb-2">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="font-label-caps text-label-caps uppercase tracking-wider text-primary">Reina Floral</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-xs">Cuidado de Peonías</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed mb-space-md">
+                "Las peonías son flores muy apreciadas por su fragancia y belleza. Utiliza florero impecable con agua fresca. Recorta los tallos en ángulo de 45° cada 2-3 días para estimular la apertura majestuosa de sus pétalos."
+              </p>
+</div>
+<ul class="text-on-surface-variant font-body-sm text-body-sm space-y-1.5 pt-space-xs border-t border-outline-variant/30">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-secondary">check</span> Agua fresca y fría en días cálidos
+              </li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-secondary">check</span> Evitar exposición solar directa
+              </li>
+</ul>
+</div>
+</div>
+<!-- Tarjeta Lilis (con infografía real IMAGE_9) -->
+<div class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm flex flex-col">
+<div class="aspect-[4/3] w-full overflow-hidden bg-surface-container">
+<img alt="Tips de cuidado para Lilis Sweet Memories" class="w-full h-full object-cover object-top" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAmcMVcET4lxBw-McLlUOmJkdcleZpUB2dT6NRqwHsRlquiClHW33fK8XOnWZ1BV-51ahJazV8rTRL6OUPu3MHKhWUW7RjB3PGtD0u7RdbczsLbYcV_9l88R8fL7uFGd4Q-zKdACMw2SimoDKSGsLa05XUa86zmsutWPpookbw4EFetQTCyyWRjxOhs3m1fIZI67o-cDJtmhLnmZY56333xsP_1CmyKrkC_Bglw1dCG2PLZ9bpWgoSOtUijoaaFrZj6Q"/>
+</div>
+<div class="p-space-lg flex-1 flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-2 mb-2">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="font-label-caps text-label-caps uppercase tracking-wider text-tertiary">Aroma Duradero</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-xs">Cuidado de Lilis</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed mb-space-md">
+                "Super duraderas y profundamente aromáticas. Mantener en abundante agua limpia, retirar suavemente el polen de los estambres para evitar manchas y recortar el tallo periódicamente para máxima floración."
+              </p>
+</div>
+<ul class="text-on-surface-variant font-body-sm text-body-sm space-y-1.5 pt-space-xs border-t border-outline-variant/30">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-secondary">check</span> Retiro de anteras y polen
+              </li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-secondary">check</span> Apertura paulatina de botones
+              </li>
+</ul>
+</div>
+</div>
+<!-- Tarjeta Rosas de Autor -->
+<div class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm flex flex-col justify-between p-space-lg">
+<div>
+<div class="flex items-center gap-2 mb-2">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+<span class="font-label-caps text-label-caps uppercase tracking-wider text-primary">Clásicos Inmortales</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-xs">Cuidado de Rosas &amp; Ramos</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed mb-space-md">
+              "Hidratación constante y cambio de agua cada 48 horas. Retira todo el follaje que quede bajo el nivel del agua para prevenir bacterias y aleja tu arreglo de corrientes de aire acondicionado o ventiladores."
+            </p>
+<div class="space-y-space-sm mt-space-md">
+<div class="bg-surface-container p-space-sm rounded-xl">
+<p class="font-label-md text-label-md uppercase text-on-surface font-semibold">1. Corte Diagonal</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Corta 2 cm en 45° con tijera limpia bajo el chorro de agua.</p>
+</div>
+<div class="bg-surface-container p-space-sm rounded-xl">
+<p class="font-label-md text-label-md uppercase text-on-surface font-semibold">2. Limpieza de Agua</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Enjuaga el florero y coloca agua potable templada o fría.</p>
+</div>
+<div class="bg-surface-container p-space-sm rounded-xl">
+<p class="font-label-md text-label-md uppercase text-on-surface font-semibold">3. Ambiente Neutro</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Mantén alejado de fruteros con manzanas o plátanos (gas etileno).</p>
+</div>
+</div>
+</div>
+<div class="mt-space-lg pt-space-sm">
+<a class="text-primary hover:text-primary-container font-label-lg text-label-lg uppercase tracking-wider inline-flex items-center gap-1 font-semibold" href="https://wa.me/5219516112088?text=Hola,%20tengo%20una%20duda%20sobre%20el%20cuidado%20de%20mis%20flores" rel="noopener noreferrer" target="_blank">
+<span>¿Tienes dudas con tu arreglo? Pregúntanos</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Sección 5: Experiencia & Sobre Nosotros -->
+<section class="w-full py-space-xl bg-surface-container-high/60 px-margin-mobile lg:px-margin" id="sobre-nosotros">
+<div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
+<!-- Asymmetric Editorial Visual -->
+<div class="lg:col-span-5 relative">
+<div class="aspect-[4/5] rounded-2xl overflow-hidden shadow-xl bg-surface">
+<img alt="Arreglo voluminoso de Sweet Memories Oaxaca" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8gp17nn9S84D2pnZcrlsYThh7h5Gj4NXiLt51Tr4IKxQ5Kj9RFjLcLhJIBEN8agQHFfEWx9T2VN23vbdBRLi1JO7yv8pGuf7u25vqqB91If5zcvRcDINArx4B3orh-VxIBogxVhtEdREkN3PsdPxAh48F5I8udkPwEtUyKxtzfYpWOLyLpzLEhsuOfRFqFzI4QXYNE7KP-f2hVlX-I7QMMViSgdZUTG1exOB1RwLATQuF66YMilwJqPQrqEkKSFetRQ"/>
+</div>
+<!-- Overlapping second asset -->
+<div class="hidden sm:block absolute -bottom-10 -right-6 w-3/5 aspect-square rounded-2xl overflow-hidden shadow-2xl bg-surface p-1.5">
+<img alt="Detalle de flores de alta gama" class="w-full h-full object-cover rounded-xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5UnDIXk8nCh_hDR71uUJNCD4l4a6Tq8Orr-H-izv7EOaVvNzKQ0McAsxeMb_e1FLc4cCFPEOj6JPIdFewdKF5fJy6_qx1T-pkkZU4wWbxGletzaRgkPqdvGBraly_RR6moXILdl0jAJKTIxIQkNI4i2geXMON1lDMBlK5spc5iCosZGeKXCpnvLFSyJDjT8z_fKdtXUS70cXq0V3H7yYG_nLqoMI7_HeYn5bZwmw1kINzhZAxxOWGtvoFXuJmV-Fpfg"/>
+</div>
+</div>
+<!-- Story & Values Column -->
+<div class="lg:col-span-7 flex flex-col justify-center lg:pl-space-lg">
+<span class="font-label-caps text-label-caps uppercase text-primary tracking-widest block mb-space-xs">Nuestra Historia</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight mb-space-md">
+          Sweet Memories: Pasión por las flores de autor en Oaxaca
+        </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant font-light leading-relaxed mb-space-md">
+          Nacimos con la vocación de elevar el diseño floral en la verde Antequera. Para nosotros, un arreglo no es un producto: es un canal de emoción pura, una escultura efímera que celebra el amor, la gratitud y la memoria.
+        </p>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-space-lg">
+          Con una comunidad fiel de más de diez mil seguidores en Oaxaca y el país, nos distingue la atención sensible, el trato minucioso y la selección directa de flores en los mejores invernaderos del país y el extranjero.
+        </p>
+<!-- 3 Pilares -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-md pt-space-sm border-t border-outline-variant/40">
+<div>
+<div class="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-space-xs">
+<span class="material-symbols-outlined text-[20px]">filter_vintage</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface mb-1">Corte Fresco Diario</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Llegada diaria garantizando la máxima vida en florero.</p>
+</div>
+<div>
+<div class="w-10 h-10 rounded-full bg-tertiary/10 text-tertiary flex items-center justify-center mb-space-xs">
+<span class="material-symbols-outlined text-[20px]">brush</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface mb-1">Empaques de Lujo</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Papeles coreanos finos, listones de satén y sellos artesanales.</p>
+</div>
+<div>
+<div class="w-10 h-10 rounded-full bg-secondary/10 text-secondary flex items-center justify-center mb-space-xs">
+<span class="material-symbols-outlined text-[20px]">edit_note</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface mb-1">Dedicatoria Real</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Tarjetas caligráficas exclusivas para tus palabras sinceras.</p>
+</div>
+</div>
+<div class="mt-space-lg flex items-center gap-space-md">
+<a class="inline-flex items-center gap-space-xs px-6 py-3 bg-surface text-on-surface hover:text-primary rounded-full shadow-sm font-label-lg text-label-lg uppercase tracking-wider transition-colors" href="https://instagram.com/sweetmemories_floreriaoax" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[18px]">photo_camera</span>
+<span>Seguir en @sweetmemories_floreriaoax</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Sección 6: Información del Establecimiento, Ubicación y Pagos -->
+<section class="w-full py-space-xl px-margin-mobile lg:px-margin bg-background" id="ubicacion">
+<div class="max-w-7xl mx-auto">
+<div class="text-center max-w-2xl mx-auto mb-space-xl">
+<span class="font-label-caps text-label-caps uppercase text-primary tracking-widest block mb-space-xs">Atelier Físico &amp; Entregas</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight mb-space-sm">
+          Visítanos en Colonia Reforma
+        </h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          Estamos ubicados en una de las zonas más emblemáticas y accesibles de Oaxaca de Juárez para recoger tus pedidos o diseñar tu arreglo en persona.
+        </p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-stretch">
+<!-- Tarjeta de Horarios y Ubicación -->
+<div class="lg:col-span-7 bg-surface-container-lowest p-space-lg lg:p-space-xl rounded-2xl shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-space-sm mb-space-md">
+<span class="material-symbols-outlined text-primary text-[28px]">storefront</span>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Atelier Sweet Memories Oaxaca</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Av. Fuerza Aérea Mexicana 410, Colonia Reforma, 68050 Oaxaca de Juárez, Oax.</p>
+<p class="font-label-md text-label-md text-primary font-mono mt-0.5">Código Plus: 37JP+74 Oaxaca de Juárez</p>
+</div>
+</div>
+<!-- Horarios Verificados -->
+<div class="bg-surface-container-low p-space-md rounded-xl mb-space-md">
+<h4 class="font-label-caps text-label-caps uppercase text-on-surface font-semibold tracking-wider mb-space-xs">Horarios de Atención en Tienda</h4>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-xs font-body-sm text-body-sm text-on-surface-variant">
+<div class="flex justify-between py-1 border-b border-outline-variant/20">
+<span>Jueves a Miércoles:</span>
+<span class="font-semibold text-on-surface">8:00 AM – 10:00 PM</span>
+</div>
+<div class="flex justify-between py-1 border-b border-outline-variant/20">
+<span>Sábados:</span>
+<span class="font-semibold text-on-surface">9:00 AM – 10:00 PM</span>
+</div>
+<div class="flex justify-between py-1 border-b border-outline-variant/20 sm:col-span-2">
+<span>Servicio Telefónico:</span>
+<span class="font-semibold text-secondary">Atención 24 horas (Domingo y Lunes)</span>
+</div>
+</div>
+</div>
+<!-- Modalidades de Servicio -->
+<div class="grid grid-cols-3 gap-space-sm mb-space-md text-center">
+<div class="bg-surface p-space-sm rounded-xl">
+<span class="material-symbols-outlined text-primary text-[24px] mb-1">local_shipping</span>
+<p class="font-label-md text-label-md font-semibold text-on-surface">A Domicilio</p>
+<p class="font-body-sm text-[11px] text-on-surface-variant">En toda la ciudad</p>
+</div>
+<div class="bg-surface p-space-sm rounded-xl">
+<span class="material-symbols-outlined text-primary text-[24px] mb-1">shopping_bag</span>
+<p class="font-label-md text-label-md font-semibold text-on-surface">En Tienda</p>
+<p class="font-body-sm text-[11px] text-on-surface-variant">Recoge tu arreglo</p>
+</div>
+<div class="bg-surface p-space-sm rounded-xl">
+<span class="material-symbols-outlined text-primary text-[24px] mb-1">speed</span>
+<p class="font-label-md text-label-md font-semibold text-on-surface">Visita Rápida</p>
+<p class="font-body-sm text-[11px] text-on-surface-variant">Sin esperas largas</p>
+</div>
+</div>
+</div>
+<!-- Direct action phone bar -->
+<div class="flex flex-col sm:flex-row items-center justify-between gap-space-sm pt-space-md border-t border-outline-variant/30">
+<div>
+<span class="font-label-md text-label-md uppercase text-on-surface-variant">Teléfono y Pedidos Directos:</span>
+<p class="font-headline-sm text-headline-sm text-primary font-bold">951 611 2088</p>
+</div>
+<a class="px-6 py-3 bg-primary hover:bg-primary-container text-on-primary rounded-full font-label-lg text-label-lg uppercase tracking-wider transition-all flex items-center gap-space-xs" href="https://wa.me/5219516112088?text=Hola,%20me%20gustaria%20saber%20mas%20sobre%20entregas%20y%20pedidos" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+<span>Escribir por WhatsApp</span>
+</a>
+</div>
+</div>
+<!-- Tarjeta de Métodos de Pago y Mapa -->
+<div class="lg:col-span-5 flex flex-col gap-space-md">
+<!-- Interactive Map Container -->
+<div class="w-full h-56 rounded-2xl bg-surface-container relative overflow-hidden shadow-sm flex items-end p-4" data-location="Av. Fuerza Aérea Mexicana 410, Reforma, Oaxaca de Juárez, Oaxaca" style="">
+<div class="bg-surface/95 backdrop-blur-md px-4 py-2 rounded-xl text-on-surface flex items-center gap-2 shadow-md">
+<span class="material-symbols-outlined text-primary text-[18px]">location_on</span>
+<span class="font-label-md text-label-md">Reforma, Oaxaca de Juárez</span>
+</div>
+</div>
+<!-- Métodos de Pago Claros -->
+<div class="bg-surface-container-lowest p-space-lg rounded-2xl shadow-sm flex-1">
+<h4 class="font-headline-sm text-headline-sm text-on-surface mb-space-xs">Métodos de Pago Aceptados</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+              Opciones ágiles y confiables para confirmar tu envío de forma inmediata desde cualquier lugar de México o el extranjero.
+            </p>
+<ul class="space-y-space-xs font-body-sm text-body-sm text-on-surface">
+<li class="flex items-center gap-space-sm p-space-xs bg-surface-container-low rounded-lg">
+<span class="material-symbols-outlined text-secondary text-[20px]">account_balance</span>
+<span>Transferencia electrónica inmediata (SPEI)</span>
+</li>
+<li class="flex items-center gap-space-sm p-space-xs bg-surface-container-low rounded-lg">
+<span class="material-symbols-outlined text-secondary text-[20px]">credit_card</span>
+<span>Tarjetas de débito y crédito (Visa, Mastercard, AMEX)</span>
+</li>
+<li class="flex items-center gap-space-sm p-space-xs bg-surface-container-low rounded-lg">
+<span class="material-symbols-outlined text-secondary text-[20px]">store</span>
+<span>Depósitos en OXXO, cajeros y ventanilla</span>
+</li>
+<li class="flex items-center gap-space-sm p-space-xs bg-surface-container-low rounded-lg">
+<span class="material-symbols-outlined text-secondary text-[20px]">verified_user</span>
+<span>Confirmación instantánea de comprobante vía WhatsApp</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Sticky Bottom Concierge WhatsApp Bar (Discreta y Minimalista) -->
+<div class="sticky bottom-6 z-40 w-full px-margin-mobile pointer-events-none flex justify-end">
+<div class="pointer-events-auto bg-surface/90 backdrop-blur-xl border-none shadow-[0_8px_30px_rgba(30,27,24,0.12)] rounded-full px-4 py-2.5 flex items-center gap-3 transition-transform hover:scale-105">
+<div class="w-2.5 h-2.5 rounded-full bg-secondary animate-ping"></div>
+<div class="flex flex-col pr-1">
+<span class="font-label-caps text-[9px] uppercase tracking-wider text-primary">Floristas en Línea</span>
+<span class="font-label-md text-label-md font-semibold text-on-surface">¿Necesitas asesoría hoy?</span>
+</div>
+<a class="px-4 py-2 bg-primary hover:bg-primary-container text-on-primary rounded-full font-label-md text-label-md uppercase tracking-wider flex items-center gap-1.5 transition-colors" href="https://wa.me/5219516112088?text=Hola%20Sweet%20Memories,%20deseo%20ordenar%20un%20arreglo" rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[16px]">chat</span>
+<span>WhatsApp</span>
+</a>
+</div>
+</div>
+</div>
+<script>
+  // Interactive Gallery Filter Logic
+  (function() {
+    const filterButtons = document.querySelectorAll('.gallery-filter-btn');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.getAttribute('data-filter');
+
+        // Update active button state
+        filterButtons.forEach(b => {
+          b.classList.remove('bg-on-surface', 'text-surface');
+          b.classList.add('bg-surface-container', 'text-on-surface-variant');
+        });
+        btn.classList.add('bg-on-surface', 'text-surface');
+        btn.classList.remove('bg-surface-container', 'text-on-surface-variant');
+
+        // Filter gallery items with smooth opacity
+        galleryItems.forEach(item => {
+          const categories = item.getAttribute('data-category') || '';
+          if (filter === 'all' || categories.includes(filter)) {
+            item.style.display = 'block';
+            setTimeout(() => {
+              item.style.opacity = '1';
+              item.style.transform = 'scale(1)';
+            }, 50);
+          } else {
+            item.style.opacity = '0';
+            item.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+              item.style.display = 'none';
+            }, 250);
+          }
+        });
+      });
+    });
+  })();
+</script></main><footer class="w-full bg-surface-container-low mt-space-xl pt-space-xl pb-space-lg"><div class="max-w-7xl mx-auto px-margin-mobile lg:px-margin"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-xl mb-space-xl"><div class="flex flex-col gap-space-sm"><div class="flex items-center gap-space-xs"><span class="font-headline-md text-headline-md text-on-surface">Sweet Memories</span></div><p class="font-label-caps text-label-caps text-primary tracking-widest uppercase">Atelier Floral • Oaxaca de Juárez</p><p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs leading-relaxed">Diseño floral contemporáneo, flores de corte selectas y arreglos emotivos creados artesanalmente en el corazón de Oaxaca.</p><div class="mt-space-sm"><a class="inline-flex items-center gap-space-xs font-label-md text-label-md text-on-surface hover:text-primary transition-colors tracking-wider" href="https://instagram.com/sweetmemories_floreriaoax" rel="noopener noreferrer" target="_blank"><span class="material-symbols-outlined text-[16px]">photo_camera</span><span>@sweetmemories_floreriaoax</span></a></div></div><div class="flex flex-col gap-space-sm"><h4 class="font-label-caps text-label-caps tracking-widest uppercase text-on-surface font-semibold">Visítanos en Atelier</h4><p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Av. Fuerza Aérea Mexicana 410, Colonia Reforma<br/>Oaxaca de Juárez, Oax. C.P. 68050</p><div class="mt-space-xs"><p class="font-label-md text-label-md text-on-surface font-semibold">Horarios de Atención:</p><p class="font-body-sm text-body-sm text-on-surface-variant">Lunes a Sábado: 9:00 am - 8:00 pm<br/>Domingos: 10:00 am - 4:00 pm</p></div></div><div class="flex flex-col gap-space-sm"><h4 class="font-label-caps text-label-caps tracking-widest uppercase text-on-surface font-semibold">Atención Directa</h4><p class="font-body-sm text-body-sm text-on-surface-variant">Pedidos express y asesoría personalizada de ocasión especial:</p><a class="inline-flex items-center gap-space-xs font-label-lg text-label-lg text-primary hover:text-primary-container transition-colors tracking-wide" href="https://wa.me/5219516112088" rel="noopener noreferrer" target="_blank"><span class="material-symbols-outlined text-[18px]">call</span><span>+52 951 611 2088</span></a><div class="mt-space-xs"><p class="font-label-caps text-label-caps uppercase text-on-surface-variant tracking-wider">Zona de Entrega:</p><p class="font-body-sm text-body-sm text-on-surface-variant">Centro, Reforma, San Felipe del Agua y zona conurbada de Oaxaca.</p></div></div><div class="flex flex-col gap-space-sm"><h4 class="font-label-caps text-label-caps tracking-widest uppercase text-on-surface font-semibold">Métodos de Pago</h4><p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Facilitamos su compra con múltiples opciones seguras:</p><ul class="font-body-sm text-body-sm text-on-surface-variant flex flex-col gap-1"><li class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[15px] text-secondary">check_circle</span>Transferencia Electrónica (SPEI)</li><li class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[15px] text-secondary">check_circle</span>Depósito en OXXO y Ventanilla</li><li class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[15px] text-secondary">check_circle</span>Tarjetas de Crédito y Débito</li><li class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[15px] text-secondary">check_circle</span>Pago a Distancia / Enlace Seguro</li></ul></div></div><div class="pt-space-lg flex flex-col md:flex-row items-center justify-between gap-space-sm bg-surface-container/60 rounded-xl px-space-md py-space-sm"><p class="font-label-md text-label-md text-on-surface-variant">© 2024 Sweet Memories Florería Oaxaca. Todos los derechos reservados.</p><div class="flex items-center gap-space-md"><span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Arte Floral Contemporáneo • Oaxaca</span></div></div></div></footer></body></html>
