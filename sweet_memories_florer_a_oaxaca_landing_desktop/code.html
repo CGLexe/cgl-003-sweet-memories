@@ -640,9 +640,10 @@
 </div>
 <!-- Tarjeta de Métodos de Pago y Mapa -->
 <div class="lg:col-span-5 flex flex-col gap-space-md">
-<!-- Interactive Map Container -->
-<div class="w-full h-56 rounded-2xl bg-surface-container relative overflow-hidden shadow-sm flex items-end p-4" data-location="Av. Fuerza Aérea Mexicana 410, Reforma, Oaxaca de Juárez, Oaxaca" style="">
-<div class="bg-surface/95 backdrop-blur-md px-4 py-2 rounded-xl text-on-surface flex items-center gap-2 shadow-md">
+<!-- Google Maps Embed (sin API key) -->
+<div class="w-full h-56 rounded-2xl bg-surface-container relative overflow-hidden shadow-sm flex items-end p-4">
+<iframe class="absolute inset-0 w-full h-full border-0" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen src="https://maps.google.com/maps?q=17.080636,-96.7146655&amp;z=17&amp;hl=es&amp;output=embed" title="Mapa de la ubicación de Sweet Memories en Av. Fuerza Aérea Mexicana 410, Colonia Reforma, Oaxaca de Juárez"></iframe>
+<div class="relative bg-surface/95 backdrop-blur-md px-4 py-2 rounded-xl text-on-surface flex items-center gap-2 shadow-md pointer-events-none">
 <span class="material-symbols-outlined text-primary text-[18px]">location_on</span>
 <span class="font-label-md text-label-md">Reforma, Oaxaca de Juárez</span>
 </div>
