@@ -16,12 +16,13 @@
   var paso = 0;
   var titulos = ["Tipo de pieza", "Tamaño y flores", "Tonos y extras", "Entrega y datos"];
 
+  // Cada vista se eligió revisando la foto real, no por el alt del manifiesto.
   var vistas = {
-    "Ramo buchón": "assets/photos/igexport-B877-0uB7dF.webp",
-    "Composición de atelier": "assets/photos/igexport-CiyO5VwrmT3-8.webp",
-    "Caja / Hatbox": "assets/photos/igexport-B2sjBoTB3jo.webp",
-    "Arreglo monumental": "assets/photos/igexport-Ct0QDHite2v.webp",
-    "Globos y peluches": "assets/photos/igexport-CkRHAnZr6Zf.webp"
+    "Ramo buchón": { src: "assets/photos/igexport-Da027BACb76-5.webp", alt: "Ramo redondo de peonías rosadas" },
+    "Composición de atelier": { src: "assets/photos/igexport-DbXPZzMFuhx-6.webp", alt: "Ramo de lirios y peonías en papel rosa" },
+    "Caja / Hatbox": { src: "assets/photos/igexport-B2sjBoTB3jo.webp", alt: "Caja sombrerera rosa con rosas" },
+    "Arreglo monumental": { src: "assets/photos/igexport-Ct0QDHite2v.webp", alt: "Ramo monumental de rosas rojas" },
+    "Globos y peluches": { src: "assets/photos/igexport-CkRHAnZr6Zf.webp", alt: "Peluche de rosas rojas" }
   };
 
   function checked(name) {
@@ -85,11 +86,12 @@
   function vista() {
     if (!summaryImg) return;
     var tipo = checked("tipo")[0];
-    var src = vistas[tipo];
-    if (src && summaryImg.getAttribute("src") !== src) {
+    var vista = vistas[tipo];
+    if (vista && summaryImg.getAttribute("src") !== vista.src) {
       summaryImg.style.opacity = "0";
       window.setTimeout(function () {
-        summaryImg.setAttribute("src", src);
+        summaryImg.setAttribute("src", vista.src);
+        summaryImg.setAttribute("alt", vista.alt);
         summaryImg.style.opacity = "1";
       }, 130);
     }
