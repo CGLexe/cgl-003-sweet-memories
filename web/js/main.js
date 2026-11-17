@@ -54,6 +54,16 @@
   var pauseBtn = document.getElementById("reel-pause");
   var chips = Array.prototype.slice.call(document.querySelectorAll("#filtros .chip"));
   var TINTAS = ["#f6cfc6", "#cfe4ef", "#f7e3aa", "#d9d2ee", "#d8ecd8", "#e7d3c8", "#bfe3e0", "#f2cbdc", "#efd9b8", "#d3d9ef"];
+  var STICKERS = ["stk-1F490", "stk-1F338", "stk-1F339", "stk-1F337", "stk-1F33C", "stk-1F3F5", "stk-1F41D", "stk-1F98B", "stk-2728", "stk-1F31F", "stk-1F496", "stk-1F49C"];
+  var TEXTO = {
+    "Rosas": "Rosas elegidas a mano",
+    "Girasoles": "Girasoles de temporada",
+    "Peonías": "Peonías en su punto",
+    "Monumental": "Piezas que imponen",
+    "Entregas": "Listo para entregar",
+    "Globos y peluches": "Un detalle extra",
+    "Temporada": "Flores de temporada"
+  };
   var active = media;
   var index = 0;
   var timer = null;
@@ -63,7 +73,15 @@
     var visual = item.type === "video"
       ? '<video controls playsinline preload="metadata" poster="' + item.poster + '" aria-label="' + item.alt + '"><source src="' + item.src + '" type="video/mp4"></video>'
       : '<img src="' + item.src + '" alt="' + item.alt + '" width="800" height="1000" loading="lazy" decoding="async">';
-    return '<div class="coverflow__card" style="--tinta:' + TINTAS[i % TINTAS.length] + '"><div class="coverflow__frame">' + visual + '</div></div>';
+    var etiqueta = TEXTO[item.cat] || "Sweet Memories";
+    var s1 = STICKERS[i % STICKERS.length];
+    var s2 = STICKERS[(i + 5) % STICKERS.length];
+    return '<div class="coverflow__card" style="--tinta:' + TINTAS[i % TINTAS.length] + '">' +
+      '<div class="coverflow__frame">' + visual +
+        '<span class="coverflow__sticker coverflow__sticker--a"><svg aria-hidden="true"><use href="#' + s1 + '"/></svg></span>' +
+        '<span class="coverflow__sticker coverflow__sticker--b"><svg aria-hidden="true"><use href="#' + s2 + '"/></svg></span>' +
+        '<span class="coverflow__label">' + etiqueta + '</span>' +
+      '</div></div>';
   }
 
   function render() {
@@ -98,7 +116,6 @@
       card.classList.toggle("is-active", d === 0);
       card.setAttribute("aria-hidden", d === 0 ? "false" : "true");
     });
-    if (counter) counter.textContent = (index + 1) + " de " + n;
   }
 
   function go(to) {
@@ -165,6 +182,53 @@
     }
     window.addEventListener("resize", paint);
     document.addEventListener("visibilitychange", function () { document.hidden ? stop() : start(); });
+
+    /* Lightbox: clic en la tarjeta central para ampliar, botón + para hacer zoom */
+    var lb = document.getElementById("lightbox");
+    var lbImg = document.getElementById("lightbox-img");
+    var lbCap = document.getElementById("lightbox-cap");
+    var lbZoom = document.getElementById("lightbox-zoom");
+    var zoom = 1;
+    function abrirLB(item) {
+      if (!lb || !item) return;
+      var src = item.poster || item.src;
+      lbImg.src = src;
+      lbImg.alt = item.alt;
+      lbImg.style.transform = "scale(1)";
+      zoom = 1;
+      lbCap.textContent = item.alt;
+      lb.hidden = false;
+      document.body.style.overflow = "hidden";
+      document.getElementById("lightbox-close").focus();
+      stop();
+    }
+    function cerrarLB() {
+      if (!lb) return;
+      lb.hidden = true;
+      document.body.style.overflow = "";
+      lbImg.src = "";
+    }
+    if (track) {
+      track.addEventListener("click", function (e) {
+        if (e.target.closest("video")) return;
+        var card = e.target.closest(".coverflow__card");
+        if (!card) return;
+        var i = Array.prototype.indexOf.call(track.children, card);
+        if (i === index) abrirLB(active[i]);
+        else go(i < index ? index - 1 : index + 1);
+      });
+    }
+    if (lb) {
+      document.getElementById("lightbox-close").addEventListener("click", cerrarLB);
+      lb.addEventListener("click", function (e) { if (e.target === lb) cerrarLB(); });
+      document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !lb.hidden) cerrarLB(); });
+      if (lbZoom) lbZoom.addEventListener("click", function () {
+        zoom = zoom >= 2.4 ? 1 : +(zoom + 0.6).toFixed(1);
+        lbImg.style.transform = "scale(" + zoom + ")";
+        lbZoom.setAttribute("aria-label", zoom > 1 ? "Restablecer tamaño" : "Acercar imagen");
+        lbZoom.textContent = zoom > 1 ? "↺" : "+";
+      });
+    }
   }
 
   /* ============================================================

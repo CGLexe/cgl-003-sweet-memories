@@ -190,10 +190,19 @@ html.m-enter-done .hero__figure video { transform: none; transition: transform 1
 .coverflow__stage { position: relative; height: clamp(360px, 42vw, 540px); outline-offset: 6px; touch-action: pan-y; cursor: grab; transform-style: preserve-3d; overflow: hidden; }
 .coverflow__stage:active { cursor: grabbing; }
 .coverflow__track { position: absolute; inset: 0; transform-style: preserve-3d; }
-.coverflow__card { position: absolute; left: 50%; top: 50%; width: clamp(210px, 26vw, 340px); height: 100%; max-height: 460px; margin-top: calc(clamp(210px, 26vw, 340px) * -0.62); transform-origin: center center; transform-style: preserve-3d; will-change: transform, opacity; transition: transform .72s var(--ease-out), opacity .5s var(--ease-out); }
+.coverflow__card { position: absolute; left: 50%; top: 50%; width: clamp(210px, 26vw, 340px); height: 100%; max-height: 460px; margin-top: -230px; transform-origin: center center; transform-style: preserve-3d; will-change: transform, opacity; transition: transform .72s var(--ease-out), opacity .5s var(--ease-out); }
 .coverflow__frame { position: relative; width: 100%; height: 100%; overflow: hidden; padding: 14px 14px 44px; background: var(--tinta); box-shadow: 0 26px 60px rgba(0,0,0,.32); }
 .coverflow__frame img, .coverflow__frame video { width: 100%; height: 100%; object-fit: cover; display: block; }
 .coverflow__card.is-active .coverflow__frame { box-shadow: 0 34px 80px rgba(0,0,0,.45); }
+.coverflow__label { position: absolute; left: 14px; right: 14px; bottom: 12px; font: 700 10px/1.2 var(--font-body); letter-spacing: .12em; text-transform: uppercase; color: var(--ink); text-align: center; }
+.coverflow__sticker { position: absolute; width: 46px; height: 46px; display: grid; place-items: center; pointer-events: none; filter: drop-shadow(0 4px 8px rgba(0,0,0,.18)); transition: transform .3s var(--ease-out); }
+.coverflow__sticker svg { width: 100%; height: 100%; }
+.coverflow__sticker--a { top: 8px; right: 8px; transform: rotate(14deg); }
+.coverflow__sticker--b { bottom: 44px; left: 6px; width: 38px; height: 38px; transform: rotate(-18deg); }
+.coverflow__card:hover .coverflow__sticker--a { transform: rotate(4deg) scale(1.12); }
+.coverflow__card:hover .coverflow__sticker--b { transform: rotate(-8deg) scale(1.12); }
+.coverflow__stage { cursor: pointer; }
+.coverflow__card.is-active .coverflow__frame { cursor: zoom-in; }
 .coverflow__card.is-active .coverflow__frame::after { content: attr(data-tag); }
 .coverflow__arrow { position: absolute; top: 50%; z-index: 30; width: 56px; height: 56px; display: grid; place-items: center; margin-top: -28px; background: var(--cream); border: 1px solid var(--cream); color: var(--ink); cursor: pointer; transition: transform .15s var(--ease-out), background .15s var(--ease-out); }
 .coverflow__arrow:hover { background: #fff; transform: translateY(-2px); }
@@ -201,7 +210,7 @@ html.m-enter-done .hero__figure video { transform: none; transition: transform 1
 .coverflow__arrow--prev { left: 0; }
 .coverflow__arrow--next { right: 0; }
 .coverflow__pause { position: absolute; top: 0; right: 0; z-index: 30; width: 44px; height: 44px; display: grid; place-items: center; background: rgba(247,239,234,.94); border: 0; color: var(--ink); cursor: pointer; }
-.coverflow__meta { display: flex; justify-content: space-between; gap: 16px; margin-top: 8px; font-size: 11px; letter-spacing: .05em; color: rgba(247,239,234,.6); }
+.coverflow__meta { display: flex; justify-content: center; gap: 16px; margin-top: 8px; font-size: 11px; letter-spacing: .05em; color: rgba(247,239,234,.6); }
 .coverflow__count { font: 400 26px/1 var(--font-display); color: var(--cream); letter-spacing: 0; }
 .reel__strip { display: flex; gap: 8px; margin-top: 22px; padding-bottom: 14px; overflow-x: auto; scrollbar-width: thin; }
 .reel__thumb { flex: 0 0 62px; width: 62px; height: 62px; padding: 0; border: 2px solid transparent; background: none; cursor: pointer; opacity: .5; transition: opacity .2s var(--ease-out), border-color .2s var(--ease-out); }
@@ -285,6 +294,18 @@ html.m-enter .cta.is-in h2 em::after { transform: scaleX(1); }
 .footer__legal p { margin: 0; }
 .credits { text-align: right; }
 
+/* ---------- LIGHTBOX ---------- */
+.lightbox { position: fixed; inset: 0; z-index: 60; display: grid; place-items: center; padding: 5vh 5vw; background: rgba(20,8,14,.94); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+.lightbox[hidden] { display: none; }
+.lightbox__figure { margin: 0; max-width: 92vw; max-height: 88vh; display: flex; flex-direction: column; align-items: center; gap: 14px; }
+.lightbox__figure img { max-width: min(92vw, 900px); max-height: 78vh; object-fit: contain; transform-origin: center; transition: transform .25s var(--ease-out); }
+.lightbox__figure figcaption { font-size: 12px; letter-spacing: .04em; color: rgba(247,239,234,.72); text-align: center; }
+.lightbox__close, .lightbox__zoom { position: absolute; top: 22px; width: 48px; height: 48px; display: grid; place-items: center; background: var(--cream); border: 0; color: var(--ink); font: 400 28px/1 var(--font-body); cursor: pointer; transition: transform .15s var(--ease-out); }
+.lightbox__close { right: 22px; }
+.lightbox__zoom { right: 80px; font-size: 24px; font-weight: 600; }
+.lightbox__close:hover, .lightbox__zoom:hover { transform: translateY(-2px); }
+.lightbox__close:active, .lightbox__zoom:active { transform: scale(.94); }
+
 /* ---------- BARRA MÓVIL ---------- */
 .actionbar { display: none; }
 .actionbar .btn { width: 100%; min-height: 48px; }
@@ -296,8 +317,8 @@ html.m-enter [data-reveal].is-in { opacity: 1; transform: none; }
 /* ---------- FLORA EN ÓRBITA (trayectorias random en flora.js) ---------- */
 .svg-sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
 .flora { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
-.flora--ink { --flora-c: rgba(30,27,24,.18); --flora-c2: rgba(201,76,109,.28); }
-.flora--claro { --flora-c: rgba(247,239,234,.26); --flora-c2: rgba(223,185,118,.36); }
+.flora--ink { --flora-c: rgba(30,27,24,.24); --flora-c2: rgba(201,76,109,.34); }
+.flora--claro { --flora-c: rgba(247,239,234,.4); --flora-c2: rgba(223,185,118,.5); }
 .flora__orbit { position: absolute; left: var(--x); top: var(--y); }
 .flora__item { display: block; width: var(--s); height: var(--s); margin: calc(var(--s) / -2) 0 0 calc(var(--s) / -2); color: var(--flora-c); }
 
