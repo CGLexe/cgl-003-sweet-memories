@@ -17,12 +17,14 @@
   var titulos = ["Tipo de pieza", "Tamaño y flores", "Tonos y extras", "Entrega y datos"];
 
   // Cada vista se eligió revisando la foto real, no por el alt del manifiesto.
+  // Clasificación revisada contra fuentes de floristería y contra las fotos reales del catálogo.
+  // El buchón es una cúpula densa de rosas; el "monumental" es el mismo estilo, por eso se fusionó.
   var vistas = {
-    "Ramo buchón": { src: "assets/photos/igexport-Da027BACb76-5.webp", alt: "Ramo redondo de peonías rosadas" },
-    "Composición de atelier": { src: "assets/photos/igexport-DbXPZzMFuhx-6.webp", alt: "Ramo de lirios y peonías en papel rosa" },
-    "Caja / Hatbox": { src: "assets/photos/igexport-B2sjBoTB3jo.webp", alt: "Caja sombrerera rosa con rosas" },
-    "Arreglo monumental": { src: "assets/photos/igexport-Ct0QDHite2v.webp", alt: "Ramo monumental de rosas rojas" },
-    "Globos y peluches": { src: "assets/photos/igexport-CkRHAnZr6Zf.webp", alt: "Peluche de rosas rojas" }
+    "Ramo buchón": { src: "assets/photos/igexport-B2nTOBkh7OD.webp", alt: "Cúpula densa de rosas rojas" },
+    "Ramo clásico": { src: "assets/photos/igexport-DbXPZzMFuhx-5.webp", alt: "Ramo de peonías rosadas en papel" },
+    "Composición de atelier": { src: "assets/photos/igexport-DbBsGc2CZbG.webp", alt: "Ramo de peonías crema con follaje plateado" },
+    "Caja / Hatbox": { src: "assets/photos/igexport-B877-0uB7dF-5.webp", alt: "Caja rosa con rosas y corazón de rosas rojas" },
+    "Peluche y globos": { src: "assets/photos/igexport-CkLc7_rrSa3.webp", alt: "Peluche rosa con rosas en caja" }
   };
 
   function checked(name) {
