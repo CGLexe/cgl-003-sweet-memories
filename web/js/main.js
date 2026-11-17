@@ -42,117 +42,78 @@
   var heroVideo = document.getElementById("hero-video");
 
   /* ============================================================
-     3. Carrusel: filtros, miniaturas, teclado, arrastre, autoplay
+     3. Coverflow: tarjetas en abanico, foco central (video de referencia)
      ============================================================ */
   var track = document.getElementById("reel-track");
   var viewport = document.getElementById("reel-viewport");
   var reel = document.getElementById("reel");
-  var strip = document.getElementById("reel-strip");
   var counter = document.getElementById("reel-counter");
   var total = document.getElementById("gallery-total");
   var prev = document.getElementById("reel-prev");
   var next = document.getElementById("reel-next");
   var pauseBtn = document.getElementById("reel-pause");
-  var progress = document.getElementById("reel-progress");
   var chips = Array.prototype.slice.call(document.querySelectorAll("#filtros .chip"));
+  var TINTAS = ["#f6cfc6", "#cfe4ef", "#f7e3aa", "#d9d2ee", "#d8ecd8", "#e7d3c8", "#bfe3e0", "#f2cbdc", "#efd9b8", "#d3d9ef"];
   var active = media;
-  var base = media.length;
-  var index = base;
-  var pos = 0;
+  var index = 0;
   var timer = null;
-  var normTimer = null;
-  var drag = null;
+  var cards = [];
 
   function slideHTML(item, i) {
     var visual = item.type === "video"
       ? '<video controls playsinline preload="metadata" poster="' + item.poster + '" aria-label="' + item.alt + '"><source src="' + item.src + '" type="video/mp4"></video>'
-      : '<img src="' + item.src + '" alt="' + item.alt + '" width="800" height="1000" loading="' + (i < 2 ? "eager" : "lazy") + '" decoding="async">';
-    return '<div class="reel__item"><div class="frame" data-tag="' + item.cat + '">' + visual + "</div></div>";
-  }
-
-  function stepPx() {
-    var item = track.querySelector(".reel__item");
-    if (!item) return 1;
-    var gap = parseFloat(getComputedStyle(track).gap) || 16;
-    return item.getBoundingClientRect().width + gap;
-  }
-  function setX(x, animate) {
-    track.style.transition = animate ? "" : "none";
-    track.style.transform = "translate3d(" + x + "px,0,0)";
-    pos = x;
-  }
-  function actual() { return ((index % base) + base) % base; }
-
-  function normalize() {
-    if (!base) return;
-    var changed = false;
-    while (index >= 2 * base) { index -= base; changed = true; }
-    while (index < base) { index += base; changed = true; }
-    if (changed) {
-      setX(-index * stepPx(), false);
-      void track.offsetWidth;
-      track.style.transition = "";
-    }
-  }
-
-  function updateMeta() {
-    var i = actual();
-    counter.textContent = (i + 1) + " de " + base;
-    var thumb = strip.children[i];
-    if (thumb) {
-      Array.prototype.forEach.call(strip.children, function (c) {
-        c.classList.remove("is-active");
-        c.setAttribute("aria-selected", "false");
-      });
-      thumb.classList.add("is-active");
-      thumb.setAttribute("aria-selected", "true");
-      var target = thumb.offsetLeft - (strip.clientWidth - thumb.clientWidth) / 2;
-      strip.scrollTo({ left: target, behavior: reduce ? "auto" : "smooth" });
-    }
-  }
-
-  function resetProgress() {
-    if (!progress) return;
-    progress.style.animation = "none";
-    void progress.offsetWidth;
-    progress.style.animation = "";
-  }
-
-  function go(to) {
-    if (!base) return;
-    index = to;
-    setX(-index * stepPx(), true);
-    updateMeta();
-    resetProgress();
-    window.clearTimeout(normTimer);
-    normTimer = window.setTimeout(normalize, 800);
+      : '<img src="' + item.src + '" alt="' + item.alt + '" width="800" height="1000" loading="lazy" decoding="async">';
+    return '<div class="coverflow__card" style="--tinta:' + TINTAS[i % TINTAS.length] + '"><div class="coverflow__frame">' + visual + '</div></div>';
   }
 
   function render() {
-    base = active.length;
-    if (!base) return;
-    var bloque = active.map(slideHTML).join("");
-    track.innerHTML = bloque + bloque + bloque;
-    strip.innerHTML = active.map(function (item, i) {
-      var thumbSrc = item.poster || item.src;
-      return '<button class="reel__thumb" type="button" role="tab" data-i="' + i + '" aria-label="Ver ' + item.alt + '"><img src="' + thumbSrc + '" alt="" loading="lazy" decoding="async"></button>';
-    }).join("");
-    Array.prototype.forEach.call(strip.children, function (b) {
-      b.addEventListener("click", function () { go(base + Number(b.dataset.i)); stop(); });
-    });
-    if (total) total.textContent = base + (base === 1 ? " pieza" : " piezas");
-    index = base;
-    setX(-index * stepPx(), false);
-    updateMeta();
+    if (!track || !active.length) return;
+    track.innerHTML = active.map(slideHTML).join("");
+    cards = Array.prototype.slice.call(track.children);
+    if (total) total.textContent = active.length + (active.length === 1 ? " pieza" : " piezas");
+    index = 0;
+    paint();
   }
 
+  function paint() {
+    if (!cards.length) return;
+    var n = cards.length;
+    var mitad = Math.floor(n / 2);
+    var ang = n > 1 ? 58 / Math.min(4, mitad) : 0;
+    var sep = n > 1 ? Math.min(window.innerWidth * 0.16, 190) : 0;
+    cards.forEach(function (card, i) {
+      var d = i - index;
+      if (d > mitad) d -= n;
+      if (d < -mitad) d += n;
+      var abs = Math.abs(d);
+      var visible = abs <= 4;
+      var z = 20 - abs;
+      var x = d * sep;
+      var ty = Math.min(abs, 4) * 14;
+      var ry = d * -ang;
+      var sc = 1 - Math.min(abs, 4) * 0.11;
+      card.style.zIndex = String(z);
+      card.style.opacity = visible ? (abs > 3 ? 0 : (abs === 3 ? .25 : 1)) : "0";
+      card.style.transform = "translate3d(calc(-50% + " + x.toFixed(1) + "px)," + ty.toFixed(1) + "px,0) rotateY(" + ry.toFixed(1) + "deg) scale(" + sc.toFixed(3) + ")";
+      card.classList.toggle("is-active", d === 0);
+      card.setAttribute("aria-hidden", d === 0 ? "false" : "true");
+    });
+    if (counter) counter.textContent = (index + 1) + " de " + n;
+  }
+
+  function go(to) {
+    if (!cards.length) return;
+    index = ((to % cards.length) + cards.length) % cards.length;
+    paint();
+  }
   function start() {
-    if (reduce || timer || base < 2) return;
+    if (reduce || timer || active.length < 2) return;
     timer = window.setInterval(function () { go(index + 1); }, 5000);
     if (reel) reel.classList.remove("is-paused");
     if (pauseBtn) {
       pauseBtn.setAttribute("aria-label", "Pausar galería automática");
-      pauseBtn.querySelector(".material-symbols-outlined").textContent = "pause";
+      var ic = pauseBtn.querySelector(".material-symbols-outlined");
+      if (ic) ic.textContent = "pause";
     }
   }
   function stop() {
@@ -160,15 +121,16 @@
     if (reel) reel.classList.add("is-paused");
     if (pauseBtn) {
       pauseBtn.setAttribute("aria-label", "Reanudar galería automática");
-      pauseBtn.querySelector(".material-symbols-outlined").textContent = "play_arrow";
+      var ic = pauseBtn.querySelector(".material-symbols-outlined");
+      if (ic) ic.textContent = "play_arrow";
     }
   }
 
   if (track && media.length) {
     render();
     start();
-    prev.addEventListener("click", function () { go(index - 1); stop(); });
-    next.addEventListener("click", function () { go(index + 1); stop(); });
+    if (prev) prev.addEventListener("click", function () { go(index - 1); stop(); });
+    if (next) next.addEventListener("click", function () { go(index + 1); stop(); });
     if (pauseBtn) pauseBtn.addEventListener("click", function () { timer ? stop() : start(); });
     chips.forEach(function (chip) {
       chip.addEventListener("click", function () {
@@ -181,52 +143,27 @@
         start();
       });
     });
-    viewport.tabIndex = 0;
-    viewport.addEventListener("keydown", function (e) {
-      if (e.key === "ArrowRight") { go(index + 1); stop(); }
-      if (e.key === "ArrowLeft") { go(index - 1); stop(); }
-    });
-
-    viewport.addEventListener("pointerdown", function (e) {
-      if (e.button !== undefined && e.button !== 0) return;
-      window.clearTimeout(normTimer);
-      drag = { x: e.clientX, startX: pos, startIndex: index, t: Date.now(), lastX: e.clientX, lastT: Date.now(), v: 0, moved: false };
-      track.style.transition = "none";
-      stop();
-      if (viewport.setPointerCapture) {
-        try { viewport.setPointerCapture(e.pointerId); } catch (err) { /* puntero sintético */ }
-      }
-    });
-    viewport.addEventListener("pointermove", function (e) {
-      if (!drag) return;
-      var dx = e.clientX - drag.x;
-      if (Math.abs(dx) > 4) drag.moved = true;
-      var now = Date.now();
-      var dt = Math.max(1, now - drag.lastT);
-      drag.v = (e.clientX - drag.lastX) / dt;
-      drag.lastX = e.clientX;
-      drag.lastT = now;
-      setX(drag.startX + dx, false);
-    });
-    function finishDrag() {
-      if (!drag) return;
-      var st = stepPx();
-      var projected = pos + drag.v * 120;
-      var target = Math.round(-projected / st);
-      var delta = target - drag.startIndex;
-      delta = Math.max(-3, Math.min(3, delta));
-      var origin = drag.startIndex;
-      drag = null;
-      track.style.transition = "";
-      go(origin + delta);
+    if (viewport) {
+      viewport.addEventListener("keydown", function (e) {
+        if (e.key === "ArrowRight") { go(index + 1); stop(); }
+        if (e.key === "ArrowLeft") { go(index - 1); stop(); }
+      });
+      var drag = null;
+      viewport.addEventListener("pointerdown", function (e) {
+        if (e.button !== undefined && e.button !== 0) return;
+        drag = { x: e.clientX, moved: false };
+        stop();
+        if (viewport.setPointerCapture) { try { viewport.setPointerCapture(e.pointerId); } catch (err) {} }
+      });
+      viewport.addEventListener("pointermove", function (e) {
+        if (!drag) return;
+        if (Math.abs(e.clientX - drag.x) > 40) { drag.moved = true; go(index + (e.clientX < drag.x ? 1 : -1)); drag.x = e.clientX; }
+      });
+      function endDrag() { drag = null; }
+      viewport.addEventListener("pointerup", endDrag);
+      viewport.addEventListener("pointercancel", endDrag);
     }
-    viewport.addEventListener("pointerup", finishDrag);
-    viewport.addEventListener("pointercancel", finishDrag);
-
-    window.addEventListener("resize", function () {
-      window.clearTimeout(normTimer);
-      setX(-index * stepPx(), false);
-    });
+    window.addEventListener("resize", paint);
     document.addEventListener("visibilitychange", function () { document.hidden ? stop() : start(); });
   }
 

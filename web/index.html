@@ -244,22 +244,21 @@
           </div>
           <span class="gallery__total" id="gallery-total">60 piezas</span>
         </div>
-        <div class="reel" id="reel" aria-roledescription="carrusel" aria-label="Galería de arreglos florales">
-          <div class="reel__viewport" id="reel-viewport">
-            <div class="reel__track" id="reel-track"></div>
+        <div class="coverflow" id="reel" aria-roledescription="carrusel" aria-label="Galería de arreglos florales">
+          <div class="coverflow__stage" id="reel-viewport" tabindex="0" aria-label="Galería. Usa las flechas para recorrerla.">
+            <div class="coverflow__track" id="reel-track"></div>
           </div>
-          <button class="reel__arrow reel__arrow--prev" id="reel-prev" type="button" aria-label="Foto anterior">
+          <button class="coverflow__arrow coverflow__arrow--prev" id="reel-prev" type="button" aria-label="Foto anterior">
             <span class="material-symbols-outlined" aria-hidden="true">arrow_back</span>
           </button>
-          <button class="reel__arrow reel__arrow--next" id="reel-next" type="button" aria-label="Foto siguiente">
+          <button class="coverflow__arrow coverflow__arrow--next" id="reel-next" type="button" aria-label="Foto siguiente">
             <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
           </button>
-          <button class="reel__pause" id="reel-pause" type="button" aria-label="Pausar galería automática">
+          <button class="coverflow__pause" id="reel-pause" type="button" aria-label="Pausar galería automática">
             <span class="material-symbols-outlined" aria-hidden="true">pause</span>
           </button>
-          <div class="reel__progress" aria-hidden="true"><i id="reel-progress"></i></div>
-          <div class="reel__meta">
-            <span id="reel-counter" class="reel__count">1 de 60</span>
+          <div class="coverflow__meta">
+            <span id="reel-counter" class="coverflow__count">1 de 60</span>
             <span>Desliza o usa las flechas</span>
           </div>
         </div>
