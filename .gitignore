@@ -2,3 +2,6 @@
 .env*.local
 node_modules
 .vercel
+
+# Material original de Instagram: las copias optimizadas viven en web/assets/
+IMAGENES/
