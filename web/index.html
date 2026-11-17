@@ -24,6 +24,32 @@
 <body>
   <a class="skip-link" href="#main">Saltar al contenido</a>
 
+  <svg class="svg-sprite" width="0" height="0" aria-hidden="true" focusable="false">
+    <symbol id="flor-cinco" viewBox="0 0 48 48">
+      <g fill="currentColor">
+        <ellipse cx="24" cy="12" rx="6" ry="10"/>
+        <ellipse cx="24" cy="12" rx="6" ry="10" transform="rotate(72 24 24)"/>
+        <ellipse cx="24" cy="12" rx="6" ry="10" transform="rotate(144 24 24)"/>
+        <ellipse cx="24" cy="12" rx="6" ry="10" transform="rotate(216 24 24)"/>
+        <ellipse cx="24" cy="12" rx="6" ry="10" transform="rotate(288 24 24)"/>
+      </g>
+      <circle cx="24" cy="24" r="5" fill="#fff" opacity=".6"/>
+    </symbol>
+    <symbol id="flor-cuatro" viewBox="0 0 48 48">
+      <g fill="currentColor">
+        <ellipse cx="24" cy="11" rx="5" ry="9"/>
+        <ellipse cx="24" cy="11" rx="5" ry="9" transform="rotate(90 24 24)"/>
+        <ellipse cx="24" cy="11" rx="5" ry="9" transform="rotate(180 24 24)"/>
+        <ellipse cx="24" cy="11" rx="5" ry="9" transform="rotate(270 24 24)"/>
+      </g>
+      <circle cx="24" cy="24" r="4.5" fill="#fff" opacity=".55"/>
+    </symbol>
+    <symbol id="hoja-floral" viewBox="0 0 48 48">
+      <path d="M8 40C8 20 20 8 40 8c0 20-12 32-32 32Z" fill="currentColor"/>
+      <path d="M11 37 37 11" stroke="#fff" stroke-width="1.6" opacity=".5" fill="none"/>
+    </symbol>
+  </svg>
+
   <header class="nav">
     <div class="wrap nav__bar">
       <a class="nav__logo" href="#inicio" aria-label="Sweet Memories, inicio">
@@ -32,6 +58,7 @@
       <nav class="nav__links" aria-label="Navegación principal">
         <a class="nav__link" href="#coleccion">Colección</a>
         <a class="nav__link" href="#galeria">Galería</a>
+        <a class="nav__link" href="#pedido">Arma tu pedido</a>
         <a class="nav__link" href="#cuidados">Cuidados</a>
         <a class="nav__link" href="#nosotros">Nosotros</a>
         <a class="nav__link" href="#ubicacion">Ubicación</a>
@@ -48,6 +75,7 @@
     <nav class="menu-movil" id="menu-movil" aria-label="Menú móvil" hidden>
       <a href="#coleccion">Colección</a>
       <a href="#galeria">Galería</a>
+      <a href="#pedido">Arma tu pedido</a>
       <a href="#cuidados">Cuidados</a>
       <a href="#nosotros">Nosotros</a>
       <a href="#ubicacion">Ubicación</a>
@@ -57,6 +85,14 @@
 
   <main id="main">
     <section class="hero" id="inicio" data-enter aria-labelledby="hero-titulo">
+      <div class="flora flora--hero" aria-hidden="true">
+        <svg class="flora__item" style="--x:6%;--y:18%;--s:52px;--t:19s;--d:-2s"><use href="#flor-cinco"/></svg>
+        <svg class="flora__item" style="--x:88%;--y:12%;--s:38px;--t:23s;--d:-7s"><use href="#hoja-floral"/></svg>
+        <svg class="flora__item" style="--x:42%;--y:8%;--s:28px;--t:17s;--d:-11s"><use href="#flor-cuatro"/></svg>
+        <svg class="flora__item" style="--x:95%;--y:64%;--s:60px;--t:25s;--d:-4s"><use href="#flor-cinco"/></svg>
+        <svg class="flora__item" style="--x:3%;--y:78%;--s:34px;--t:21s;--d:-14s"><use href="#hoja-floral"/></svg>
+        <svg class="flora__item" style="--x:68%;--y:92%;--s:24px;--t:16s;--d:-9s"><use href="#flor-cuatro"/></svg>
+      </div>
       <div class="wrap hero__grid">
         <div class="hero__copy-top">
           <p class="eyebrow hero__eyebrow"><span class="eyebrow__line" aria-hidden="true"></span> Atelier floral · Oaxaca de Juárez</p>
@@ -108,6 +144,12 @@
     </div>
 
     <section class="statement" aria-labelledby="statement-titulo">
+      <div class="flora flora--clara" aria-hidden="true">
+        <svg class="flora__item" style="--x:8%;--y:24%;--s:46px;--t:22s;--d:-3s"><use href="#flor-cinco"/></svg>
+        <svg class="flora__item" style="--x:90%;--y:70%;--s:54px;--t:26s;--d:-12s"><use href="#flor-cuatro"/></svg>
+        <svg class="flora__item" style="--x:78%;--y:14%;--s:30px;--t:18s;--d:-8s"><use href="#hoja-floral"/></svg>
+        <svg class="flora__item" style="--x:16%;--y:82%;--s:36px;--t:20s;--d:-16s"><use href="#hoja-floral"/></svg>
+      </div>
       <div class="wrap statement__inner" data-reveal>
         <span class="statement__mark" aria-hidden="true">✳</span>
         <h2 id="statement-titulo">Elegimos cada flor a mano. El arreglo habla por ti en <em>aniversarios, declaraciones</em> y días sin motivo.</h2>
@@ -224,6 +266,124 @@
       </div>
     </section>
 
+    <section class="section builder" id="pedido" aria-labelledby="pedido-titulo">
+      <div class="wrap">
+        <div class="section-head" data-reveal>
+          <p class="section-id">06 — Ensamblador de pedidos</p>
+          <h2 id="pedido-titulo">Arma tu arreglo,<br>escríbenos <em>listo</em></h2>
+          <p>Elige la pieza, las flores y los detalles. Nosotros preparamos el mensaje y lo enviamos a WhatsApp para que solo confirmes.</p>
+        </div>
+
+        <div class="builder__layout">
+          <form class="builder__form" id="order-form" novalidate>
+            <div class="builder__progress" aria-hidden="true">
+              <span class="builder__progress-fill" id="builder-progress"></span>
+            </div>
+            <p class="builder__step-label" id="step-label" aria-live="polite">Paso 1 de 4 · Tipo de pieza</p>
+
+            <fieldset class="builder__step is-active" data-step="0">
+              <legend>¿Qué tipo de pieza quieres?</legend>
+              <div class="opts opts--dos">
+                <label class="opt"><input type="radio" name="tipo" value="Ramo buchón" checked><span class="opt__body"><span class="opt__ico material-symbols-outlined" aria-hidden="true">auto_awesome</span><strong>Ramo buchón</strong><small>Ramo redondo, frondoso y protagonista</small></span></label>
+                <label class="opt"><input type="radio" name="tipo" value="Composición de atelier"><span class="opt__body"><span class="opt__ico material-symbols-outlined" aria-hidden="true">palette</span><strong>Composición de atelier</strong><small>Diseño de autor, pieza irrepetible</small></span></label>
+                <label class="opt"><input type="radio" name="tipo" value="Caja / Hatbox"><span class="opt__body"><span class="opt__ico material-symbols-outlined" aria-hidden="true">redeem</span><strong>Caja / Hatbox</strong><small>Flores presentadas en caja sombrerera</small></span></label>
+                <label class="opt"><input type="radio" name="tipo" value="Arreglo monumental"><span class="opt__body"><span class="opt__ico material-symbols-outlined" aria-hidden="true">workspace_premium</span><strong>Arreglo monumental</strong><small>Grandes formatos para eventos y recepciones</small></span></label>
+                <label class="opt"><input type="radio" name="tipo" value="Globos y peluches"><span class="opt__body"><span class="opt__ico material-symbols-outlined" aria-hidden="true">celebration</span><strong>Globos y peluches</strong><small>Complementos para el detalle</small></span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="builder__step" data-step="1" hidden>
+              <legend>Tamaño y flores</legend>
+              <p class="builder__sub">Tamaño</p>
+              <div class="opts opts--cuatro">
+                <label class="opt opt--chip"><input type="radio" name="tamano" value="Pequeño"><span class="opt__body"><strong>Pequeño</strong></span></label>
+                <label class="opt opt--chip"><input type="radio" name="tamano" value="Mediano" checked><span class="opt__body"><strong>Mediano</strong></span></label>
+                <label class="opt opt--chip"><input type="radio" name="tamano" value="Grande"><span class="opt__body"><strong>Grande</strong></span></label>
+                <label class="opt opt--chip"><input type="radio" name="tamano" value="Monumental"><span class="opt__body"><strong>Monumental</strong></span></label>
+              </div>
+              <p class="builder__sub">Flores (puedes elegir varias)</p>
+              <div class="opts opts--flores">
+                <label class="opt opt--check"><input type="checkbox" name="flores" value="Peonías"><span class="opt__body">Peonías</span></label>
+                <label class="opt opt--check"><input type="checkbox" name="flores" value="Rosas" checked><span class="opt__body">Rosas</span></label>
+                <label class="opt opt--check"><input type="checkbox" name="flores" value="Girasoles"><span class="opt__body">Girasoles</span></label>
+                <label class="opt opt--check"><input type="checkbox" name="flores" value="Hortensias"><span class="opt__body">Hortensias</span></label>
+                <label class="opt opt--check"><input type="checkbox" name="flores" value="Lisianthus"><span class="opt__body">Lisianthus</span></label>
+                <label class="opt opt--check"><input type="checkbox" name="flores" value="Tulipanes"><span class="opt__body">Tulipanes</span></label>
+                <label class="opt opt--check"><input type="checkbox" name="flores" value="Gerberas"><span class="opt__body">Gerberas</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="builder__step" data-step="2" hidden>
+              <legend>Tonos, extras y ocasión</legend>
+              <p class="builder__sub">Tonos</p>
+              <div class="opts opts--dos">
+                <label class="opt opt--chip"><input type="radio" name="tonos" value="Pastel" checked><span class="opt__body"><strong>Pastel</strong></span></label>
+                <label class="opt opt--chip"><input type="radio" name="tonos" value="Rojo y blanco"><span class="opt__body"><strong>Rojo y blanco</strong></span></label>
+                <label class="opt opt--chip"><input type="radio" name="tonos" value="Blanco y verde"><span class="opt__body"><strong>Blanco y verde</strong></span></label>
+                <label class="opt opt--chip"><input type="radio" name="tonos" value="De temporada"><span class="opt__body"><strong>De temporada</strong></span></label>
+              </div>
+              <p class="builder__sub">Extras</p>
+              <div class="opts opts--flores">
+                <label class="opt opt--check"><input type="checkbox" name="extras" value="Tarjeta caligráfica" checked><span class="opt__body">Tarjeta caligráfica</span></label>
+                <label class="opt opt--check"><input type="checkbox" name="extras" value="Globos"><span class="opt__body">Globos</span></label>
+                <label class="opt opt--check"><input type="checkbox" name="extras" value="Peluche"><span class="opt__body">Peluche</span></label>
+                <label class="opt opt--check"><input type="checkbox" name="extras" value="Chocolate"><span class="opt__body">Chocolate</span></label>
+              </div>
+              <p class="builder__sub">Ocasión</p>
+              <div class="opts opts--flores">
+                <label class="opt opt--check"><input type="radio" name="ocasion" value="Aniversario" checked><span class="opt__body">Aniversario</span></label>
+                <label class="opt opt--check"><input type="radio" name="ocasion" value="Cumpleaños"><span class="opt__body">Cumpleaños</span></label>
+                <label class="opt opt--check"><input type="radio" name="ocasion" value="Declaración"><span class="opt__body">Declaración</span></label>
+                <label class="opt opt--check"><input type="radio" name="ocasion" value="Día de mamá"><span class="opt__body">Día de mamá</span></label>
+                <label class="opt opt--check"><input type="radio" name="ocasion" value="Sin motivo"><span class="opt__body">Sin motivo</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="builder__step" data-step="3" hidden>
+              <legend>Entrega y datos</legend>
+              <div class="fields">
+                <label class="field"><span>¿Para quién es? *</span><input type="text" name="destinatario" autocomplete="name" placeholder="Nombre de quien recibe" required></label>
+                <label class="field"><span>Dirección de entrega *</span><input type="text" name="direccion" autocomplete="street-address" placeholder="Calle, número, colonia, Oaxaca" required></label>
+                <div class="field-row">
+                  <label class="field"><span>Fecha</span><input type="date" name="fecha"></label>
+                  <label class="field"><span>Hora</span><input type="time" name="hora"></label>
+                </div>
+                <div class="field-row">
+                  <label class="field"><span>Presupuesto *</span><select name="presupuesto" required>
+                    <option value="">Elige un rango</option>
+                    <option>Menos de $1,000 MXN</option>
+                    <option>$1,000 a $1,500 MXN</option>
+                    <option>$1,500 a $2,500 MXN</option>
+                    <option>$2,500 a $5,000 MXN</option>
+                    <option>Más de $5,000 MXN</option>
+                    <option>Aún no lo sé</option>
+                  </select></label>
+                  <label class="field"><span>Tu teléfono *</span><input type="tel" name="telefono" autocomplete="tel" inputmode="tel" placeholder="951 000 0000" required></label>
+                </div>
+                <label class="field"><span>Mensaje para la tarjeta</span><textarea name="mensaje" rows="3" placeholder="Escribe unas palabras (opcional)"></textarea></label>
+              </div>
+              <p class="builder__error" id="form-error" role="alert" hidden></p>
+            </fieldset>
+
+            <div class="builder__nav">
+              <button type="button" class="builder__back" id="step-back" disabled>Anterior</button>
+              <button type="button" class="btn btn--primary" id="step-next">Siguiente <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></button>
+            </div>
+          </form>
+
+          <aside class="builder__summary" aria-label="Resumen de tu pedido">
+            <div class="summary__card">
+              <p class="section-id">Tu pedido</p>
+              <div class="summary__visual"><img id="summary-img" src="assets/photos/igexport-B877-0uB7dF.webp" alt="Vista previa del tipo de arreglo" width="800" height="1000" loading="lazy" decoding="async"></div>
+              <dl class="summary__list" id="summary-list"></dl>
+              <button type="button" class="btn btn--primary btn--xl" id="send-order">Enviar pedido por WhatsApp <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></button>
+              <p class="summary__fine">Se abre WhatsApp con tu pedido redactado. Sin registro ni pago en línea; la floristería confirma disponibilidad y precio.</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
     <section class="section care" id="cuidados" aria-labelledby="cuidados-titulo">
       <div class="wrap">
         <div class="section-head" data-reveal>
@@ -310,6 +470,12 @@
     </section>
 
     <section class="cta" aria-labelledby="cta-titulo">
+      <div class="flora flora--hero" aria-hidden="true">
+        <svg class="flora__item" style="--x:12%;--y:30%;--s:44px;--t:20s;--d:-5s"><use href="#flor-cuatro"/></svg>
+        <svg class="flora__item" style="--x:86%;--y:22%;--s:56px;--t:24s;--d:-13s"><use href="#flor-cinco"/></svg>
+        <svg class="flora__item" style="--x:74%;--y:84%;--s:32px;--t:18s;--d:-2s"><use href="#hoja-floral"/></svg>
+        <svg class="flora__item" style="--x:20%;--y:76%;--s:38px;--t:22s;--d:-10s"><use href="#hoja-floral"/></svg>
+      </div>
       <div class="wrap cta__inner" data-reveal>
         <p class="section-id">Hablemos de flores</p>
         <h2 id="cta-titulo">Cuéntanos qué<br>quieres <em>regalar.</em></h2>
@@ -354,5 +520,6 @@
 
   <script src="js/media.js" defer></script>
   <script src="js/main.js" defer></script>
+  <script src="js/builder.js" defer></script>
 </body>
 </html>

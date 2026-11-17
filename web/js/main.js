@@ -77,9 +77,12 @@
   var progress = document.getElementById("reel-progress");
   var chips = Array.prototype.slice.call(document.querySelectorAll("#filtros .chip"));
   var active = media;
-  var index = 0;
+  var base = media.length;
+  var index = base;
+  var pos = 0;
   var timer = null;
-  var dragging = null;
+  var normTimer = null;
+  var drag = null;
 
   function slideHTML(item, i) {
     var visual = item.type === "video"
@@ -88,26 +91,35 @@
     return '<div class="reel__item"><div class="frame" data-tag="' + item.cat + '">' + visual + "</div></div>";
   }
 
-  function step() {
+  function stepPx() {
     var item = track.querySelector(".reel__item");
-    if (!item) return 0;
+    if (!item) return 1;
     var gap = parseFloat(getComputedStyle(track).gap) || 16;
     return item.getBoundingClientRect().width + gap;
   }
+  function setX(x, animate) {
+    track.style.transition = animate ? "" : "none";
+    track.style.transform = "translate3d(" + x + "px,0,0)";
+    pos = x;
+  }
+  function actual() { return ((index % base) + base) % base; }
 
-  function resetProgress() {
-    if (!progress) return;
-    progress.style.animation = "none";
-    void progress.offsetWidth;
-    progress.style.animation = "";
+  function normalize() {
+    if (!base) return;
+    var changed = false;
+    while (index >= 2 * base) { index -= base; changed = true; }
+    while (index < base) { index += base; changed = true; }
+    if (changed) {
+      setX(-index * stepPx(), false);
+      void track.offsetWidth;
+      track.style.transition = "";
+    }
   }
 
-  function go(to) {
-    if (!active.length) return;
-    index = (to + active.length) % active.length;
-    track.style.transform = "translate3d(" + (-index * step()) + "px,0,0)";
-    counter.textContent = (index + 1) + " de " + active.length;
-    var thumb = strip.children[index];
+  function updateMeta() {
+    var i = actual();
+    counter.textContent = (i + 1) + " de " + base;
+    var thumb = strip.children[i];
     if (thumb) {
       Array.prototype.forEach.call(strip.children, function (c) {
         c.classList.remove("is-active");
@@ -118,25 +130,45 @@
       var target = thumb.offsetLeft - (strip.clientWidth - thumb.clientWidth) / 2;
       strip.scrollTo({ left: target, behavior: reduce ? "auto" : "smooth" });
     }
+  }
+
+  function resetProgress() {
+    if (!progress) return;
+    progress.style.animation = "none";
+    void progress.offsetWidth;
+    progress.style.animation = "";
+  }
+
+  function go(to) {
+    if (!base) return;
+    index = to;
+    setX(-index * stepPx(), true);
+    updateMeta();
     resetProgress();
+    window.clearTimeout(normTimer);
+    normTimer = window.setTimeout(normalize, 800);
   }
 
   function render() {
-    track.innerHTML = active.map(slideHTML).join("");
+    base = active.length;
+    if (!base) return;
+    var bloque = active.map(slideHTML).join("");
+    track.innerHTML = bloque + bloque + bloque;
     strip.innerHTML = active.map(function (item, i) {
       var thumbSrc = item.poster || item.src;
       return '<button class="reel__thumb" type="button" role="tab" data-i="' + i + '" aria-label="Ver ' + item.alt + '"><img src="' + thumbSrc + '" alt="" loading="lazy" decoding="async"></button>';
     }).join("");
     Array.prototype.forEach.call(strip.children, function (b) {
-      b.addEventListener("click", function () { go(Number(b.dataset.i)); stop(); });
+      b.addEventListener("click", function () { go(base + Number(b.dataset.i)); stop(); });
     });
-    if (total) total.textContent = active.length + (active.length === 1 ? " pieza" : " piezas");
-    index = 0;
-    go(0);
+    if (total) total.textContent = base + (base === 1 ? " pieza" : " piezas");
+    index = base;
+    setX(-index * stepPx(), false);
+    updateMeta();
   }
 
   function start() {
-    if (reduce || timer || active.length < 2) return;
+    if (reduce || timer || base < 2) return;
     timer = window.setInterval(function () { go(index + 1); }, 5000);
     if (reel) reel.classList.remove("is-paused");
     if (pauseBtn) {
@@ -175,15 +207,47 @@
       if (e.key === "ArrowRight") { go(index + 1); stop(); }
       if (e.key === "ArrowLeft") { go(index - 1); stop(); }
     });
-    viewport.addEventListener("pointerdown", function (e) { dragging = { x: e.clientX, t: Date.now() }; });
-    viewport.addEventListener("pointerup", function (e) {
-      if (!dragging) return;
-      var dx = e.clientX - dragging.x;
-      var dt = Math.max(1, Date.now() - dragging.t);
-      if (Math.abs(dx) > 45 || Math.abs(dx) / dt > 0.25) { go(dx < 0 ? index + 1 : index - 1); stop(); }
-      dragging = null;
+
+    viewport.addEventListener("pointerdown", function (e) {
+      if (e.button !== undefined && e.button !== 0) return;
+      window.clearTimeout(normTimer);
+      drag = { x: e.clientX, startX: pos, startIndex: index, t: Date.now(), lastX: e.clientX, lastT: Date.now(), v: 0, moved: false };
+      track.style.transition = "none";
+      stop();
+      if (viewport.setPointerCapture) {
+        try { viewport.setPointerCapture(e.pointerId); } catch (err) { /* puntero sintético */ }
+      }
     });
-    window.addEventListener("resize", function () { go(index); });
+    viewport.addEventListener("pointermove", function (e) {
+      if (!drag) return;
+      var dx = e.clientX - drag.x;
+      if (Math.abs(dx) > 4) drag.moved = true;
+      var now = Date.now();
+      var dt = Math.max(1, now - drag.lastT);
+      drag.v = (e.clientX - drag.lastX) / dt;
+      drag.lastX = e.clientX;
+      drag.lastT = now;
+      setX(drag.startX + dx, false);
+    });
+    function finishDrag() {
+      if (!drag) return;
+      var st = stepPx();
+      var projected = pos + drag.v * 120;
+      var target = Math.round(-projected / st);
+      var delta = target - drag.startIndex;
+      delta = Math.max(-3, Math.min(3, delta));
+      var origin = drag.startIndex;
+      drag = null;
+      track.style.transition = "";
+      go(origin + delta);
+    }
+    viewport.addEventListener("pointerup", finishDrag);
+    viewport.addEventListener("pointercancel", finishDrag);
+
+    window.addEventListener("resize", function () {
+      window.clearTimeout(normTimer);
+      setX(-index * stepPx(), false);
+    });
     document.addEventListener("visibilitychange", function () { document.hidden ? stop() : start(); });
   }
 
