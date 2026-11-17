@@ -39,6 +39,33 @@
   }
   function join(name) { return checked(name).join(", "); }
 
+  // El tono "Personalizado" muestra su campo y se incorpora al resumen y al mensaje.
+  var tonoCustom = document.getElementById("tono-personalizado");
+  var tonoCustomWrap = document.getElementById("tono-custom-wrap");
+  var tonoCustomInput = document.getElementById("tono-personalizado-input");
+  function tono() {
+    if (tonoCustom && tonoCustom.checked) {
+      var c = tonoCustomInput ? String(tonoCustomInput.value).trim() : "";
+      return c ? "Personalizado: " + c : "Personalizado";
+    }
+    return checked("tonos")[0];
+  }
+  function sincronizarTono() {
+    if (!tonoCustomWrap) return;
+    tonoCustomWrap.hidden = !(tonoCustom && tonoCustom.checked);
+    if (!tonoCustomWrap.hidden && tonoCustomInput) tonoCustomInput.focus();
+  }
+  if (tonoCustom) tonoCustom.addEventListener("change", sincronizarTono);
+
+  // Calendario y reloj nativos: abrir el selector al hacer clic en el campo.
+  Array.prototype.forEach.call(form.querySelectorAll(".picker-input"), function (el) {
+    el.addEventListener("click", function () {
+      if (el.showPicker) {
+        try { el.showPicker(); } catch (err) { /* navegador sin soporte */ }
+      }
+    });
+  });
+
   function setPaso(n) {
     paso = Math.min(steps.length - 1, Math.max(0, n));
     steps.forEach(function (step, i) {
@@ -74,7 +101,7 @@
     fila("Pieza", checked("tipo")[0]);
     fila("Tamaño", checked("tamano")[0]);
     fila("Flores", join("flores"));
-    fila("Tonos", checked("tonos")[0]);
+    fila("Tonos", tono());
     fila("Extras", join("extras"));
     fila("Ocasión", checked("ocasion")[0]);
     fila("Para", value("destinatario"));
@@ -135,7 +162,7 @@
       "📦 Pieza: " + checked("tipo")[0],
       "📏 Tamaño: " + checked("tamano")[0],
       "💐 Flores: " + join("flores"),
-      "🎨 Tonos: " + checked("tonos")[0]
+      "🎨 Tonos: " + tono()
     ];
     var extras = join("extras");
     if (extras) lineas.push("✨ Extras: " + extras);
@@ -176,6 +203,7 @@
   });
 
   setPaso(0);
+  sincronizarTono();
   resumen();
   vista();
 })();

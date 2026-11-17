@@ -44,7 +44,13 @@ DISEÑO FLORAL DE AUTOR ✳ FLORES FRESCAS ✳ ENTREGAS EN OAXACA ✳ HECHO A MA
   - Composición de atelier: diseño de autor, menos volumen y más detalle
   - Caja / Hatbox: flores en caja sombrerera
   - Peluche y globos: complementos para el detalle
-- Pasos 2 a 4: tamaño y flores, tonos/extras/ocasión, entrega y datos
+- Paso 2, tamaño: Pequeño · Mediano · Grande · Monumental
+- Paso 2, flores (12): Peonías · Rosas · Girasoles · Hortensias · Lisianthus · Tulipanes · Gerberas · Claveles · Orquídeas · Lirios · Eucalipto · Aster
+- Paso 3, tonos (8): Pastel · Rojo y blanco · Blanco y verde · De temporada · Blanco y crema · Rosa y dorado · Coral y verde · Personalizado (campo libre para escribir el color)
+- Paso 3, extras (8): Tarjeta caligráfica · Globos · Peluche · Chocolate · Velas · Cinta personalizada · Confite · Caja de madera
+- Paso 3, ocasión: Aniversario · Cumpleaños · Declaración · Día de mamá · Sin motivo
+- Paso 4: entrega y datos, con calendario y selector de hora nativos
+- Presupuesto: Menos de $1,000 · $1,000 a $1,500 · $1,500 a $2,500 · $2,500 a $5,000 · Más de $5,000 · Aún no lo sé
 - Resumen: «Tu pedido»
 - CTA: Enviar pedido por WhatsApp
 - Microcopy: Se abre WhatsApp con tu pedido redactado. Por ahí confirmamos disponibilidad y precio. No hay registro ni pago en línea.

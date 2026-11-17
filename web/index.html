@@ -322,6 +322,7 @@
                 <label class="opt"><input type="radio" name="tipo" value="Composición de atelier"><span class="opt__body"><span class="opt__thumb"><img src="assets/photos/igexport-DbBsGc2CZbG.webp" alt="Ramo de peonías crema con follaje plateado" width="120" height="120" loading="lazy" decoding="async"></span><strong>Composición de atelier</strong><small>Diseño de autor: menos volumen, más detalle</small></span></label>
                 <label class="opt"><input type="radio" name="tipo" value="Caja / Hatbox"><span class="opt__body"><span class="opt__thumb"><img src="assets/photos/igexport-B877-0uB7dF-5.webp" alt="Caja rosa con rosas y corazón de rosas rojas" width="120" height="120" loading="lazy" decoding="async"></span><strong>Caja / Hatbox</strong><small>Flores presentadas en caja sombrerera</small></span></label>
                 <label class="opt"><input type="radio" name="tipo" value="Peluche y globos"><span class="opt__body"><span class="opt__thumb"><img src="assets/photos/igexport-CkLc7_rrSa3.webp" alt="Peluche rosa con rosas en caja" width="120" height="120" loading="lazy" decoding="async"></span><strong>Peluche y globos</strong><small>Complementos para el detalle</small></span></label>
+              </div>
             </fieldset>
 
             <fieldset class="builder__step" data-step="1" hidden>
@@ -342,6 +343,11 @@
                 <label class="opt opt--check"><input type="checkbox" name="flores" value="Lisianthus"><span class="opt__body">Lisianthus</span></label>
                 <label class="opt opt--check"><input type="checkbox" name="flores" value="Tulipanes"><span class="opt__body">Tulipanes</span></label>
                 <label class="opt opt--check"><input type="checkbox" name="flores" value="Gerberas"><span class="opt__body">Gerberas</span></label>
+                <label class="opt opt--check"><input type="checkbox" name="flores" value="Claveles"><span class="opt__body">Claveles</span></label>
+                <label class="opt opt--check"><input type="checkbox" name="flores" value="Orquídeas"><span class="opt__body">Orquídeas</span></label>
+                <label class="opt opt--check"><input type="checkbox" name="flores" value="Lirios"><span class="opt__body">Lirios</span></label>
+                <label class="opt opt--check"><input type="checkbox" name="flores" value="Eucalipto"><span class="opt__body">Eucalipto</span></label>
+                <label class="opt opt--check"><input type="checkbox" name="flores" value="Aster"><span class="opt__body">Aster</span></label>
               </div>
             </fieldset>
 
@@ -353,13 +359,22 @@
                 <label class="opt opt--chip"><input type="radio" name="tonos" value="Rojo y blanco"><span class="opt__body"><strong>Rojo y blanco</strong></span></label>
                 <label class="opt opt--chip"><input type="radio" name="tonos" value="Blanco y verde"><span class="opt__body"><strong>Blanco y verde</strong></span></label>
                 <label class="opt opt--chip"><input type="radio" name="tonos" value="De temporada"><span class="opt__body"><strong>De temporada</strong></span></label>
+                <label class="opt opt--chip"><input type="radio" name="tonos" value="Blanco y crema"><span class="opt__body"><strong>Blanco y crema</strong></span></label>
+                <label class="opt opt--chip"><input type="radio" name="tonos" value="Rosa y dorado"><span class="opt__body"><strong>Rosa y dorado</strong></span></label>
+                <label class="opt opt--chip"><input type="radio" name="tonos" value="Coral y verde"><span class="opt__body"><strong>Coral y verde</strong></span></label>
+                <label class="opt opt--chip opt--custom"><input type="radio" name="tonos" value="Personalizado" id="tono-personalizado"><span class="opt__body"><strong>Personalizado</strong></span></label>
               </div>
+              <label class="field tono-custom" id="tono-custom-wrap" hidden><span>Escribe el color que quieres</span><input type="text" name="tonoPersonalizado" id="tono-personalizado-input" placeholder="Ej. lavanda con dorado" maxlength="60"></label>
               <p class="builder__sub">Extras</p>
               <div class="opts opts--flores">
                 <label class="opt opt--check"><input type="checkbox" name="extras" value="Tarjeta caligráfica" checked><span class="opt__body">Tarjeta caligráfica</span></label>
                 <label class="opt opt--check"><input type="checkbox" name="extras" value="Globos"><span class="opt__body">Globos</span></label>
                 <label class="opt opt--check"><input type="checkbox" name="extras" value="Peluche"><span class="opt__body">Peluche</span></label>
                 <label class="opt opt--check"><input type="checkbox" name="extras" value="Chocolate"><span class="opt__body">Chocolate</span></label>
+                <label class="opt opt--check"><input type="checkbox" name="extras" value="Velas"><span class="opt__body">Velas</span></label>
+                <label class="opt opt--check"><input type="checkbox" name="extras" value="Cinta personalizada"><span class="opt__body">Cinta personalizada</span></label>
+                <label class="opt opt--check"><input type="checkbox" name="extras" value="Confite"><span class="opt__body">Confite</span></label>
+                <label class="opt opt--check"><input type="checkbox" name="extras" value="Caja de madera"><span class="opt__body">Caja de madera</span></label>
               </div>
               <p class="builder__sub">Ocasión</p>
               <div class="opts opts--flores">
@@ -377,8 +392,8 @@
                 <label class="field"><span>¿Para quién es? *</span><input type="text" name="destinatario" autocomplete="name" placeholder="Nombre de quien recibe" required></label>
                 <label class="field"><span>Dirección de entrega *</span><input type="text" name="direccion" autocomplete="street-address" placeholder="Calle, número, colonia, Oaxaca" required></label>
                 <div class="field-row">
-                  <label class="field"><span>Fecha</span><input type="date" name="fecha"></label>
-                  <label class="field"><span>Hora</span><input type="time" name="hora"></label>
+                  <label class="field"><span>Fecha</span><input type="date" name="fecha" class="picker-input"></label>
+                  <label class="field"><span>Hora</span><input type="time" name="hora" class="picker-input"></label>
                 </div>
                 <div class="field-row">
                   <label class="field"><span>Presupuesto *</span><select name="presupuesto" required>
