@@ -1,14 +1,80 @@
 (function () {
   "use strict";
+
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var media = (window.SM_MEDIA || []).slice();
+
+  /* ============================================================
+     1. Revelados al entrar en viewport (una entrada por contenedor)
+     ============================================================ */
+  var reveals = Array.prototype.slice.call(document.querySelectorAll("[data-reveal]"));
+  function show(el) {
+    el.classList.add("is-in");
+    if (el.classList.contains("cta__inner")) {
+      var cta = el.closest(".cta");
+      if (cta) cta.classList.add("is-in");
+    }
+  }
+  if ("IntersectionObserver" in window && !reduce) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) { show(entry.target); io.unobserve(entry.target); }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
+    reveals.forEach(function (el) { io.observe(el); });
+  } else {
+    reveals.forEach(show);
+  }
+
+  /* ============================================================
+     2. Scroll: rail tipográfico + parallax (solo transform)
+     ============================================================ */
+  var rail = document.getElementById("rail-track");
+  var heroVideo = document.getElementById("hero-video");
+  var aboutImg = document.getElementById("about-img");
+  var ticking = false;
+
+  function clamp(v, min, max) { return Math.min(max, Math.max(min, v)); }
+
+  function paintScroll() {
+    var y = window.pageYOffset || document.documentElement.scrollTop || 0;
+    var docH = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+    var maxScroll = Math.max(1, docH - window.innerHeight);
+
+    if (rail && !reduce) {
+      var shift = Math.max(0, rail.scrollWidth - window.innerWidth);
+      var p = clamp(y / maxScroll, 0, 1);
+      rail.style.transform = "translate3d(" + (-shift * p).toFixed(2) + "px,0,0)";
+    }
+    if (aboutImg && !reduce) {
+      var box = aboutImg.parentElement;
+      var top = box.getBoundingClientRect().top;
+      var vh = window.innerHeight;
+      var prog = clamp((vh - top) / (vh + box.offsetHeight), 0, 1);
+      aboutImg.style.transform = "translate3d(0," + (-34 * prog).toFixed(2) + "px,0)";
+    }
+    ticking = false;
+  }
+  function requestPaint() {
+    if (!ticking) { window.requestAnimationFrame(paintScroll); ticking = true; }
+  }
+  window.addEventListener("scroll", requestPaint, { passive: true });
+  window.addEventListener("resize", requestPaint);
+  paintScroll();
+
+  /* ============================================================
+     3. Carrusel: filtros, miniaturas, teclado, arrastre, autoplay
+     ============================================================ */
   var track = document.getElementById("reel-track");
   var viewport = document.getElementById("reel-viewport");
+  var reel = document.getElementById("reel");
   var strip = document.getElementById("reel-strip");
   var counter = document.getElementById("reel-counter");
+  var total = document.getElementById("gallery-total");
   var prev = document.getElementById("reel-prev");
   var next = document.getElementById("reel-next");
   var pauseBtn = document.getElementById("reel-pause");
+  var progress = document.getElementById("reel-progress");
   var chips = Array.prototype.slice.call(document.querySelectorAll("#filtros .chip"));
   var active = media;
   var index = 0;
@@ -29,6 +95,13 @@
     return item.getBoundingClientRect().width + gap;
   }
 
+  function resetProgress() {
+    if (!progress) return;
+    progress.style.animation = "none";
+    void progress.offsetWidth;
+    progress.style.animation = "";
+  }
+
   function go(to) {
     if (!active.length) return;
     index = (to + active.length) % active.length;
@@ -36,11 +109,16 @@
     counter.textContent = (index + 1) + " de " + active.length;
     var thumb = strip.children[index];
     if (thumb) {
-      Array.prototype.forEach.call(strip.children, function (c) { c.classList.remove("is-active"); c.setAttribute("aria-selected", "false"); });
+      Array.prototype.forEach.call(strip.children, function (c) {
+        c.classList.remove("is-active");
+        c.setAttribute("aria-selected", "false");
+      });
       thumb.classList.add("is-active");
       thumb.setAttribute("aria-selected", "true");
-      thumb.scrollIntoView({ block: "nearest", inline: "nearest", behavior: reduce ? "auto" : "smooth" });
+      var target = thumb.offsetLeft - (strip.clientWidth - thumb.clientWidth) / 2;
+      strip.scrollTo({ left: target, behavior: reduce ? "auto" : "smooth" });
     }
+    resetProgress();
   }
 
   function render() {
@@ -52,6 +130,7 @@
     Array.prototype.forEach.call(strip.children, function (b) {
       b.addEventListener("click", function () { go(Number(b.dataset.i)); stop(); });
     });
+    if (total) total.textContent = active.length + (active.length === 1 ? " pieza" : " piezas");
     index = 0;
     go(0);
   }
@@ -59,11 +138,19 @@
   function start() {
     if (reduce || timer || active.length < 2) return;
     timer = window.setInterval(function () { go(index + 1); }, 5000);
-    if (pauseBtn) { pauseBtn.setAttribute("aria-label", "Pausar galería automática"); pauseBtn.querySelector(".material-symbols-outlined").textContent = "pause"; }
+    if (reel) reel.classList.remove("is-paused");
+    if (pauseBtn) {
+      pauseBtn.setAttribute("aria-label", "Pausar galería automática");
+      pauseBtn.querySelector(".material-symbols-outlined").textContent = "pause";
+    }
   }
   function stop() {
     if (timer) { window.clearInterval(timer); timer = null; }
-    if (pauseBtn) { pauseBtn.setAttribute("aria-label", "Reanudar galería automática"); pauseBtn.querySelector(".material-symbols-outlined").textContent = "play_arrow"; }
+    if (reel) reel.classList.add("is-paused");
+    if (pauseBtn) {
+      pauseBtn.setAttribute("aria-label", "Reanudar galería automática");
+      pauseBtn.querySelector(".material-symbols-outlined").textContent = "play_arrow";
+    }
   }
 
   if (track && media.length) {
@@ -92,21 +179,26 @@
     viewport.addEventListener("pointerup", function (e) {
       if (!dragging) return;
       var dx = e.clientX - dragging.x;
-      if (Math.abs(dx) > 48) { go(dx < 0 ? index + 1 : index - 1); stop(); }
+      var dt = Math.max(1, Date.now() - dragging.t);
+      if (Math.abs(dx) > 45 || Math.abs(dx) / dt > 0.25) { go(dx < 0 ? index + 1 : index - 1); stop(); }
       dragging = null;
     });
     window.addEventListener("resize", function () { go(index); });
     document.addEventListener("visibilitychange", function () { document.hidden ? stop() : start(); });
   }
 
-  var heroVideo = document.getElementById("hero-video");
-  var heroPause = document.getElementById("hero-pause");
-  if (heroVideo && heroPause) {
-    if (reduce) { heroVideo.pause(); heroPause.querySelector(".material-symbols-outlined").textContent = "play_arrow"; heroPause.setAttribute("aria-label", "Reproducir video"); }
-    heroPause.addEventListener("click", function () {
-      if (heroVideo.paused) { heroVideo.play(); heroPause.querySelector(".material-symbols-outlined").textContent = "pause"; heroPause.setAttribute("aria-label", "Pausar video"); }
-      else { heroVideo.pause(); heroPause.querySelector(".material-symbols-outlined").textContent = "play_arrow"; heroPause.setAttribute("aria-label", "Reproducir video"); }
-    });
+  /* ============================================================
+     4. Video del hero y menú móvil
+     ============================================================ */
+  if (heroVideo) {
+    var heroPause = document.getElementById("hero-pause");
+    if (heroPause) {
+      if (reduce) { heroVideo.pause(); heroPause.querySelector(".material-symbols-outlined").textContent = "play_arrow"; heroPause.setAttribute("aria-label", "Reproducir video"); }
+      heroPause.addEventListener("click", function () {
+        if (heroVideo.paused) { heroVideo.play(); heroPause.querySelector(".material-symbols-outlined").textContent = "pause"; heroPause.setAttribute("aria-label", "Pausar video"); }
+        else { heroVideo.pause(); heroPause.querySelector(".material-symbols-outlined").textContent = "play_arrow"; heroPause.setAttribute("aria-label", "Reproducir video"); }
+      });
+    }
   }
 
   var toggle = document.querySelector(".nav__toggle");

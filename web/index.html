@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es" data-type="place" data-radius="soft" data-buttons="block" data-motion>
+<html lang="es" data-type="place" data-motion data-buttons="block">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -11,13 +11,13 @@
   <meta property="og:image" content="og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <meta name="theme-color" content="#fff8f4">
+  <meta name="theme-color" content="#fcfbf9">
   <meta name="site-kind" content="other">
   <meta name="page-type" content="place">
   <meta name="page-kind" content="place">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Material+Symbols+Outlined:opsz,wght,FILL@20..48,100..700,0..1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Material+Symbols+Outlined:opsz,wght,FILL@20..48,100..700,0..1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <script>document.documentElement.classList.add('m-enter');setTimeout(function(){document.documentElement.classList.add('m-enter-done')},700)</script>
 </head>
@@ -36,6 +36,7 @@
         <a class="nav__link" href="#nosotros">Nosotros</a>
         <a class="nav__link" href="#ubicacion">Ubicación</a>
       </nav>
+      <span class="nav__place">Oaxaca · MX</span>
       <a class="btn btn--primary nav__cta" href="https://wa.me/5219516112088" target="_blank" rel="noopener noreferrer">
         Pedir por WhatsApp
         <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
@@ -57,13 +58,37 @@
   <main id="main">
     <section class="hero" id="inicio" data-enter aria-labelledby="hero-titulo">
       <div class="wrap hero__grid">
-        <div class="hero__content">
-          <p class="eyebrow hero__eyebrow">Atelier floral · Oaxaca de Juárez</p>
-          <h1 id="hero-titulo">El arte de crear recuerdos en flor.</h1>
+        <div class="hero__copy-top">
+          <p class="eyebrow hero__eyebrow"><span class="eyebrow__line" aria-hidden="true"></span> Atelier floral · Oaxaca de Juárez</p>
+          <h1 id="hero-titulo">
+            <span class="line"><span>El arte de crear</span></span>
+            <span class="line"><span><em>recuerdos</em> en flor.</span></span>
+          </h1>
+        </div>
+        <div class="hero__media">
+          <div class="hero__figure">
+            <video id="hero-video" autoplay muted loop playsinline preload="metadata"
+                   poster="assets/photos/igexport-CiyO5VwrmT3-8.webp"
+                   aria-label="Video de los arreglos florales de Sweet Memories">
+              <source src="assets/videos/igexport-DeyeQI3Rh4v.mp4" type="video/mp4">
+            </video>
+            <button class="hero__pause" id="hero-pause" type="button" aria-label="Pausar video">
+              <span class="material-symbols-outlined" aria-hidden="true">pause</span>
+            </button>
+          </div>
+          <div class="hero__seal" aria-hidden="true">
+            <svg viewBox="0 0 120 120" role="presentation">
+              <defs><path id="seal-path" d="M60,60 m-45,0 a45,45 0 1,1 90,0 a45,45 0 1,1 -90,0"></path></defs>
+              <text><textPath href="#seal-path">HECHO A MANO · OAXACA · FLORES FRESCAS · </textPath></text>
+            </svg>
+            <span>✳</span>
+          </div>
+        </div>
+        <div class="hero__copy-bottom">
           <p class="hero__lead">Diseño floral de autor en Oaxaca. Ramos monumentales, peonías y girasoles elegidos a mano, preparados cada mañana en nuestro atelier de la Colonia Reforma.</p>
           <div class="btn-row">
             <a class="btn btn--primary" href="https://wa.me/5219516112088?text=Hola%20Sweet%20Memories%2C%20deseo%20consultar%20un%20arreglo%20floral" target="_blank" rel="noopener noreferrer">Consultar por WhatsApp</a>
-            <a class="btn btn--secondary" href="#coleccion">Ver la colección</a>
+            <a class="btn btn--secondary" href="#coleccion">Ver la colección <span class="material-symbols-outlined" aria-hidden="true">arrow_downward</span></a>
           </div>
           <ul class="hero__facts">
             <li><strong>Entregas el mismo día</strong><span>En Oaxaca y zona conurbada</span></li>
@@ -71,88 +96,85 @@
             <li><strong>10,6 mil seguidores</strong><span>En Instagram</span></li>
           </ul>
         </div>
-        <div class="hero__media">
-          <video id="hero-video" autoplay muted loop playsinline preload="metadata"
-                 poster="assets/photos/igexport-CiyO5VwrmT3-8.webp"
-                 aria-label="Video de los arreglos florales de Sweet Memories">
-            <source src="assets/videos/igexport-DeyeQI3Rh4v.mp4" type="video/mp4">
-          </video>
-          <button class="hero__pause" id="hero-pause" type="button" aria-label="Pausar video">
-            <span class="material-symbols-outlined" aria-hidden="true">pause</span>
-          </button>
-        </div>
       </div>
+      <div class="hero__scroll" aria-hidden="true"><span class="hero__scroll-line"></span><span>DESLIZA</span></div>
     </section>
 
-    <section class="section statement" aria-labelledby="statement-titulo">
-      <div class="wrap">
-        <p class="eyebrow">Floristería fina · Oaxaca de Juárez</p>
-        <h2 id="statement-titulo">Elegimos cada flor a mano. El arreglo habla por ti en aniversarios, declaraciones y días sin motivo.</h2>
+    <div class="rail" aria-hidden="true">
+      <div class="rail__track" id="rail-track">
+        <span>DISEÑO FLORAL DE AUTOR</span><b>✳</b><span>FLORES FRESCAS</span><b>✳</b><span>ENTREGAS EN OAXACA</span><b>✳</b>
+        <span>DISEÑO FLORAL DE AUTOR</span><b>✳</b><span>FLORES FRESCAS</span><b>✳</b><span>ENTREGAS EN OAXACA</span><b>✳</b>
+      </div>
+    </div>
+
+    <section class="statement" aria-labelledby="statement-titulo">
+      <div class="wrap statement__inner" data-reveal>
+        <span class="statement__mark" aria-hidden="true">✳</span>
+        <h2 id="statement-titulo">Elegimos cada flor a mano. El arreglo habla por ti en <em>aniversarios, declaraciones</em> y días sin motivo.</h2>
+        <p>Atelier floral · Colonia Reforma · Oaxaca de Juárez</p>
       </div>
     </section>
 
     <section class="section collection" id="coleccion" aria-labelledby="coleccion-titulo">
       <div class="wrap">
-        <div class="section-head">
-          <div>
-            <p class="eyebrow">Catálogo selecto</p>
-            <h2 id="coleccion-titulo">Colección de autor</h2>
-          </div>
-          <p>Composiciones que salen del atelier de la Colonia Reforma cada mañana.</p>
+        <div class="section-head" data-reveal>
+          <p class="section-id">01 — Colección</p>
+          <h2 id="coleccion-titulo">Piezas que salen<br>del <em>atelier</em></h2>
+          <p>Composiciones armadas cada mañana en la Colonia Reforma. Cada pieza se cotiza y se confirma por WhatsApp.</p>
         </div>
-        <div class="cards">
-          <article class="card">
-            <div class="card__media"><img src="assets/photos/igexport-Ct0QDHite2v.webp" alt="Domo de rosas rojas de la Colección de autor" width="800" height="1000" loading="lazy" decoding="async"></div>
-            <div class="card__body">
-              <p class="eyebrow">Edición monumental</p>
+        <div class="collection__grid">
+          <article class="collection__item" data-reveal style="--d:0ms">
+            <div class="collection__media"><img src="assets/photos/igexport-Ct0QDHite2v.webp" alt="Domo de rosas rojas de la Colección de autor" width="800" height="1000" loading="lazy" decoding="async"></div>
+            <div class="collection__info">
+              <div class="collection__meta"><span>01</span><span>Edición monumental</span></div>
               <h3>Bouquet Romance Imperial</h3>
               <p>Cien rosas rosa pastel en ensamble esférico, coronado con tiara imperial y envuelto en papel sedoso.</p>
-              <a class="link" href="https://wa.me/5219516112088?text=Hola%2C%20deseo%20ordenar%20el%20Bouquet%20Romance%20Imperial" target="_blank" rel="noopener noreferrer">Ordenar vía WhatsApp <span class="material-symbols-outlined" aria-hidden="true">chevron_right</span></a>
+              <a class="link" href="https://wa.me/5219516112088?text=Hola%2C%20deseo%20ordenar%20el%20Bouquet%20Romance%20Imperial" target="_blank" rel="noopener noreferrer">Ordenar vía WhatsApp <span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span></a>
             </div>
           </article>
-          <article class="card">
-            <div class="card__media"><img src="assets/photos/igexport-B877-0uB7dF-2.webp" alt="Ramo de peonías rosadas Sinfonía Pastel Deluxe" width="800" height="1000" loading="lazy" decoding="async"></div>
-            <div class="card__body">
-              <p class="eyebrow">Firma del atelier</p>
+          <article class="collection__item" data-reveal style="--d:70ms">
+            <div class="collection__media"><img src="assets/photos/igexport-B877-0uB7dF-2.webp" alt="Ramo de peonías rosadas Sinfonía Pastel Deluxe" width="800" height="1000" loading="lazy" decoding="async"></div>
+            <div class="collection__info">
+              <div class="collection__meta"><span>02</span><span>Firma del atelier</span></div>
               <h3>Sinfonía Pastel Deluxe</h3>
               <p>Peonías holandesas, rosas premium y hortensias en papel aterciopelado con lazo de satén.</p>
-              <a class="link" href="https://wa.me/5219516112088?text=Hola%2C%20deseo%20ordenar%20la%20Sinfon%C3%ADa%20Pastel%20Deluxe" target="_blank" rel="noopener noreferrer">Ordenar vía WhatsApp <span class="material-symbols-outlined" aria-hidden="true">chevron_right</span></a>
+              <a class="link" href="https://wa.me/5219516112088?text=Hola%2C%20deseo%20ordenar%20la%20Sinfon%C3%ADa%20Pastel%20Deluxe" target="_blank" rel="noopener noreferrer">Ordenar vía WhatsApp <span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span></a>
             </div>
           </article>
-          <article class="card">
-            <div class="card__media"><img src="assets/photos/igexport-CajHsa0OtWt.webp" alt="Cajas corazón con rosas rojas" width="800" height="1000" loading="lazy" decoding="async"></div>
-            <div class="card__body">
-              <p class="eyebrow">Pasión clásica</p>
+          <article class="collection__item" data-reveal style="--d:120ms">
+            <div class="collection__media"><img src="assets/photos/igexport-CajHsa0OtWt.webp" alt="Cajas corazón con rosas rojas" width="800" height="1000" loading="lazy" decoding="async"></div>
+            <div class="collection__info">
+              <div class="collection__meta"><span>03</span><span>Pasión clásica</span></div>
               <h3>Cono Escultural de Rosas Rojas</h3>
               <p>Rosas de tallo largo en rojo carmesí, presentadas en cono bicolor y selladas con moño de satén.</p>
-              <a class="link" href="https://wa.me/5219516112088?text=Hola%2C%20deseo%20ordenar%20el%20Cono%20Escultural%20de%20Rosas%20Rojas" target="_blank" rel="noopener noreferrer">Ordenar vía WhatsApp <span class="material-symbols-outlined" aria-hidden="true">chevron_right</span></a>
+              <a class="link" href="https://wa.me/5219516112088?text=Hola%2C%20deseo%20ordenar%20el%20Cono%20Escultural%20de%20Rosas%20Rojas" target="_blank" rel="noopener noreferrer">Ordenar vía WhatsApp <span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span></a>
             </div>
           </article>
-          <article class="card">
-            <div class="card__media"><img src="assets/photos/igexport-Ce2j5iaN-2j.webp" alt="Ramo silvestre con girasoles y gerberas" width="800" height="1000" loading="lazy" decoding="async"></div>
-            <div class="card__body">
-              <p class="eyebrow">Flores de temporada</p>
+          <article class="collection__item" data-reveal style="--d:160ms">
+            <div class="collection__media"><img src="assets/photos/igexport-Ce2j5iaN-2j.webp" alt="Ramo silvestre con girasoles y gerberas" width="800" height="1000" loading="lazy" decoding="async"></div>
+            <div class="collection__info">
+              <div class="collection__meta"><span>04</span><span>Flores de temporada</span></div>
               <h3>Bouquet Silvestre Sweet Memories</h3>
               <p>Girasoles, gerberas y eucalipto aromático de temporada en Oaxaca.</p>
-              <a class="link" href="https://wa.me/5219516112088?text=Hola%2C%20deseo%20ordenar%20el%20Bouquet%20Silvestre" target="_blank" rel="noopener noreferrer">Ordenar vía WhatsApp <span class="material-symbols-outlined" aria-hidden="true">chevron_right</span></a>
+              <a class="link" href="https://wa.me/5219516112088?text=Hola%2C%20deseo%20ordenar%20el%20Bouquet%20Silvestre" target="_blank" rel="noopener noreferrer">Ordenar vía WhatsApp <span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span></a>
             </div>
           </article>
-          <article class="card">
-            <div class="card__media"><img src="assets/photos/igexport-B2sjBoTB3jo.webp" alt="Caja sombrerera con arreglo floral" width="800" height="1000" loading="lazy" decoding="async"></div>
-            <div class="card__body">
-              <p class="eyebrow">Hatbox de lujo</p>
+          <article class="collection__item" data-reveal style="--d:190ms">
+            <div class="collection__media"><img src="assets/photos/igexport-B2sjBoTB3jo.webp" alt="Caja sombrerera con arreglo floral" width="800" height="1000" loading="lazy" decoding="async"></div>
+            <div class="collection__info">
+              <div class="collection__meta"><span>05</span><span>Hatbox de lujo</span></div>
               <h3>Caja Sombrerera Sol de Oaxaca</h3>
               <p>Girasoles premium en caja sombrerera artesanal.</p>
-              <a class="link" href="https://wa.me/5219516112088?text=Hola%2C%20deseo%20ordenar%20la%20Caja%20Sombrerera%20Sol%20de%20Oaxaca" target="_blank" rel="noopener noreferrer">Ordenar vía WhatsApp <span class="material-symbols-outlined" aria-hidden="true">chevron_right</span></a>
+              <a class="link" href="https://wa.me/5219516112088?text=Hola%2C%20deseo%20ordenar%20la%20Caja%20Sombrerera%20Sol%20de%20Oaxaca" target="_blank" rel="noopener noreferrer">Ordenar vía WhatsApp <span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span></a>
             </div>
           </article>
-          <article class="card">
-            <div class="card__media"><img src="assets/photos/igexport-CKhnnpcLPck.webp" alt="Ramo de peonías y lisianthus en tonos suaves" width="800" height="1000" loading="lazy" decoding="async"></div>
-            <div class="card__body">
-              <p class="eyebrow">Edición delicada</p>
+          <article class="collection__item" data-reveal style="--d:220ms">
+            <div class="collection__media"><img src="assets/photos/igexport-CKhnnpcLPck.webp" alt="Ramo de peonías y lisianthus en tonos suaves" width="800" height="1000" loading="lazy" decoding="async"></div>
+            <div class="collection__info">
+              <div class="collection__meta"><span>06</span><span>Edición delicada</span></div>
               <h3>Bouquet Peonías &amp; Lisianthus</h3>
               <p>La frondosidad de la peonía con la gracia del lisianthus en tonos suaves.</p>
-              <a class="link" href="https://wa.me/5219516112088?text=Hola%2C%20deseo%20ordenar%20el%20Bouquet%20Peon%C3%ADas%20y%20Lisianthus" target="_blank" rel="noopener noreferrer">Ordenar vía WhatsApp <span class="material-symbols-outlined" aria-hidden="true">chevron_right</span></a>
+              <a class="link" href="https://wa.me/5219516112088?text=Hola%2C%20deseo%20ordenar%20el%20Bouquet%20Peon%C3%ADas%20y%20Lisianthus" target="_blank" rel="noopener noreferrer">Ordenar vía WhatsApp <span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span></a>
             </div>
           </article>
         </div>
@@ -161,25 +183,24 @@
 
     <section class="section gallery" id="galeria" aria-labelledby="galeria-titulo">
       <div class="wrap">
-        <div class="section-head">
-          <div>
-            <p class="eyebrow">Curaduría visual</p>
-            <h2 id="galeria-titulo">Así se ve nuestro trabajo</h2>
+        <div class="section-head section-head--light" data-reveal>
+          <p class="section-id">02 — Curaduría visual</p>
+          <h2 id="galeria-titulo">Así se ve<br>nuestro <em>trabajo</em></h2>
+          <p>Fotos reales de arreglos y entregas en Oaxaca. Desliza o elige una categoría para recorrerlas.</p>
+        </div>
+        <div class="gallery__bar">
+          <div class="gallery__filters" id="filtros" role="group" aria-label="Filtrar galería">
+            <button type="button" class="chip is-active" data-filter="todo" aria-pressed="true">Todo</button>
+            <button type="button" class="chip" data-filter="Rosas" aria-pressed="false">Rosas</button>
+            <button type="button" class="chip" data-filter="Girasoles" aria-pressed="false">Girasoles</button>
+            <button type="button" class="chip" data-filter="Peonías" aria-pressed="false">Peonías</button>
+            <button type="button" class="chip" data-filter="Monumental" aria-pressed="false">Monumental</button>
+            <button type="button" class="chip" data-filter="Entregas" aria-pressed="false">Entregas</button>
+            <button type="button" class="chip" data-filter="Globos y peluches" aria-pressed="false">Globos y peluches</button>
+            <button type="button" class="chip" data-filter="Temporada" aria-pressed="false">Temporada</button>
           </div>
-          <p>Fotos reales de arreglos y entregas en Oaxaca. Desliza para recorrerlas.</p>
+          <span class="gallery__total" id="gallery-total">60 piezas</span>
         </div>
-
-        <div class="gallery__filters" id="filtros" role="group" aria-label="Filtrar galería">
-          <button type="button" class="chip is-active" data-filter="todo" aria-pressed="true">Todo</button>
-          <button type="button" class="chip" data-filter="Rosas" aria-pressed="false">Rosas</button>
-          <button type="button" class="chip" data-filter="Girasoles" aria-pressed="false">Girasoles</button>
-          <button type="button" class="chip" data-filter="Peonías" aria-pressed="false">Peonías</button>
-          <button type="button" class="chip" data-filter="Monumental" aria-pressed="false">Monumental</button>
-          <button type="button" class="chip" data-filter="Entregas" aria-pressed="false">Entregas</button>
-          <button type="button" class="chip" data-filter="Globos y peluches" aria-pressed="false">Globos y peluches</button>
-          <button type="button" class="chip" data-filter="Temporada" aria-pressed="false">Temporada</button>
-        </div>
-
         <div class="reel" id="reel" aria-roledescription="carrusel" aria-label="Galería de arreglos florales">
           <div class="reel__viewport" id="reel-viewport">
             <div class="reel__track" id="reel-track"></div>
@@ -193,8 +214,9 @@
           <button class="reel__pause" id="reel-pause" type="button" aria-label="Pausar galería automática">
             <span class="material-symbols-outlined" aria-hidden="true">pause</span>
           </button>
+          <div class="reel__progress" aria-hidden="true"><i id="reel-progress"></i></div>
           <div class="reel__meta">
-            <span id="reel-counter">1 de 60</span>
+            <span id="reel-counter" class="reel__count">1 de 60</span>
             <span>Desliza o usa las flechas</span>
           </div>
         </div>
@@ -202,27 +224,28 @@
       </div>
     </section>
 
-    <section class="section cuidados" id="cuidados" aria-labelledby="cuidados-titulo">
+    <section class="section care" id="cuidados" aria-labelledby="cuidados-titulo">
       <div class="wrap">
-        <div class="section-head">
-          <div>
-            <p class="eyebrow">Guía de la floristería</p>
-            <h2 id="cuidados-titulo">Cómo duran más tus flores</h2>
-          </div>
+        <div class="section-head" data-reveal>
+          <p class="section-id">03 — Guía de la floristería</p>
+          <h2 id="cuidados-titulo">Cómo duran más<br>tus <em>flores</em></h2>
           <p>Nuestros floristas comparten lo que hacen en el atelier para mantener cada arreglo fresco en casa.</p>
         </div>
-        <div class="care-grid">
-          <article class="care">
+        <div class="care__grid">
+          <article class="care__item" data-reveal style="--d:0ms">
+            <span class="care__icon material-symbols-outlined" aria-hidden="true">local_florist</span>
             <span class="care__num">01</span>
             <h3>Peonías</h3>
             <p>Florero limpio con agua fresca. Recorta los tallos en ángulo de 45° cada 2 o 3 días para que los pétalos sigan abriéndose. Evita el sol directo.</p>
           </article>
-          <article class="care">
+          <article class="care__item" data-reveal style="--d:70ms">
+            <span class="care__icon material-symbols-outlined" aria-hidden="true">water_drop</span>
             <span class="care__num">02</span>
             <h3>Lilis</h3>
             <p>Abundante agua limpia. Retira el polen de los estambres para no manchar y recorta el tallo cada pocos días.</p>
           </article>
-          <article class="care">
+          <article class="care__item" data-reveal style="--d:120ms">
+            <span class="care__icon material-symbols-outlined" aria-hidden="true">content_cut</span>
             <span class="care__num">03</span>
             <h3>Rosas y ramos</h3>
             <p>Cambia el agua cada 48 horas. Quita el follaje que quede bajo el nivel del agua y aleja el arreglo del aire acondicionado o los ventiladores.</p>
@@ -231,32 +254,35 @@
       </div>
     </section>
 
-    <section class="section nosotros" id="nosotros" aria-labelledby="nosotros-titulo">
-      <div class="wrap nosotros__grid">
-        <figure class="nosotros__photo">
-          <img src="assets/photos/igexport-B2nTOBkh7OD.webp" alt="Arreglo monumental de Sweet Memories" width="800" height="1000" loading="lazy" decoding="async">
-        </figure>
-        <div class="nosotros__copy">
-          <p class="eyebrow">Nuestra historia</p>
-          <h2 id="nosotros-titulo">Sweet Memories, flores de autor en Oaxaca</h2>
+    <section class="about" id="nosotros" aria-labelledby="nosotros-titulo">
+      <div class="wrap about__grid">
+        <div class="about__figure" data-reveal>
+          <img id="about-img" src="assets/photos/igexport-B2nTOBkh7OD.webp" alt="Arreglo monumental de Sweet Memories" width="800" height="1000" loading="lazy" decoding="async">
+        </div>
+        <div class="about__copy" data-reveal style="--d:90ms">
+          <p class="section-id">04 — Nuestra historia</p>
+          <h2 id="nosotros-titulo">Flores de autor<br>hechas en <em>Oaxaca</em></h2>
           <p>Nacimos en Oaxaca para hacer arreglos que se sientan personales. Cada pieza se arma a mano en el atelier de la Colonia Reforma y se entrega fresca, con tarjeta caligráfica.</p>
           <p>Hoy nos siguen 10,6 mil personas en Instagram y 22 mil en Facebook, donde mostramos nuestro trabajo. Lo que no cambia es el trato: escribes por WhatsApp y hablas con quien hace el arreglo.</p>
-          <a class="link" href="https://www.instagram.com/sweetmemories_floreriaoax/" target="_blank" rel="noopener noreferrer">@sweetmemories_floreriaoax <span class="material-symbols-outlined" aria-hidden="true">north_east</span></a>
+          <div class="about__stats">
+            <div><strong>22 mil</strong><span>Seguidores en Facebook · cuenta verificada</span></div>
+            <div><strong>10,6 mil</strong><span>Seguidores en Instagram</span></div>
+            <div><strong>58</strong><span>Fotos reales de nuestro trabajo</span></div>
+          </div>
+          <a class="link link--light" href="https://www.instagram.com/sweetmemories_floreriaoax/" target="_blank" rel="noopener noreferrer">@sweetmemories_floreriaoax <span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span></a>
         </div>
       </div>
     </section>
 
-    <section class="section ubicacion" id="ubicacion" aria-labelledby="ubicacion-titulo">
+    <section class="section visit" id="ubicacion" aria-labelledby="ubicacion-titulo">
       <div class="wrap">
-        <div class="section-head">
-          <div>
-            <p class="eyebrow">Atelier y entregas</p>
-            <h2 id="ubicacion-titulo">Visítanos en la Colonia Reforma</h2>
-          </div>
-          <p>Av. Fuerza Aérea Mexicana 410, Colonia Reforma, 68050 Oaxaca de Juárez, Oax.</p>
+        <div class="section-head" data-reveal>
+          <p class="section-id">05 — Atelier y entregas</p>
+          <h2 id="ubicacion-titulo">Visítanos en la<br><em>Colonia Reforma</em></h2>
+          <p>Av. Fuerza Aérea Mexicana 410, Colonia Reforma, 68050 Oaxaca de Juárez, Oax. Código Plus: 37JP+74.</p>
         </div>
-        <div class="ubicacion__grid">
-          <div class="ubicacion__info">
+        <div class="visit__grid">
+          <div class="visit__info" data-reveal>
             <dl class="rows">
               <div><dt>Atención en tienda</dt><dd>8:00 a.m. a 10:00 p.m.</dd></div>
               <div><dt>Pedidos y entregas</dt><dd>Por WhatsApp, todos los días</dd></div>
@@ -269,17 +295,24 @@
             </div>
             <a class="btn btn--primary" href="https://wa.me/5219516112088?text=Hola%2C%20me%20gustar%C3%ADa%20saber%20m%C3%A1s%20sobre%20entregas%20y%20pedidos" target="_blank" rel="noopener noreferrer">Escribir por WhatsApp</a>
           </div>
-          <div class="ubicacion__mapa">
-            <iframe title="Mapa de Sweet Memories en la Colonia Reforma, Oaxaca de Juárez" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen src="https://maps.google.com/maps?q=17.080636,-96.7146655&amp;z=17&amp;hl=es&amp;output=embed"></iframe>
+          <div class="visit__mapa" data-reveal style="--d:90ms">
+            <div class="mapa__trama" aria-hidden="true"></div>
+            <div class="mapa__pin" aria-hidden="true"><span class="material-symbols-outlined">location_on</span></div>
+            <div class="mapa__body">
+              <p class="mapa__label">Atelier floral · Colonia Reforma</p>
+              <p class="mapa__address">Av. Fuerza Aérea Mexicana 410<br>68050 Oaxaca de Juárez, Oax.</p>
+              <p class="mapa__plus">Código Plus 37JP+74</p>
+              <a class="btn btn--primary" href="https://www.google.com/maps/dir/?api=1&amp;destination=17.080636,-96.7146655" target="_blank" rel="noopener noreferrer">Abrir indicaciones <span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span></a>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section cierre" aria-labelledby="cierre-titulo">
-      <div class="wrap cierre__inner">
-        <p class="eyebrow">Atelier floral · Oaxaca de Juárez</p>
-        <h2 id="cierre-titulo">Cuéntanos qué quieres regalar.</h2>
+    <section class="cta" aria-labelledby="cta-titulo">
+      <div class="wrap cta__inner" data-reveal>
+        <p class="section-id">Hablemos de flores</p>
+        <h2 id="cta-titulo">Cuéntanos qué<br>quieres <em>regalar.</em></h2>
         <p>Elige las flores, dinos la ocasión y preparamos el arreglo para entregarlo en Oaxaca.</p>
         <a class="btn btn--xl" href="https://wa.me/5219516112088?text=Hola%20Sweet%20Memories%2C%20deseo%20ordenar%20un%20arreglo" target="_blank" rel="noopener noreferrer">Pedir por WhatsApp <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a>
       </div>
@@ -307,6 +340,7 @@
           <p><a href="https://wa.me/5219516112088" target="_blank" rel="noopener noreferrer">WhatsApp</a></p>
         </div>
       </div>
+      <div class="closing__wordmark" aria-hidden="true">SWEET MEMORIES</div>
       <div class="footer__legal">
         <p>© 2026 Sweet Memories Florería Oaxaca. Todos los derechos reservados.</p>
         <p class="credits">Fotografías y videos: Sweet Memories Florería, publicados en Instagram.</p>
