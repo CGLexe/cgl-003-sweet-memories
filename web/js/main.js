@@ -27,40 +27,19 @@
   }
 
   /* ============================================================
-     2. Scroll: rail tipográfico + parallax (solo transform)
+     2. Cinta tipográfica: loop continuo con control de pausa
      ============================================================ */
-  var rail = document.getElementById("rail-track");
+  var railEl = document.querySelector(".rail");
+  var railPause = document.getElementById("rail-pause");
+  if (railEl && railPause) {
+    railPause.addEventListener("click", function () {
+      var paused = railEl.classList.toggle("is-paused");
+      railPause.setAttribute("aria-label", paused ? "Reanudar cinta animada" : "Pausar cinta animada");
+      railPause.querySelector(".material-symbols-outlined").textContent = paused ? "play_arrow" : "pause";
+    });
+  }
+
   var heroVideo = document.getElementById("hero-video");
-  var aboutImg = document.getElementById("about-img");
-  var ticking = false;
-
-  function clamp(v, min, max) { return Math.min(max, Math.max(min, v)); }
-
-  function paintScroll() {
-    var y = window.pageYOffset || document.documentElement.scrollTop || 0;
-    var docH = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
-    var maxScroll = Math.max(1, docH - window.innerHeight);
-
-    if (rail && !reduce) {
-      var shift = Math.max(0, rail.scrollWidth - window.innerWidth);
-      var p = clamp(y / maxScroll, 0, 1);
-      rail.style.transform = "translate3d(" + (-shift * p).toFixed(2) + "px,0,0)";
-    }
-    if (aboutImg && !reduce) {
-      var box = aboutImg.parentElement;
-      var top = box.getBoundingClientRect().top;
-      var vh = window.innerHeight;
-      var prog = clamp((vh - top) / (vh + box.offsetHeight), 0, 1);
-      aboutImg.style.transform = "translate3d(0," + (-34 * prog).toFixed(2) + "px,0)";
-    }
-    ticking = false;
-  }
-  function requestPaint() {
-    if (!ticking) { window.requestAnimationFrame(paintScroll); ticking = true; }
-  }
-  window.addEventListener("scroll", requestPaint, { passive: true });
-  window.addEventListener("resize", requestPaint);
-  paintScroll();
 
   /* ============================================================
      3. Carrusel: filtros, miniaturas, teclado, arrastre, autoplay
