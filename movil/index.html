@@ -408,9 +408,6 @@
         </div>
         </div>
       </div>
-      <button class="rail__pause" id="rail-pause" type="button" aria-label="Pausar cinta animada">
-        <span class="material-symbols-outlined" aria-hidden="true">pause</span>
-      </button>
     </div>
 
 
@@ -464,8 +461,15 @@
           <form class="builder__form" id="order-form" novalidate>
             <div class="builder__progress" aria-hidden="true">
               <span class="builder__progress-fill" id="builder-progress"></span>
+              <span class="builder__seg is-on"></span>
+              <span class="builder__seg"></span>
+              <span class="builder__seg"></span>
+              <span class="builder__seg"></span>
             </div>
-            <p class="builder__step-label" id="step-label" aria-live="polite">Paso 1 de 4 · Tipo de pieza</p>
+            <div class="builder__step-row">
+              <span class="builder__step-label" id="step-label" aria-live="polite">Paso 1 de 4 · Tipo de pieza</span>
+              <span class="builder__step-count" id="step-count">1 / 4</span>
+            </div>
 
             <div class="builder__steps">
             <fieldset class="builder__step is-active" data-step="0">

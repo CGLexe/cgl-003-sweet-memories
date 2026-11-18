@@ -8,7 +8,9 @@
   var back = document.getElementById("step-back");
   var next = document.getElementById("step-next");
   var label = document.getElementById("step-label");
+  var count = document.getElementById("step-count");
   var fill = document.getElementById("builder-progress");
+  var segmentos = Array.prototype.slice.call(document.querySelectorAll(".builder__seg"));
   var error = document.getElementById("form-error");
   var summary = document.getElementById("summary-list");
   var summaryImg = document.getElementById("summary-img");
@@ -73,7 +75,9 @@
       step.classList.toggle("is-active", i === paso);
     });
     if (label) label.textContent = "Paso " + (paso + 1) + " de " + steps.length + " · " + titulos[paso];
+    if (count) count.textContent = (paso + 1) + " / " + steps.length;
     if (fill) fill.style.transform = "scaleX(" + ((paso + 1) / steps.length) + ")";
+    segmentos.forEach(function (seg, i) { seg.classList.toggle("is-on", i <= paso); });
     if (back) back.disabled = paso === 0;
     if (next) {
       next.innerHTML = paso === steps.length - 1
@@ -81,6 +85,8 @@
         : 'Siguiente <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>';
     }
     if (error) error.hidden = true;
+    var area = document.querySelector(".builder__steps");
+    if (area) area.scrollTop = 0;
   }
 
   function fila(term, desc) {
