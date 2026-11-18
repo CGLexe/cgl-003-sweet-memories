@@ -42,7 +42,7 @@ button, [role="button"], .chip, .opt { user-select: none; -webkit-user-select: n
 /* ---------- NAV ---------- */
 .nav { position: fixed; inset: 0 0 auto; height: var(--nav-h); background: var(--bg); border-bottom: 1px solid var(--line); z-index: 20; }
 .nav__bar { height: 100%; display: flex; align-items: center; gap: 24px; }
-.nav__logo img { width: 128px; height: auto; }
+.nav__logo img { width: 148px; height: auto; }
 .nav__links { display: flex; gap: 24px; margin-left: auto; }
 .nav__link { position: relative; font-size: 13px; font-weight: 600; color: var(--muted); padding: 8px 0; }
 .nav__link::after { content: ""; position: absolute; left: 0; right: 100%; bottom: 3px; height: 1px; background: var(--primary); transition: right .15s var(--ease-out); }
