@@ -3,8 +3,7 @@
 // Se ejecuta en el edge de Vercel, antes de servir el archivo estático.
 // Hostinger usa el .htaccess equivalente en la raíz.
 
-import { NextResponse } from "next/server";
-
+// Edge Runtime: NextResponse está disponible globalmente (sin importar next/server).
 const MOVIL = /(android|iphone|ipad|ipod|mobile|windows phone|blackberry|opera mini|iemobile)/i;
 
 export function middleware(request) {
@@ -27,6 +26,7 @@ export function middleware(request) {
 }
 
 export const config = {
+  runtime: "edge",
   // Todo excepto archivos internos de Vercel y el favicon (compartido).
   matcher: ["/((?!_vercel|_next|favicon\\.png|robots\\.txt|sitemap\\.xml).*)"],
 };
