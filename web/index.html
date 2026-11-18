@@ -19,6 +19,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Great+Vibes&family=Material+Symbols+Outlined:opsz,wght,FILL@20..48,100..700,0..1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/ui.css">
   <script>document.documentElement.classList.add('m-enter');setTimeout(function(){document.documentElement.classList.add('m-enter-done')},700)</script>
 </head>
 <body>
@@ -655,7 +656,8 @@
             </div>
           </div>
           <div class="visit__mapa" data-reveal style="--d:90ms">
-            <iframe class="mapa__iframe" title="Mapa de Sweet Memories en la Colonia Reforma, Oaxaca" src="https://maps.google.com/maps?q=17.080636,-96.7146655&amp;z=16&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+            <iframe class="mapa__iframe" title="Mapa de Sweet Memories en la Colonia Reforma, Oaxaca" data-src="https://maps.google.com/maps?q=17.080636,-96.7146655&amp;z=16&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen hidden></iframe>
+            <div class="mapa__placeholder" id="mapa-placeholder"><p>El mapa se carga solo si aceptas las cookies opcionales.</p><button id="mapa-cargar" type="button">Cargar mapa</button></div>
             <div class="mapa__body">
               <p class="mapa__label">Atelier floral · Colonia Reforma</p>
               <p class="mapa__address">Av. Fuerza Aérea Mexicana 410, Colonia Reforma<br>68050 Oaxaca de Juárez, Oax.</p>
@@ -710,6 +712,7 @@
       <div class="footer__legal">
         <p>© 2026 Sweet Memories Florería Oaxaca. Todos los derechos reservados.</p>
         <p class="credits">Fotografías y videos: Sweet Memories Florería, publicados en Instagram.</p>
+        <p class="legal__enlaces"><a href="privacidad.html">Aviso de privacidad</a> · <a href="cookies.html">Política de cookies</a> · <a href="terminos.html">Términos de uso</a></p>
       </div>
     </div>
   </footer>
@@ -718,9 +721,12 @@
     <a class="btn btn--primary" href="#pedido"><span class="material-symbols-outlined" aria-hidden="true">chat</span> WhatsApp</a>
   </nav>
 
+  <div class="demo-sello" role="note" aria-label="Sitio de demostración"><strong>DEMO</strong><span>Sitio de muestra</span></div>
+
   <script src="js/media.js" defer></script>
   <script src="js/flora.js" defer></script>
   <script src="js/main.js" defer></script>
   <script src="js/builder.js" defer></script>
+  <script src="js/consent.js" defer></script>
 </body>
 </html>

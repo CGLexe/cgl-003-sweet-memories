@@ -1,0 +1,205 @@
+/* Sello de demo, aviso de cookies y páginas legales */
+
+.demo-sello {
+  position: fixed;
+  z-index: 25;
+  left: 18px;
+  bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: var(--cream);
+  border: 1px solid var(--gold);
+  box-shadow: 0 8px 24px rgba(30,27,24,.1);
+  pointer-events: none;
+}
+.demo-sello::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--primary);
+}
+.demo-sello strong {
+  font: 700 10px/1 var(--font-body);
+  letter-spacing: .18em;
+  color: var(--ink);
+}
+.demo-sello span {
+  font-size: 10px;
+  color: var(--muted);
+}
+
+.cookie {
+  position: fixed;
+  z-index: 40;
+  right: 18px;
+  bottom: 18px;
+  width: min(420px, calc(100vw - 36px));
+  background: var(--cream);
+  border: 1px solid var(--line);
+  box-shadow: 0 18px 50px rgba(30,27,24,.18);
+  padding: 22px 24px 20px;
+}
+.cookie[hidden] { display: none; }
+.cookie__titulo {
+  margin: 0 0 8px;
+  font: 500 22px/1.2 var(--font-display);
+  color: var(--ink);
+}
+.cookie__texto {
+  margin: 0 0 16px;
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--muted);
+}
+.cookie__texto a {
+  color: var(--primary-dark);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.cookie__acciones {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+.cookie__acciones .btn {
+  min-height: 42px;
+  padding-inline: 18px;
+  font-size: 13px;
+}
+.cookie__config {
+  background: none;
+  border: 0;
+  padding: 8px 4px;
+  color: var(--primary-dark);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+.cookie__detalle {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  display: grid;
+  gap: 12px;
+}
+.cookie__detalle[hidden] { display: none; }
+.cookie__fila {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4px 12px;
+  align-items: center;
+}
+.cookie__fila strong {
+  font-size: 13px;
+  color: var(--ink);
+}
+.cookie__fila p {
+  grid-column: 1 / -1;
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+.cookie__fila input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--primary);
+}
+.cookie__guardar {
+  justify-self: start;
+  min-height: 40px;
+  padding-inline: 16px;
+  font-size: 13px;
+}
+
+.mapa__placeholder {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  gap: 10px;
+  padding: 24px;
+  text-align: center;
+  background: var(--surface-low);
+}
+.mapa__placeholder[hidden] { display: none; }
+.mapa__placeholder p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--muted);
+}
+.mapa__placeholder button {
+  justify-self: center;
+  min-height: 44px;
+  padding: 0 18px;
+  background: var(--primary);
+  border: 0;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.mapa__iframe[hidden] { display: none; }
+.footer__legal .legal__enlaces { color: #cfc6c0; }
+.footer__legal .legal__enlaces a { color: var(--gold); text-decoration: underline; text-underline-offset: 2px; }
+
+/* Páginas legales */
+.legal {
+  min-height: 100svh;
+  padding: calc(var(--nav-h) + 56px) var(--gut) 80px;
+  background: var(--bg);
+}
+.legal__inner { max-width: 820px; margin: 0 auto; }
+.legal__volver {
+  display: inline-block;
+  margin-bottom: 28px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--primary-dark);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.legal h1 {
+  margin: 0 0 12px;
+  font: 400 clamp(40px, 5vw, 62px)/1.08 var(--font-display);
+  letter-spacing: -.03em;
+}
+.legal__actualizado {
+  margin: 0 0 40px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.legal h2 {
+  margin: 36px 0 10px;
+  font: 500 22px/1.25 var(--font-display);
+}
+.legal p, .legal li {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+.legal p { margin: 0 0 14px; }
+.legal ul { margin: 0 0 14px; padding-left: 20px; }
+.legal a { color: var(--primary-dark); text-decoration: underline; text-underline-offset: 2px; }
+.legal__accion {
+  min-height: 46px;
+  padding: 0 20px;
+  background: var(--primary);
+  border: 0;
+  color: #fff;
+  font: 600 14px/1 var(--font-body);
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .demo-sello { left: 12px; bottom: auto; top: calc(var(--nav-h) + 10px); padding: 6px 10px; }
+  .demo-sello span { display: none; }
+  .cookie { right: 12px; bottom: calc(76px + 12px); padding: 18px; }
+  .cookie__acciones .btn { flex: 1 1 40%; }
+}
