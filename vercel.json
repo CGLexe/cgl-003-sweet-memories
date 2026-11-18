@@ -2,6 +2,12 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "headers": [
     {
+      "source": "/",
+      "headers": [
+        { "key": "Vary", "value": "User-Agent" }
+      ]
+    },
+    {
       "source": "/:path*",
       "headers": [
         { "key": "Vary", "value": "User-Agent" }
