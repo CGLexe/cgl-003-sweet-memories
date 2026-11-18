@@ -29,35 +29,38 @@
 .demo-sello span { font-size: 10px; color: var(--muted); }
 .legal-page .demo-sello { left: auto; right: 18px; }
 
-/* Aviso de cookies: modal centrado */
+/* Aviso de cookies: tarjeta abajo a la derecha. Deja ver el hero. */
 .cookie {
   position: fixed;
   inset: 0;
   z-index: 60;
-  display: grid;
-  place-items: center;
-  padding: 24px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 20px;
 }
 .cookie[hidden] { display: none; }
 .cookie::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(20,8,14,.8);
-  -webkit-backdrop-filter: blur(4px);
-  backdrop-filter: blur(4px);
+  background: rgba(20,8,14,.45);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
   opacity: 0;
   transition: opacity .28s var(--ease-out);
 }
 .cookie__card {
   position: relative;
-  width: min(540px, 100%);
-  max-height: min(86svh, 760px);
+  width: min(460px, 100%);
+  max-height: min(80svh, 620px);
   overflow-y: auto;
-  padding: clamp(24px, 4vw, 40px);
-  background: transparent;
-  border: 0;
-  box-shadow: none;
+  overscroll-behavior: contain;
+  padding: 26px 26px 22px;
+  background: rgba(30,27,24,.97);
+  border: 1px solid rgba(247,239,234,.12);
+  border-radius: 14px;
+  box-shadow: 0 -14px 40px rgba(0,0,0,.28);
   color: var(--cream);
   opacity: 0;
   transform: translate3d(0, 16px, 0) scale(.985);
@@ -79,14 +82,14 @@
 .cookie__marca::before { content: ""; width: 26px; height: 1px; background: var(--gold); }
 .cookie__titulo {
   margin: 0 0 12px;
-  font: 400 clamp(30px, 4.4vw, 44px)/1.06 var(--font-display);
+  font: 400 clamp(26px, 3vw, 34px)/1.1 var(--font-display);
   letter-spacing: -.035em;
 }
 .cookie__titulo em { font-style: italic; color: var(--gold); }
 .cookie__texto {
-  margin: 0 0 24px;
+  margin: 0 0 16px;
   max-width: 46ch;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.75;
   color: rgba(247,239,234,.82);
 }
@@ -106,7 +109,7 @@
 .cookie__rechazar:hover { background: #3a332e; }
 .cookie__config {
   display: block;
-  margin: 16px auto 0;
+  margin: 12px auto 0;
   background: none;
   border: 0;
   padding: 8px 4px;
@@ -146,8 +149,8 @@
 }
 .cookie__guardar { width: 100%; min-height: 46px; font-size: 14px; }
 .cookie__pie {
-  margin: 18px 0 0;
-  padding-top: 14px;
+  margin: 12px 0 0;
+  padding-top: 10px;
   border-top: 1px solid rgba(247,239,234,.24);
   text-align: center;
   font-size: 11px;
@@ -327,8 +330,8 @@
 @media (max-width: 768px) {
   .demo-sello { left: 12px; right: auto; bottom: auto; top: calc(var(--nav-h) + 10px); padding: 6px 10px; }
   .demo-sello span { display: none; }
-  .cookie { padding: 14px; }
-  .cookie__card { padding: 24px 22px 22px; max-height: 90svh; }
+  .cookie { padding: 12px; }
+  .cookie__card { padding: 20px 18px; max-height: 84svh; border-radius: 14px; }
   .cookie__acciones { grid-template-columns: 1fr; }
   .legal__marca img { width: 108px; }
   .legal__bloque { grid-template-columns: 1fr; gap: 8px; }
