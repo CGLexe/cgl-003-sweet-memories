@@ -71,7 +71,7 @@
 
   function slideHTML(item, i) {
     var visual = item.type === "video"
-      ? '<video controls playsinline preload="metadata" poster="' + item.poster + '" aria-label="' + item.alt + '"><source src="' + item.src + '" type="video/mp4"></video>'
+      ? '<div class="coverflow__video"><video controls playsinline preload="metadata" poster="' + item.poster + '" aria-label="' + item.alt + '"><source src="' + item.src + '" type="video/mp4"></video></div>'
       : '<img src="' + item.src + '" alt="' + item.alt + '" width="800" height="1000" loading="lazy" decoding="async">';
     var etiqueta = TEXTO[item.cat] || "Sweet Memories";
     var s1 = STICKERS[i % STICKERS.length];
@@ -186,16 +186,28 @@
     /* Lightbox: clic en la tarjeta central para ampliar, botón + para hacer zoom */
     var lb = document.getElementById("lightbox");
     var lbImg = document.getElementById("lightbox-img");
+    var lbVideo = document.getElementById("lightbox-video");
     var lbCap = document.getElementById("lightbox-cap");
     var lbZoom = document.getElementById("lightbox-zoom");
     var zoom = 1;
+    var esVideo = false;
     function abrirLB(item) {
       if (!lb || !item) return;
-      var src = item.poster || item.src;
-      lbImg.src = src;
-      lbImg.alt = item.alt;
-      lbImg.style.transform = "scale(1)";
-      zoom = 1;
+      esVideo = item.type === "video";
+      lbImg.hidden = esVideo;
+      lbVideo.hidden = !esVideo;
+      if (esVideo) {
+        if (lbVideo.getAttribute("src") !== item.src) lbVideo.setAttribute("src", item.src);
+        lbVideo.setAttribute("poster", item.poster || "");
+        try { lbVideo.currentTime = 0; lbVideo.play(); } catch (err) {}
+        if (lbZoom) lbZoom.hidden = true;
+      } else {
+        lbImg.src = item.src;
+        lbImg.alt = item.alt;
+        lbImg.style.transform = "scale(1)";
+        zoom = 1;
+        if (lbZoom) { lbZoom.hidden = false; lbZoom.textContent = "+"; lbZoom.setAttribute("aria-label", "Acercar imagen"); }
+      }
       lbCap.textContent = item.alt;
       lb.hidden = false;
       document.body.style.overflow = "hidden";
@@ -204,13 +216,14 @@
     }
     function cerrarLB() {
       if (!lb) return;
+      if (lbVideo) { try { lbVideo.pause(); } catch (err) {} lbVideo.removeAttribute("src"); lbVideo.load(); }
       lb.hidden = true;
       document.body.style.overflow = "";
       lbImg.src = "";
     }
     if (track) {
       track.addEventListener("click", function (e) {
-        if (e.target.closest("video")) return;
+        if (e.target.closest("video, .coverflow__pause")) return;
         var card = e.target.closest(".coverflow__card");
         if (!card) return;
         var i = Array.prototype.indexOf.call(track.children, card);
@@ -223,6 +236,7 @@
       lb.addEventListener("click", function (e) { if (e.target === lb) cerrarLB(); });
       document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !lb.hidden) cerrarLB(); });
       if (lbZoom) lbZoom.addEventListener("click", function () {
+        if (esVideo) return;
         zoom = zoom >= 2.4 ? 1 : +(zoom + 0.6).toFixed(1);
         lbImg.style.transform = "scale(" + zoom + ")";
         lbZoom.setAttribute("aria-label", zoom > 1 ? "Restablecer tamaño" : "Acercar imagen");
