@@ -1,0 +1,25 @@
+# Sweet Memories — un mismo link, dos versiones.
+# Computadora / TV -> web/   |   Celular / tablet -> movil/
+# En Hostinger, este archivo va en la raíz pública (junto a web/ y movil/).
+
+RewriteEngine On
+RewriteBase /
+
+# No reescribir dos veces si la ruta ya apunta a una versión.
+RewriteRule ^(web|movil)/ - [L]
+
+# No tocar archivos reales que deban servirse tal cual.
+RewriteRule ^(favicon\.png|robots\.txt|sitemap\.xml)$ - [L]
+
+# Override manual: ?v=web o ?v=movil (para revisar cada versión).
+RewriteCond %{QUERY_STRING} (^|&)v=movil(&|$)
+RewriteRule ^(.*)$ movil/$1 [L]
+RewriteCond %{QUERY_STRING} (^|&)v=web(&|$)
+RewriteRule ^(.*)$ web/$1 [L]
+
+# Detección por dispositivo.
+RewriteCond %{HTTP_USER_AGENT} (android|iphone|ipad|ipod|mobile|windows\ phone|blackberry|opera\ mini|iemobile) [NC]
+RewriteRule ^(.*)$ movil/$1 [L]
+
+RewriteCond %{HTTP_USER_AGENT} !(android|iphone|ipad|ipod|mobile|windows\ phone|blackberry|opera\ mini|iemobile) [NC]
+RewriteRule ^(.*)$ web/$1 [L]

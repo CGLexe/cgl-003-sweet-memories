@@ -1,0 +1,5 @@
+# Solo se despliega web/ y movil/ (middleware.js va en la raíz).
+.agents
+IMAGENES
+.git
+*.md
