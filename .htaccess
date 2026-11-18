@@ -5,6 +5,11 @@
 RewriteEngine On
 RewriteBase /
 
+# El HTML cambia segun User-Agent: declararlo para caches compartidas.
+<IfModule mod_headers.c>
+  Header merge Vary User-Agent
+</IfModule>
+
 # No reescribir dos veces si la ruta ya apunta a una versión.
 RewriteRule ^(web|movil)/ - [L]
 

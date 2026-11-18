@@ -1,5 +1,13 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "headers": [
+    {
+      "source": "/:path*",
+      "headers": [
+        { "key": "Vary", "value": "User-Agent" }
+      ]
+    }
+  ],
   "rewrites": [
     { "source": "/", "destination": "/movil/index.html", "has": [{ "type": "query", "key": "v", "value": "movil" }] },
     { "source": "/:path*", "destination": "/movil/:path*", "has": [{ "type": "query", "key": "v", "value": "movil" }] },

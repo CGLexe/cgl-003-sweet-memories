@@ -1,4 +1,4 @@
-# Solo se despliega web/ y movil/ (middleware.js va en la raíz).
+# Se despliegan web/, movil/ y los archivos de la raíz (vercel.json, robots.txt, sitemap.xml).
 .agents
 IMAGENES
 .git

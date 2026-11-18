@@ -1,15 +1,72 @@
 <!doctype html>
-<html lang="es" data-type="place" data-motion data-buttons="block">
+<html lang="es-MX" data-type="place" data-motion data-buttons="block">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Sweet Memories | Arreglos florales en Oaxaca de Juárez</title>
   <meta name="description" content="Diseño floral de autor en Oaxaca. Ramos, peonías y girasoles frescos, entregados el mismo día. Pedidos por WhatsApp al 951 611 2088.">
+  <link rel="canonical" href="/">
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Sweet Memories Florería">
+  <meta property="og:locale" content="es_MX">
+  <meta property="og:url" content="https://cgl-003-sweet-memories.vercel.app/">
   <meta property="og:title" content="Sweet Memories | Arreglos florales en Oaxaca de Juárez">
   <meta property="og:description" content="Ramos, peonías y girasoles frescos, hechos a mano en Oaxaca y entregados el mismo día.">
-  <meta property="og:image" content="og-image.png">
+  <meta property="og:image" content="https://cgl-003-sweet-memories.vercel.app/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Arreglo floral de Sweet Memories con rosas y peonías frescas">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sweet Memories | Arreglos florales en Oaxaca de Juárez">
+  <meta name="twitter:description" content="Ramos, peonías y girasoles frescos, hechos a mano en Oaxaca y entregados el mismo día.">
+  <meta name="twitter:image" content="https://cgl-003-sweet-memories.vercel.app/og-image.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Florist",
+        "@id": "https://cgl-003-sweet-memories.vercel.app/#negocio",
+        "name": "Sweet Memories Florería",
+        "url": "https://cgl-003-sweet-memories.vercel.app/",
+        "telephone": "+529516112088",
+        "image": "https://cgl-003-sweet-memories.vercel.app/og-image.png",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Av. Fuerza Aérea Mexicana 410, Colonia Reforma",
+          "addressLocality": "Oaxaca de Juárez",
+          "addressRegion": "Oaxaca",
+          "postalCode": "68050",
+          "addressCountry": "MX"
+        },
+        "geo": { "@type": "GeoCoordinates", "latitude": 17.080636, "longitude": -96.7146655 },
+        "openingHoursSpecification": [{
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+          "opens": "08:00",
+          "closes": "22:00"
+        }],
+        "sameAs": [
+          "https://www.facebook.com/sweetmemoriesfloreria/",
+          "https://www.instagram.com/sweetmemories_floreriaoax/"
+        ]
+      },
+      {
+        "@type": "Organization",
+        "name": "Sweet Memories Florería",
+        "url": "https://cgl-003-sweet-memories.vercel.app/",
+        "logo": "https://cgl-003-sweet-memories.vercel.app/og-image.png"
+      },
+      {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "telephone": "+529516112088",
+        "areaServed": "MX",
+        "availableLanguage": "Spanish"
+      }
+    ]
+  }
+  </script>
   <link rel="icon" href="favicon.png" type="image/png" sizes="any">
   <meta name="theme-color" content="#fcfbf9">
   <meta name="site-kind" content="other">
@@ -341,6 +398,7 @@
       <div class="wrap hero__grid">
         <div class="hero__copy-top">
           <h1 id="hero-titulo">
+            <span class="sr-only">Arreglos florales en Oaxaca de Juárez. </span>
             <span class="line"><span class="hero__h1a">Flores para</span></span>
             <span class="line"><span class="hero__h1b"><em>recordar</em><i class="hero__dot">.</i></span></span>
           </h1>
@@ -670,7 +728,7 @@
       </div>
         <div class="visit__cta" data-reveal>
           <div class="wrap">          <p class="section-id">Hablemos de flores</p>
-          <h3>Cuéntanos qué quieres <em>regalar.</em></h3>
+          <h2>Cuéntanos qué quieres <em>regalar.</em></h2>
           <p>Elige las flores, dinos la ocasión y preparamos el arreglo para entregarlo en Oaxaca.</p>
           <a class="btn btn--xl" href="#pedido">Pedir por WhatsApp <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a>
         </div>
@@ -681,7 +739,7 @@
     <button class="lightbox__close" id="lightbox-close" type="button" aria-label="Cerrar imagen">&times;</button>
     <button class="lightbox__zoom" id="lightbox-zoom" type="button" aria-label="Acercar imagen">+</button>
     <figure class="lightbox__figure">
-      <img id="lightbox-img" src="" alt="">
+      <img id="lightbox-img" alt="">
       <video id="lightbox-video" controls playsinline preload="metadata" hidden aria-label="Video ampliado"></video>
       <figcaption id="lightbox-cap"></figcaption>
     </figure>
@@ -706,7 +764,7 @@
           <h3>Síguenos</h3>
           <p><a href="https://www.instagram.com/sweetmemories_floreriaoax/" target="_blank" rel="noopener noreferrer">Instagram</a></p>
           <p><a href="https://www.facebook.com/sweetmemoriesfloreria/" target="_blank" rel="noopener noreferrer">Facebook</a></p>
-          <p><a href="#pedido">WhatsApp</a></p>
+          <p><a href="https://wa.me/5219516112088" target="_blank" rel="noopener noreferrer">WhatsApp</a></p>
         </div>
       </div>
       <div class="footer__legal">
