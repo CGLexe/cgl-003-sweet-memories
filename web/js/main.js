@@ -259,6 +259,18 @@
     }
   }
 
+  // Cuidados: expandir consejos extra
+  var careToggle = document.getElementById("care-toggle");
+  var careExtra = document.getElementById("care-extra");
+  if (careToggle && careExtra) {
+    careToggle.addEventListener("click", function () {
+      var open = careToggle.getAttribute("aria-expanded") === "true";
+      careToggle.setAttribute("aria-expanded", String(!open));
+      careExtra.hidden = open;
+      careToggle.querySelector("span").textContent = open ? "Más consejos del atelier" : "Ver menos consejos";
+    });
+  }
+
   var toggle = document.querySelector(".nav__toggle");
   var menu = document.getElementById("menu-movil");
   if (toggle && menu) {
