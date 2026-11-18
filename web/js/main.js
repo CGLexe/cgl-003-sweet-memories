@@ -64,6 +64,7 @@
     "Globos y peluches": "Un detalle extra",
     "Temporada": "Flores de temporada"
   };
+  var FALLBACK = "data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 800 1000%27%3E%3Crect width=%27800%27 height=%271000%27 fill=%27%23f1e9e6%27/%3E%3Ctext x=%27400%27 y=%27510%27 text-anchor=%27middle%27 font-family=%27sans-serif%27 font-size=%2738%27 fill=%27%23a53052%27%3EFoto no disponible%3C/text%3E%3C/svg%3E";
   var active = media;
   var index = 0;
   var timer = null;
@@ -72,11 +73,11 @@
   function slideHTML(item, i) {
     var visual = item.type === "video"
       ? '<div class="coverflow__video"><video controls playsinline preload="metadata" poster="' + item.poster + '" aria-label="' + item.alt + '"><source src="' + item.src + '" type="video/mp4"></video></div>'
-      : '<img src="' + item.src + '" alt="' + item.alt + '" width="800" height="1000" loading="lazy" decoding="async">';
+      : '<img src="' + item.src + '" alt="' + item.alt + '" width="800" height="1000" loading="lazy" decoding="async" onerror="this.onerror=null;this.src=\'' + FALLBACK + '\'">';
     var etiqueta = TEXTO[item.cat] || "Sweet Memories";
     var s1 = STICKERS[i % STICKERS.length];
     var s2 = STICKERS[(i + 5) % STICKERS.length];
-    return '<div class="coverflow__card" style="--tinta:' + TINTAS[i % TINTAS.length] + '">' +
+    return '<div class="coverflow__card" role="button" tabindex="-1" aria-label="Ampliar: ' + item.alt.replace(/"/g, "&quot;") + '" style="--tinta:' + TINTAS[i % TINTAS.length] + '">' +
       '<div class="coverflow__frame">' + visual +
         '<span class="coverflow__sticker coverflow__sticker--a"><svg aria-hidden="true"><use href="#' + s1 + '"/></svg></span>' +
         '<span class="coverflow__sticker coverflow__sticker--b"><svg aria-hidden="true"><use href="#' + s2 + '"/></svg></span>' +
@@ -115,6 +116,8 @@
       card.style.transform = "translate3d(calc(-50% + " + x.toFixed(1) + "px)," + ty.toFixed(1) + "px,0) rotateY(" + ry.toFixed(1) + "deg) scale(" + sc.toFixed(3) + ")";
       card.classList.toggle("is-active", d === 0);
       card.setAttribute("aria-hidden", d === 0 ? "false" : "true");
+      card.setAttribute("tabindex", d === 0 ? "0" : "-1");
+      card.style.willChange = visible ? "transform, opacity" : "auto";
     });
   }
 
@@ -191,7 +194,8 @@
     var lbZoom = document.getElementById("lightbox-zoom");
     var zoom = 1;
     var esVideo = false;
-    function abrirLB(item) {
+    var lbReturn = null;
+    function abrirLB(item, origen) {
       if (!lb || !item) return;
       esVideo = item.type === "video";
       lbImg.hidden = esVideo;
@@ -211,6 +215,7 @@
       lbCap.textContent = item.alt;
       lb.hidden = false;
       document.body.style.overflow = "hidden";
+      lbReturn = origen || document.activeElement;
       document.getElementById("lightbox-close").focus();
       stop();
     }
@@ -219,7 +224,8 @@
       if (lbVideo) { try { lbVideo.pause(); } catch (err) {} lbVideo.removeAttribute("src"); lbVideo.load(); }
       lb.hidden = true;
       document.body.style.overflow = "";
-      lbImg.src = "";
+      lbImg.removeAttribute("src");
+      if (lbReturn && lbReturn.focus) { try { lbReturn.focus(); } catch (err) {} }
     }
     if (track) {
       track.addEventListener("click", function (e) {
@@ -227,14 +233,36 @@
         var card = e.target.closest(".coverflow__card");
         if (!card) return;
         var i = Array.prototype.indexOf.call(track.children, card);
-        if (i === index) abrirLB(active[i]);
+        if (i === index) abrirLB(active[i], card);
+        else go(i < index ? index - 1 : index + 1);
+      });
+      track.addEventListener("keydown", function (e) {
+        if (e.key !== "Enter" && e.key !== " ") return;
+        var card = e.target.closest(".coverflow__card");
+        if (!card) return;
+        e.preventDefault();
+        var i = Array.prototype.indexOf.call(track.children, card);
+        if (i === index) abrirLB(active[i], card);
         else go(i < index ? index - 1 : index + 1);
       });
     }
     if (lb) {
       document.getElementById("lightbox-close").addEventListener("click", cerrarLB);
       lb.addEventListener("click", function (e) { if (e.target === lb) cerrarLB(); });
-      document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !lb.hidden) cerrarLB(); });
+      document.addEventListener("keydown", function (e) {
+        if (lb.hidden) return;
+        if (e.key === "Escape") { cerrarLB(); return; }
+        if (e.key !== "Tab") return;
+        var f = [];
+        var lbCloseEl = document.getElementById("lightbox-close");
+        if (lbCloseEl && !lbCloseEl.hidden) f.push(lbCloseEl);
+        if (lbZoom && !lbZoom.hidden) f.push(lbZoom);
+        if (esVideo && lbVideo && !lbVideo.hidden) f.push(lbVideo);
+        if (!f.length) return;
+        var first = f[0], last = f[f.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      });
       if (lbZoom) lbZoom.addEventListener("click", function () {
         if (esVideo) return;
         zoom = zoom >= 2.4 ? 1 : +(zoom + 0.6).toFixed(1);

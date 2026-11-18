@@ -186,7 +186,7 @@ html.m-enter-done .hero__figure video { transform: none; transition: transform 1
 .section-head--light > p { color: rgba(247,239,234,.7); }
 .gallery__bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 18px; margin-bottom: 26px; }
 .gallery__filters { display: flex; flex-wrap: wrap; gap: 8px; }
-.chip { min-height: 38px; padding: 0 15px; border: 1px solid rgba(247,239,234,.24); background: transparent; color: rgba(247,239,234,.78); font-size: 12px; font-weight: 600; cursor: pointer; transition: background .15s var(--ease-out), color .15s var(--ease-out), border-color .15s var(--ease-out), transform .15s var(--ease-out); }
+.chip { min-height: 44px; padding: 0 15px; border: 1px solid rgba(247,239,234,.24); background: transparent; color: rgba(247,239,234,.78); font-size: 12px; font-weight: 600; cursor: pointer; transition: background .15s var(--ease-out), color .15s var(--ease-out), border-color .15s var(--ease-out), transform .15s var(--ease-out); }
 .chip:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-1px); }
 .chip.is-active { background: var(--cream); border-color: var(--cream); color: var(--wine); }
 .gallery__total { font: 400 22px/1 var(--font-display); color: var(--gold); white-space: nowrap; }
@@ -411,7 +411,7 @@ html.m-enter [data-reveal].is-in { opacity: 1; transform: none; }
 .field .picker-input::-webkit-calendar-picker-indicator { cursor: pointer; opacity: .5; }
 .field textarea { resize: vertical; }
 .field input::placeholder, .field textarea::placeholder { color: #a9a19a; }
-.field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--sel); box-shadow: 0 0 0 2px rgba(30,27,24,.1); }
+.field input:focus, .field select:focus, .field textarea:focus { outline: 2px solid var(--primary); outline-offset: 2px; border-color: var(--sel); }
 .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 .field-error { border-color: #b3261e !important; }
 .builder__error { margin: 14px 0 0; color: #b3261e; font-size: 13px; }
@@ -423,9 +423,9 @@ html.m-enter [data-reveal].is-in { opacity: 1; transform: none; }
 .summary__visual { aspect-ratio: 1/1; overflow: hidden; margin: 12px 0 18px; background: var(--surface); }
 .summary__visual img { width: 100%; height: 100%; object-fit: cover; transition: opacity .25s var(--ease-out); }
 .summary__list { margin: 0 0 22px; }
-.summary__list div { display: flex; justify-content: space-between; gap: 12px; padding: 9px 0; border-bottom: 1px solid var(--line); font-size: 12px; }
+.summary__list div { display: flex; justify-content: space-between; gap: 12px; padding: 9px 0; border-bottom: 1px solid var(--line); font-size: 12px; align-items: flex-start; }
 .summary__list dt { color: var(--muted); flex: 0 0 auto; }
-.summary__list dd { margin: 0; text-align: right; font-weight: 600; }
+.summary__list dd { margin: 0; text-align: right; font-weight: 600; min-width: 0; overflow-wrap: anywhere; }
 .summary__card .btn { width: 100%; }
 .summary__fine { margin: 12px 0 0; font-size: 11px; line-height: 1.6; color: var(--muted); }
 
@@ -475,8 +475,8 @@ html.m-enter [data-reveal].is-in { opacity: 1; transform: none; }
   .opts--cuatro { grid-template-columns: repeat(2, 1fr); }
   .field-row { grid-template-columns: 1fr; }
   .builder__step legend { font-size: 24px; }
-  .actionbar { display: block; position: fixed; z-index: 18; left: 0; right: 0; bottom: 0; padding: 10px var(--gut) calc(10px + env(safe-area-inset-bottom)); background: rgba(252,251,249,.97); border-top: 1px solid var(--line); }
-  body { padding-bottom: 76px; }
+  .actionbar { display: block; position: fixed; z-index: 18; left: 0; right: 0; bottom: 0; padding: 10px var(--gut) calc(10px + env(safe-area-inset-bottom, 0px)); background: rgba(252,251,249,.97); border-top: 1px solid var(--line); }
+  body { padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px)); }
   .credits { text-align: left; }
   .flora__depth .flora__orbit:nth-child(n+9) { display: none; }
   .care__proof-stats { grid-template-columns: 1fr 1fr; }
@@ -496,7 +496,8 @@ html.m-enter [data-reveal].is-in { opacity: 1; transform: none; }
 }
 
 @media (hover: none) {
-  .hero__pause, .reel__arrow, .reel__pause, .chip { transform: none; }
+  .hero__pause, .coverflow__arrow, .coverflow__pause, .chip { transform: none; }
+  .hero__pause:hover, .coverflow__arrow:hover, .coverflow__pause:hover, .chip:hover, .btn:hover { transform: none; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

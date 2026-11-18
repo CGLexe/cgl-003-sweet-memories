@@ -503,7 +503,6 @@
             <span class="material-symbols-outlined" aria-hidden="true">pause</span>
           </button>
         </div>
-        <div class="reel__strip" id="reel-strip" role="tablist" aria-label="Miniaturas de la galería"></div>
       </div>
     </section>
 
@@ -605,8 +604,8 @@
             <fieldset class="builder__step" data-step="3" hidden>
               <legend>Entrega y datos</legend>
               <div class="fields">
-                <label class="field"><span>¿Para quién es? *</span><input type="text" name="destinatario" autocomplete="name" placeholder="Nombre de quien recibe" required></label>
-                <label class="field"><span>Dirección de entrega *</span><input type="text" name="direccion" autocomplete="street-address" placeholder="Calle, número, colonia, Oaxaca" required></label>
+                <label class="field"><span>¿Para quién es? *</span><input type="text" name="destinatario" maxlength="80" autocomplete="name" placeholder="Nombre de quien recibe" required></label>
+                <label class="field"><span>Dirección de entrega *</span><input type="text" name="direccion" maxlength="160" autocomplete="street-address" placeholder="Calle, número, colonia, Oaxaca" required></label>
                 <div class="field-row">
                   <label class="field"><span>Fecha</span><input type="date" name="fecha" class="picker-input"></label>
                   <label class="field"><span>Hora</span><input type="time" name="hora" class="picker-input"></label>
@@ -623,7 +622,7 @@
                   </select></label>
                   <label class="field"><span>Tu teléfono *</span><input type="tel" name="telefono" autocomplete="tel" inputmode="tel" placeholder="951 000 0000" required></label>
                 </div>
-                <label class="field"><span>Mensaje para la tarjeta</span><textarea name="mensaje" rows="3" placeholder="Escribe unas palabras (opcional)"></textarea></label>
+                <label class="field"><span>Mensaje para la tarjeta</span><textarea name="mensaje" maxlength="240" rows="3" placeholder="Escribe unas palabras (opcional)"></textarea></label>
               </div>
               <p class="builder__error" id="form-error" role="alert" hidden></p>
             </fieldset>
