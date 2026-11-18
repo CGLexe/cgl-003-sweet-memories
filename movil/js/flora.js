@@ -85,7 +85,7 @@
     var el = o.el;
     var rx = parseFloat(el.style.getPropertyValue("--rx")) || 36;
     var ry = parseFloat(el.style.getPropertyValue("--ry")) || 18;
-    el.style.setProperty("--s", rnd(20, 56).toFixed(0) + "px");
+    el.style.setProperty("--s", rnd(16, 38).toFixed(0) + "px");
     el.style.left = rnd(3, 94).toFixed(1) + "%";
 
     var use = el.querySelector("use");
