@@ -1,6 +1,10 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "rewrites": [
+    { "source": "/", "destination": "/movil/index.html", "has": [{ "type": "query", "key": "v", "value": "movil" }] },
+    { "source": "/:path*", "destination": "/movil/:path*", "has": [{ "type": "query", "key": "v", "value": "movil" }] },
+    { "source": "/", "destination": "/web/index.html", "has": [{ "type": "query", "key": "v", "value": "web" }] },
+    { "source": "/:path*", "destination": "/web/:path*", "has": [{ "type": "query", "key": "v", "value": "web" }] },
     {
       "source": "/",
       "destination": "/movil/index.html",
