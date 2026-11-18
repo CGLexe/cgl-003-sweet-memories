@@ -2,8 +2,6 @@
   "use strict";
 
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (reduce) return;
-
   var ICONS = [
     "fl-flower", "fl-flower-outline", "fl-flower-pollen", "fl-flower-pollen-outline",
     "fl-flower-poppy", "fl-flower-tulip", "fl-flower-tulip-outline",
@@ -14,18 +12,72 @@
   var rnd = function (a, b) { return a + Math.random() * (b - a); };
   var pick = function (arr) { return arr[Math.floor(Math.random() * arr.length)]; };
 
-  /* ---------- 1. Órbitas con trayectorias random ---------- */
-  Array.prototype.forEach.call(document.querySelectorAll("[data-orbit]"), function (el) {
+  var layer = document.getElementById("flora-global");
+  if (!layer) return;
+  var groups = Array.prototype.slice.call(layer.querySelectorAll(".flora__depth"));
+  var orbits = Array.prototype.slice.call(layer.querySelectorAll("[data-orbit]"));
+
+  // Bandas de contraste: se recalculan al cargar y al redimensionar.
+  // Se elige la banda mas pequena que contiene el punto (la franja final
+  // esta dentro de "ubicacion", por eso gana la mas especifica).
+  var BANDAS = [
+    ["#inicio", "ink"],
+    ["#galeria", "light"],
+    ["#pedido", "ink"],
+    ["#cuidados", "green"],
+    ["#ubicacion", "ink"],
+    [".visit__cta", "light"],
+    [".cta", "ink"],
+    [".closing", "light"]
+  ];
+  var bandas = [];
+
+  function medir() {
+    var y = window.pageYOffset || document.documentElement.scrollTop || 0;
+    bandas = [];
+    BANDAS.forEach(function (par) {
+      var el = document.querySelector(par[0]);
+      if (!el) return;
+      var r = el.getBoundingClientRect();
+      bandas.push({ top: r.top + y, bottom: r.bottom + y, tone: par[1] });
+    });
+    orbits.forEach(function (o) {
+      var r = o.el.getBoundingClientRect();
+      o.baseY = r.top + y - y * o.depth;
+    });
+  }
+
+  function tonoEn(docY) {
+    var mejor = null;
+    for (var i = 0; i < bandas.length; i++) {
+      var b = bandas[i];
+      if (docY >= b.top && docY < b.bottom && (!mejor || (b.bottom - b.top) < (mejor.bottom - mejor.top))) mejor = b;
+    }
+    return mejor ? mejor.tone : "ink";
+  }
+
+  orbits.forEach(function (el, i) {
+    var grupo = el.closest(".flora__depth");
+    orbits[i] = {
+      el: el,
+      depth: parseFloat(grupo && grupo.dataset.depth) || 0,
+      baseY: 0,
+      tone: ""
+    };
+  });
+
+  /* ---------- 1. Órbitas random + parallax por planos ---------- */
+  orbits.forEach(function (o) {
+    var el = o.el;
     var rx = parseFloat(el.style.getPropertyValue("--rx")) || 36;
     var ry = parseFloat(el.style.getPropertyValue("--ry")) || 18;
-
-    el.style.left = rnd(3, 94).toFixed(1) + "%";
-    el.style.top = rnd(5, 92).toFixed(1) + "%";
     el.style.setProperty("--s", rnd(20, 56).toFixed(0) + "px");
+    el.style.left = rnd(3, 94).toFixed(1) + "%";
 
     var use = el.querySelector("use");
     if (use && Math.random() < .6) use.setAttribute("href", "#" + pick(ICONS));
 
+    if (reduce) return;
     var frames = [];
     var points = 8 + Math.floor(Math.random() * 4);
     var start = Math.random() * Math.PI * 2;
@@ -38,7 +90,6 @@
         transform: "translate3d(" + (Math.cos(a) * kx).toFixed(1) + "px," + (Math.sin(a) * ky).toFixed(1) + "px,0)"
       });
     }
-
     var duration = rnd(15000, 34000);
     el.animate(frames, {
       duration: duration,
@@ -60,34 +111,56 @@
         delay: -rnd(0, 8000),
         easing: "linear"
       });
-
-      // Un subconjunto cambia de tinta con el tiempo (crema <-> dorado en secciones oscuras, tinta <-> rosa en claras)
-      if (Math.random() < .38) {
-        var flora = el.closest(".flora");
-        if (flora) {
-          var css = getComputedStyle(flora);
-          var c1 = css.getPropertyValue("--flora-c").trim();
-          var c2 = css.getPropertyValue("--flora-c2").trim();
-          if (c1 && c2) {
-            item.animate([
-              { color: c1 }, { color: c2 }, { color: c1 }
-            ], {
-              duration: rnd(12000, 22000),
-              iterations: Infinity,
-              delay: -rnd(0, 10000),
-              easing: "ease-in-out"
-            });
-          }
-        }
-      }
     }
   });
 
+  var ticking = false;
+  function pintar() {
+    var y = window.pageYOffset || document.documentElement.scrollTop || 0;
+    if (!reduce) {
+      groups.forEach(function (g) {
+        var d = parseFloat(g.dataset.depth) || 0;
+        g.style.transform = "translate3d(0," + (y * d).toFixed(1) + "px,0)";
+      });
+    }
+    orbits.forEach(function (o) {
+      var tono = tonoEn(o.baseY + y * o.depth);
+      if (tono !== o.tone) {
+        if (o.tone && !reduce) {
+          var item = o.el.querySelector(".flora__item");
+          if (item) item.animate([
+            { opacity: .2 }, { opacity: .7, offset: .45 }, { opacity: 1 }
+          ], { duration: 650, easing: "ease-out" });
+        }
+        o.el.setAttribute("data-tone", tono);
+        o.tone = tono;
+      }
+    });
+    ticking = false;
+  }
+  function pedir() {
+    if (!ticking) { ticking = true; window.requestAnimationFrame(pintar); }
+  }
+
+  medir();
+  pintar();
+
+  if (!reduce) {
+    window.addEventListener("scroll", pedir, { passive: true });
+    var t;
+    window.addEventListener("resize", function () {
+      window.clearTimeout(t);
+      t = window.setTimeout(function () { medir(); pintar(); }, 160);
+    }, { passive: true });
+  }
+
   /* ---------- 2. Huella floral al arrastrar el puntero ---------- */
-  var layer = document.createElement("div");
-  layer.className = "trail-layer";
-  layer.setAttribute("aria-hidden", "true");
-  document.body.appendChild(layer);
+  if (reduce) return;
+
+  var trail = document.createElement("div");
+  trail.className = "trail-layer";
+  trail.setAttribute("aria-hidden", "true");
+  document.body.appendChild(trail);
 
   var MAX = window.innerWidth < 768 ? 8 : 12;
   var active = 0;
@@ -114,7 +187,7 @@
       host.appendChild(svg);
       kids.push(svg);
     }
-    layer.appendChild(host);
+    trail.appendChild(host);
     active++;
 
     kids.forEach(function (svg, j) {
