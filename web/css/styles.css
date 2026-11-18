@@ -340,11 +340,11 @@ html.m-enter [data-reveal].is-in { opacity: 1; transform: none; }
 
 /* ---------- FLORA GLOBAL (una capa para todo el documento) ---------- */
 .svg-sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
-.flora-global { position: absolute; inset: 0; z-index: 2; overflow: hidden; pointer-events: none; }
+.flora-global { position: absolute; inset: 0; z-index: 2; overflow: hidden; pointer-events: none; clip-path: inset(0 0 var(--flora-clip-bottom, 0px) 0); }
 .flora__depth { position: absolute; inset: 0; }
-.flora__orbit { position: absolute; left: var(--x); top: var(--y); --flora-c: rgba(30,27,24,.26); }
-.flora__orbit[data-tone="green"] { --flora-c: rgba(90,120,89,.36); }
-.flora__orbit[data-tone="light"] { --flora-c: rgba(247,239,234,.52); }
+.flora__orbit { position: absolute; left: var(--x); top: var(--y); --flora-c: rgba(30,27,24,.30); }
+.flora__orbit[data-tone="green"] { --flora-c: rgba(201,76,109,.52); }
+.flora__orbit[data-tone="gold"] { --flora-c: rgba(223,185,118,.88); }
 .flora__item { display: block; width: var(--s); height: var(--s); margin: calc(var(--s) / -2) 0 0 calc(var(--s) / -2); color: var(--flora-c); transition: color .55s var(--ease-out); }
 
 /* Huella floral que se dispersa al arrastrar el puntero */
