@@ -71,7 +71,7 @@
 
   function slideHTML(item, i) {
     var visual = item.type === "video"
-      ? '<div class="coverflow__video"><video controls playsinline preload="metadata" poster="' + item.poster + '" aria-label="' + item.alt + '"><source src="' + item.src + '" type="video/mp4"></video></div>'
+      ? '<div class="coverflow__video"><video playsinline muted loop autoplay preload="metadata" poster="' + item.poster + '" aria-label="' + item.alt + '"><source src="' + item.src + '" type="video/mp4"></video><span class="coverflow__play" aria-hidden="true">▶</span></div>'
       : '<img src="' + item.src + '" alt="' + item.alt + '" width="800" height="1000" loading="lazy" decoding="async">';
     var etiqueta = TEXTO[item.cat] || "Sweet Memories";
     var s1 = STICKERS[i % STICKERS.length];
@@ -97,21 +97,22 @@
     if (!cards.length) return;
     var n = cards.length;
     var mitad = Math.floor(n / 2);
-    var ang = n > 1 ? 58 / Math.min(4, mitad) : 0;
-    var sep = n > 1 ? Math.min(window.innerWidth * 0.16, 190) : 0;
+    // Móvil: tarjeta central dominante, laterales apenas asoman.
+    var ang = n > 1 ? 16 : 0;
+    var sep = n > 1 ? Math.min(window.innerWidth * 0.74, 288) : 0;
     cards.forEach(function (card, i) {
       var d = i - index;
       if (d > mitad) d -= n;
       if (d < -mitad) d += n;
       var abs = Math.abs(d);
-      var visible = abs <= 4;
+      var visible = abs <= 2;
       var z = 20 - abs;
       var x = d * sep;
-      var ty = Math.min(abs, 4) * 14;
+      var ty = Math.min(abs, 2) * 8;
       var ry = d * -ang;
-      var sc = 1 - Math.min(abs, 4) * 0.11;
+      var sc = 1 - Math.min(abs, 2) * 0.16;
       card.style.zIndex = String(z);
-      card.style.opacity = visible ? (abs > 3 ? 0 : (abs === 3 ? .25 : 1)) : "0";
+      card.style.opacity = visible ? (abs === 2 ? .45 : 1) : "0";
       card.style.transform = "translate3d(calc(-50% + " + x.toFixed(1) + "px)," + ty.toFixed(1) + "px,0) rotateY(" + ry.toFixed(1) + "deg) scale(" + sc.toFixed(3) + ")";
       card.classList.toggle("is-active", d === 0);
       card.setAttribute("aria-hidden", d === 0 ? "false" : "true");
@@ -257,6 +258,28 @@
         else { heroVideo.pause(); heroPause.querySelector(".material-symbols-outlined").textContent = "play_arrow"; heroPause.setAttribute("aria-label", "Reproducir video"); }
       });
     }
+  }
+
+  // Cuidados: acordeón de los 3 consejos principales (solo uno abierto)
+  var careGrid = document.getElementById("care-grid");
+  if (careGrid) {
+    var careItems = Array.prototype.slice.call(careGrid.querySelectorAll(".care__item"));
+    careItems.forEach(function (item) {
+      var head = item.querySelector(".care__head");
+      if (!head) return;
+      head.addEventListener("click", function () {
+        var abrir = !item.classList.contains("is-open");
+        careItems.forEach(function (otro) {
+          otro.classList.remove("is-open");
+          var h = otro.querySelector(".care__head");
+          if (h) h.setAttribute("aria-expanded", "false");
+        });
+        if (abrir) {
+          item.classList.add("is-open");
+          head.setAttribute("aria-expanded", "true");
+        }
+      });
+    });
   }
 
   // Cuidados: expandir consejos extra

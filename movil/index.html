@@ -467,6 +467,7 @@
             </div>
             <p class="builder__step-label" id="step-label" aria-live="polite">Paso 1 de 4 · Tipo de pieza</p>
 
+            <div class="builder__steps">
             <fieldset class="builder__step is-active" data-step="0">
               <legend>¿Qué tipo de pieza quieres?</legend>
               <div class="opts opts--dos">
@@ -564,6 +565,7 @@
               </div>
               <p class="builder__error" id="form-error" role="alert" hidden></p>
             </fieldset>
+            </div><!-- /builder__steps -->
 
             <div class="builder__nav">
               <button type="button" class="builder__back" id="step-back" disabled>Anterior</button>
@@ -591,24 +593,33 @@
           <h2 id="cuidados-titulo">Cómo duran más<br>tus <em>flores</em></h2>
           <p>Te contamos qué hacemos en el atelier para que tu arreglo dure fresco en casa.</p>
         </div>
-        <div class="care__grid">
-          <article class="care__item" data-reveal style="--d:0ms">
-            <span class="care__icon material-symbols-outlined" aria-hidden="true">local_florist</span>
-            <span class="care__num">01</span>
-            <h3>Peonías</h3>
-            <p>Florero limpio con agua fresca. Recorta los tallos en ángulo de 45° cada 2 o 3 días para que los pétalos sigan abriéndose. Evita el sol directo.</p>
+        <div class="care__grid" id="care-grid">
+          <article class="care__item is-open" data-reveal style="--d:0ms">
+            <button class="care__head" type="button" aria-expanded="true">
+              <span class="care__icon material-symbols-outlined" aria-hidden="true">local_florist</span>
+              <span class="care__num">01</span>
+              <h3>Peonías</h3>
+              <span class="care__chev material-symbols-outlined" aria-hidden="true">expand_more</span>
+            </button>
+            <div class="care__body"><div><p>Florero limpio con agua fresca. Recorta los tallos en ángulo de 45° cada 2 o 3 días para que los pétalos sigan abriéndose. Evita el sol directo.</p></div></div>
           </article>
           <article class="care__item" data-reveal style="--d:70ms">
-            <span class="care__icon material-symbols-outlined" aria-hidden="true">water_drop</span>
-            <span class="care__num">02</span>
-            <h3>Lilis</h3>
-            <p>Abundante agua limpia. Retira el polen de los estambres para no manchar y recorta el tallo cada pocos días.</p>
+            <button class="care__head" type="button" aria-expanded="false">
+              <span class="care__icon material-symbols-outlined" aria-hidden="true">water_drop</span>
+              <span class="care__num">02</span>
+              <h3>Lilis</h3>
+              <span class="care__chev material-symbols-outlined" aria-hidden="true">expand_more</span>
+            </button>
+            <div class="care__body"><div><p>Abundante agua limpia. Retira el polen de los estambres para no manchar y recorta el tallo cada pocos días.</p></div></div>
           </article>
           <article class="care__item" data-reveal style="--d:120ms">
-            <span class="care__icon material-symbols-outlined" aria-hidden="true">content_cut</span>
-            <span class="care__num">03</span>
-            <h3>Rosas y ramos</h3>
-            <p>Cambia el agua cada 48 horas. Quita el follaje que quede bajo el nivel del agua y aleja el arreglo del aire acondicionado o los ventiladores.</p>
+            <button class="care__head" type="button" aria-expanded="false">
+              <span class="care__icon material-symbols-outlined" aria-hidden="true">content_cut</span>
+              <span class="care__num">03</span>
+              <h3>Rosas y ramos</h3>
+              <span class="care__chev material-symbols-outlined" aria-hidden="true">expand_more</span>
+            </button>
+            <div class="care__body"><div><p>Cambia el agua cada 48 horas. Quita el follaje que quede bajo el nivel del agua y aleja el arreglo del aire acondicionado o los ventiladores.</p></div></div>
           </article>
         </div>
         <div class="care__more" data-reveal>
