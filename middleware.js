@@ -3,6 +3,8 @@
 // Se ejecuta en el edge de Vercel, antes de servir el archivo estático.
 // Hostinger usa el .htaccess equivalente en la raíz.
 
+import { NextResponse } from "next/server";
+
 const MOVIL = /(android|iphone|ipad|ipod|mobile|windows phone|blackberry|opera mini|iemobile)/i;
 
 export function middleware(request) {
@@ -21,7 +23,7 @@ export function middleware(request) {
 
   const nueva = url.clone();
   nueva.pathname = base + (ruta === "/" ? "/index.html" : ruta);
-  return Response.rewrite(nueva);
+  return NextResponse.rewrite(nueva);
 }
 
 export const config = {
