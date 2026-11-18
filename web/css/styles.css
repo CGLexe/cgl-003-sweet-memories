@@ -335,8 +335,8 @@ html.m-enter .cta.is-in h2 em::after { transform: scaleX(1); }
 .actionbar .btn { width: 100%; min-height: 48px; }
 
 /* ---------- REVELADOS AL SCROLL ---------- */
-html.m-enter [data-reveal] { opacity: 0; transform: translate3d(0, 26px, 0); transition: opacity .75s var(--ease-out) var(--d, 0ms), transform .75s var(--ease-out) var(--d, 0ms); }
-html.m-enter [data-reveal].is-in { opacity: 1; transform: none; }
+html.js [data-reveal] { opacity: 0; transform: translate3d(0, 26px, 0); transition: opacity .75s var(--ease-out) var(--d, 0ms), transform .75s var(--ease-out) var(--d, 0ms); }
+html.js [data-reveal].is-in { opacity: 1; transform: none; }
 
 /* ---------- FLORA GLOBAL (una capa para todo el documento) ---------- */
 .svg-sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
@@ -502,7 +502,7 @@ html.m-enter [data-reveal].is-in { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
-  html.m-enter [data-reveal], html.m-enter .hero__eyebrow, html.m-enter .hero h1 .line > span,
+  html.js [data-reveal], html.m-enter .hero__eyebrow, html.m-enter .hero h1 .line > span,
   html.m-enter .hero__lead, html.m-enter .hero .btn-row, html.m-enter .hero__facts,
   html.m-enter .hero__seal { opacity: 1 !important; transform: none !important; }
   html.m-enter .hero__figure video { transform: none !important; }
@@ -517,3 +517,10 @@ html.m-enter [data-reveal].is-in { opacity: 1; transform: none; }
 }
 
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
+/* Catálogo estático: existe en el HTML para rastreadores sin JS.
+   Se oculta en cuanto el carrusel real termina de renderizarse. */
+.catalogo-estatico { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; margin-top: 24px; }
+.catalogo-estatico img { width: 100%; height: auto; aspect-ratio: 4/5; object-fit: cover; }
+html.catalogo-listo .catalogo-estatico { display: none; }
+html:not(.catalogo-listo) .coverflow { display: none; }

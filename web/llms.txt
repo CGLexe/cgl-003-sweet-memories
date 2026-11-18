@@ -1,0 +1,20 @@
+# Sweet Memories Florería
+
+Florería de autor en Oaxaca de Juárez, Oaxaca, México. Ramos, peonías, girasoles y arreglos monumentales hechos a mano, con entrega el mismo día en Oaxaca y zona conurbada.
+
+- Sitio: https://cgl-003-sweet-memories.vercel.app/
+- Teléfono: +52 951 611 2088
+- WhatsApp: https://wa.me/5219516112088
+- Dirección: Av. Fuerza Aérea Mexicana 410, Colonia Reforma, 68050 Oaxaca de Juárez, Oax., México
+- Horario: 8:00 a.m. a 10:00 p.m., todos los días
+- Coordenadas: 17.080636, -96.7146655
+- Facebook: https://www.facebook.com/sweetmemoriesfloreria/ (22 mil seguidores, cuenta verificada)
+- Instagram: https://www.instagram.com/sweetmemories_floreriaoax/ (10,6 mil seguidores)
+
+No publicamos precios fijos: cada arreglo se arma según flor, tamaño y presupuesto. El pedido se confirma por WhatsApp.
+
+## Páginas
+- Inicio: /
+- Aviso de privacidad: /privacidad.html
+- Política de cookies: /cookies.html
+- Términos de uso: /terminos.html

@@ -88,6 +88,7 @@
   function render() {
     if (!track || !active.length) return;
     track.innerHTML = active.map(slideHTML).join("");
+    document.documentElement.classList.add("catalogo-listo");
     cards = Array.prototype.slice.call(track.children);
     if (total) total.textContent = active.length + (active.length === 1 ? " pieza" : " piezas");
     index = 0;
